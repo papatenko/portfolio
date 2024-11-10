@@ -1,6 +1,6 @@
 # Papatenko Portfolio
 
-## ⚡ [ Demo ](papatenko-portfolio.netlify.app) ⚡
+## ⚡ [ Demo ](https://papatenko-portfolio.netlify.app/) ⚡
 
 ## 🏗️ Built With
 
@@ -8,7 +8,7 @@
 
 - React
 - Tailwindcss
-- Nvim
+- Nvim / VsCode
 - [ RealTimeColors ](https://www.realtimecolors.com/)
 
 ### Color Palette
@@ -23,9 +23,10 @@ In order of which features I'll add to the portfolio.
 
 ### Basic Layout
 
-- [ ] Header
+- [x] Header
 - [ ] Socials and Contact in header
-- [ ] Footer (just contains copyright)
+- [x] Footer (just contains copyright)
+- [ ] Styles
 - [ ] Tabs for each career (?)
 
 ### Comp Sci Showcase
