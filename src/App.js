@@ -1,35 +1,38 @@
 import "./App.css";
-import { Posters, Thumbnails } from "./components/Images";
-import DropdownMenu from "./components/DropdownMenu";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+import Thumbnails from "./data/thumbnails.json";
+import Footer from "./components/Footer.js";
+import Header from "./components/Header.js";
 import { ThumbnailCard, PosterCard } from "./components/Cards";
 
 function App() {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+  };
   return (
     <div className="App">
       <Header />
-      <ThumbnailCollection />
+      <Slider {...settings}>
+        {Thumbnails.map((thumbnail) => {
+          return (
+            <ThumbnailCard
+              key={thumbnail.id}
+              url={process.env.PUBLIC_URL + thumbnail.url}
+              title={thumbnail.title}
+              alt={thumbnail.alt}
+              desc={thumbnail.desc}
+            />
+          );
+        })}
+      </Slider>
       <Footer />
-    </div>
-  );
-}
-
-function ThumbnailCollection() {
-  return (
-    <div className="">
-      <ThumbnailCard
-        img={Thumbnails.dauntless}
-        alt="dauntless_thumbnail"
-        title="Dauntless Thumbnail"
-        desc="I don't have the name of the youtube channel I made this for. All I know is that I made it around the time Dauntless (2019) was released"
-      />
-      <PosterCard
-        img={Posters.developer_roadmap}
-        alt="game_workshop"
-        title="Game Workshop Poster"
-        desc="I don't have the name of the youtube channel I made this for. All I know is that I made it around the time Dauntless (2019) was released"
-      />
     </div>
   );
 }

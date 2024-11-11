@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "title": "Dauntless Livestream",
+    "url": "/img/thumbnails/dauntless.jpg",
+    "alt": "dauntless.jpg",
+    "desc": "I'm not sure what YouTuber I made this for. I made it when Dauntless (2019) came out."
+  },
+  {
+    "id": 2,
+    "title": "Shenanigans",
+    "url": "/img/thumbnails/shenanigans.jpg",
+    "alt": "shenanigans.jpg",
+    "desc": "First episode of shenangans with the bois"
+  },
+  {
+    "id": 3,
+    "title": "Marvel Rivals",
+    "url": "/img/thumbnails/marvel_rivals.png",
+    "alt": "marvel_rivals.png",
+    "desc": "I made this for a Marvel Rivals gameplay video."
+  },
+  {
+    "id": 4,
+    "title": "Sidetracked",
+    "url": "/img/thumbnails/sidetracked.png",
+    "alt": "sidetracked.png",
+    "desc": "I made this for a sidetracked gameplay video."
+  },
+  {
+    "id": 5,
+    "title": "Stitches Mc",
+    "url": "/img/thumbnails/stitches_mc.png",
+    "alt": "stitches_mc.png",
+    "desc": "I made this for a Stitches Mc video."
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "title": "Developer Roadmap",
+    "url": "/img/posters/developer_roadmap.png",
+    "alt": "developer_roadmap.png",
+    "desc": "Developer Roadmap workshop thingy"
+  },
+  {
+    "id": 2,
+    "title": "First",
+    "url": "/img/posters/first.png",
+    "alt": "first.png",
+    "desc": "First poster"
+  },
+  {
+    "id": 3,
+    "title": "Game Presentation",
+    "url": "/img/posters/game_pres.png",
+    "alt": "game_pres.png",
+    "desc": "Game presentation poster"
+  },
+  {
+    "id": 4,
+    "title": "Game Workshop",
+    "url": "/img/posters/game_workshop.png",
+    "alt": "game_workshop.png",
+    "desc": "Game workshop poster"
+  },
+  {
+    "id": 5,
+    "title": "Hackathon",
+    "url": "/img/posters/hackathon.png",
+    "alt": "hackathon.png",
+    "desc": "Hackathon poster"
+  },
+  {
+    "id": 6,
+    "title": "Interview",
+    "url": "/img/posters/interview.png",
+    "alt": "interview.png",
+    "desc": "Interview poster"
+  },
+  {
+    "id": 7,
+    "title": "Typing Tournament",
+    "url": "/img/posters/typing_tournament.png",
+    "alt": "typing_tournament.png",
+    "desc": "Typing tournament poster"
+  },
+  {
+    "id": 8,
+    "title": "Website Workshop",
+    "url": "/img/posters/website_workshop.png",
+    "alt": "website_workshop.png",
+    "desc": "Website workshop poster"
+  }
+]
