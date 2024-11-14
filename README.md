@@ -24,9 +24,9 @@ In order of which features I'll add to the portfolio.
 ### Basic Layout
 
 - [x] Header
-- [ ] Socials and Contact in header
+- [x] Socials and Contact in ~~header~~ footer
 - [x] Footer (just contains copyright)
-- [ ] Styles
+- [x] Styles
 - [ ] Tabs for each career (?)
 
 ### Comp Sci Showcase
@@ -41,8 +41,8 @@ _(Note to self, get the MP4 Player to work and post on GH one of these days)_
 
 All of these will be showcased as list of scrollable cards.
 
-- [ ] Thumbnail
-- [ ] Poster
+- [x] Thumbnail
+- [x] Poster
 - [ ] Logos
 - [ ] Youtube Channel
 - [ ] Client Works
