@@ -1,6 +1,6 @@
 function Footer({ links }) {
   return (
-    <footer className="flex p-4 justify-between text-paragraph">
+    <footer className="md:flex text-center p-4 justify-between text-paragraph">
       <p>2023 PapaTenko. All rights reserved.</p>
       <div className="grid gap-4 md:grid-flow-col grid-flow-row">
         {links
