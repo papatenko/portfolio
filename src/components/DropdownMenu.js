@@ -1,15 +1,16 @@
-import "../App.css";
+import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
+
 function DropdownMenu({ menu }) {
   return (
     <div className="flex items-center">
       {menu
         ? menu.map((item) => {
-            return (
-              <li key={item.name} className="mx-4 text-paragraph">
-                <a href={item.link}>{item.name}</a>
-              </li>
-            );
-          })
+          return (
+            <li key={item.name} className="mx-4 text-paragraph">
+              <a href={item.link}>{item.name}</a>
+            </li>
+          );
+        })
         : null}
     </div>
   );

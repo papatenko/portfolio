@@ -33,7 +33,7 @@ export const ThumbnailCarousel = ({ thumbnails }) => {
 };
 
 export const PosterCarousel = ({ posters }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [AutoScroll()]);
+  const [emblaRef] = useEmblaCarousel({ loop: true }, [AutoScroll()]);
 
   return (
     <section className="embla">
