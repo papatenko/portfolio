@@ -553,9 +553,21 @@ video {
   margin: auto;
 }
 
+.m-2 {
+  margin: 0.5rem;
+}
+
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.block {
+  display: block;
 }
 
 .flex {
@@ -672,12 +684,24 @@ video {
   background-color: rgba(var(--primary));
 }
 
+.bg-background {
+  background-color: rgba(var(--background));
+}
+
+.bg-accent {
+  background-color: rgba(var(--accent));
+}
+
 .p-2 {
   padding: 0.5rem;
 }
 
 .p-4 {
   padding: 1rem;
+}
+
+.p-12 {
+  padding: 3rem;
 }
 
 .px-8 {
@@ -687,6 +711,14 @@ video {
 
 .pr-4 {
   padding-right: 1rem;
+}
+
+.pl-12 {
+  padding-left: 3rem;
+}
+
+.pl-2 {
+  padding-left: 0.5rem;
 }
 
 .align-middle {
@@ -715,6 +747,10 @@ video {
   color: rgba(var(--primary));
 }
 
+.text-background {
+  color: rgba(var(--background));
+}
+
 .light {
   --paragraph: 16, 17, 20;
   --background: 229, 230, 240;
@@ -731,6 +767,27 @@ video {
   --secondary: 35, 50, 133;
   --accent: 52, 75, 223;
   background: rgba(var(--background));
+}
+
+.data-\[focus\]\:bg-blue-100[data-focus] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(219 234 254 / var(--tw-bg-opacity));
+}
+
+.data-\[focus\]\:bg-primary[data-focus] {
+  background-color: rgba(var(--primary));
+}
+
+.data-\[focus\]\:bg-accent[data-focus] {
+  background-color: rgba(var(--accent));
+}
+
+.data-\[focus\]\:bg-background[data-focus] {
+  background-color: rgba(var(--background));
+}
+
+.data-\[focus\]\:bg-accent\/25[data-focus] {
+  background-color: rgba(var(--accent), 0.25);
 }
 
 @media (min-width: 640px) {

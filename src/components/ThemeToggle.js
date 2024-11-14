@@ -38,9 +38,15 @@ function DarkmodeToggle() {
   return (
     <div>
       {currentTheme === "dark" ? (
-        <Moon className="size-8 text-paragraph" onClick={toggleTheme} />
+        <Moon
+          className="size-8 text-paragraph mr-1 ml-4"
+          onClick={toggleTheme}
+        />
       ) : (
-        <Sun className="size-8 text-paragraph" onClick={toggleTheme} />
+        <Sun
+          className="size-8 text-paragraph mr-1 ml-4"
+          onClick={toggleTheme}
+        />
       )}
     </div>
   );
