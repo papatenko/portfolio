@@ -1,37 +1,13 @@
 import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
-
-export const ThumbnailCard = ({ url, alt, title, desc }) => {
-  return (
-    <div className="embla__slide flex-0 max-w-sm md:w-full sm:w-48 shadow-xl">
-      <img src={url} alt={alt} className=""></img>
-      <div className="flex-grow p-2">
-        <h1 className="text-2xl font-bold">{title}</h1>
-        <p className="">{desc}</p>
-      </div>
-    </div>
-  );
-};
-
-export const PosterCard = ({ url, alt, title, desc }) => {
-  return (
-    <div className="embla__slide flex flex-0 max-w-sm md:w-full sm:w-48 shadow-xl">
-      <img src={url} alt={alt} className="h-72"></img>
-      <div className="flex-grow p-2">
-        <h1 className="text-2xl font-bold">{title}</h1>
-        <p className="">{desc}</p>
-      </div>
-    </div>
-  );
-};
+import AutoScroll from "embla-carousel-auto-scroll";
 
 export const ThumbnailCarousel = ({ thumbnails }) => {
-  const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay()]);
+  const [emblaRef] = useEmblaCarousel({ loop: true }, [AutoScroll()]);
 
   return (
-    <section className="embla flex">
-      <div className="embla__viewport flex" ref={emblaRef}>
-        <div className="embla__container flex gap-8">
+    <section className="embla">
+      <div className="embla__viewport overflow-hidden" ref={emblaRef}>
+        <div className="embla__container flex gap-8 px-8">
           {thumbnails.map((thumbnail) => {
             return (
               <ThumbnailCard
@@ -40,34 +16,69 @@ export const ThumbnailCarousel = ({ thumbnails }) => {
                 title={thumbnail.title}
                 alt={thumbnail.alt}
                 desc={thumbnail.desc}
-                className="embla__slide min-w-0 flex-0"
+                link={thumbnail.link}
               />
             );
           })}
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 export const PosterCarousel = ({ posters }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
+    AutoScroll({ direction: "backward" }),
+  ]);
 
   return (
-    <div className="embla flex" ref={emblaRef}>
-      <div className="embla__container flex gap-8">
-        {posters.map((poster) => {
-          return (
-            <PosterCard
-              key={poster.id}
-              url={process.env.PUBLIC_URL + poster.url}
-              title={poster.title}
-              alt={poster.alt}
-              desc={poster.desc}
-            />
-          );
-        })}
+    <section className="embla">
+      <div className="embla__viewport overflow-hidden" ref={emblaRef}>
+        <div className="embla__container flex gap-8 px-8">
+          {posters.map((poster) => {
+            return (
+              <PosterCard
+                key={poster.id}
+                url={process.env.PUBLIC_URL + poster.url}
+                title={poster.title}
+                alt={poster.alt}
+                desc={poster.desc}
+              />
+            );
+          })}
+        </div>
       </div>
+    </section>
+  );
+};
+
+const Text = ({ title, desc }) => {
+  return (
+    <div className="flex-grow p-2">
+      <h1 className="text-2xl font-bold bg-secondary/25 rounded-lg p-2 text-paragraph">
+        {title}
+      </h1>
+      <p className="p-2 text-paragraph">{desc}</p>
     </div>
-  )
-}
+  );
+};
+
+const ThumbnailCard = ({ url, alt, title, desc, link }) => {
+  return (
+    <div className="embla__slide flex-0 max-w-sm md:w-full sm:w-48 p-2">
+      <a href={link}>
+        <img src={url} alt={alt} className="rounded-md"></img>
+      </a>
+      <Text title={title} desc={desc} />
+    </div>
+  );
+};
+
+const PosterCard = ({ url, alt, title, desc }) => {
+  return (
+    <div className="embla__slide flex flex-0 max-w-sm md:w-full sm:w-48 p-2">
+      <img src={url} alt={alt} className="rounded-md h-72"></img>
+      <Text title={title} desc={desc} />
+    </div>
+  );
+};

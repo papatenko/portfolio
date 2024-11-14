@@ -5,7 +5,7 @@ function DropdownMenu({ menu }) {
       {menu
         ? menu.map((item) => {
             return (
-              <li key={item.name} className="mx-4">
+              <li key={item.name} className="mx-4 text-paragraph">
                 <a href={item.link}>{item.name}</a>
               </li>
             );

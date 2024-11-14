@@ -1,28 +1,16 @@
 import DropdownMenu from "./DropdownMenu";
 
-function Header() {
-  const links = [
-    {
-      name: "Linkedin",
-      link: "https://www.linkedin.com/in/justin-kondratenko-365699324/",
-    },
-    {
-      name: "Instagram",
-      link: "https://www.instagram.com/papatenk0/",
-    },
-    {
-      name: "YouTube",
-      link: "https://www.youtube.com/@PapaTenko",
-    },
-    {
-      name: "Github",
-      link: "https://github.com/papatenko",
-    },
-  ];
-
+function Header({ links }) {
   return (
     <header className="flex p-4 justify-between">
-      <h1 className="text-4xl font-bold">Portfolio</h1>
+      <div className="flex h-12 g-12">
+        <img
+          className="pr-4"
+          src={process.env.PUBLIC_URL + "/img/icons/nft-icon.png"}
+          alt="papatenko-pfp"
+        ></img>
+        <h1 className="text-4xl text-primary font-bold">Papatenko</h1>
+      </div>
       <DropdownMenu menu={links} />
     </header>
   );

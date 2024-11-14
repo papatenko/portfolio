@@ -11,21 +11,24 @@
     "title": "Shenanigans",
     "url": "/img/thumbnails/shenanigans.jpg",
     "alt": "shenanigans.jpg",
-    "desc": "First episode of shenangans with the bois"
+    "desc": "First episode of shenangans with the bois",
+    "link": "https://www.youtube.com/watch?v=74X6CUu9xLU&t=1s"
   },
   {
     "id": 3,
     "title": "Marvel Rivals",
     "url": "/img/thumbnails/marvel_rivals.png",
     "alt": "marvel_rivals.png",
-    "desc": "I made this for a Marvel Rivals gameplay video."
+    "desc": "I made this for a Marvel Rivals gameplay video.",
+    "link": "https://www.youtube.com/watch?v=Ne-pKvfFAGk&t=323s"
   },
   {
     "id": 4,
     "title": "Sidetracked",
     "url": "/img/thumbnails/sidetracked.png",
     "alt": "sidetracked.png",
-    "desc": "I made this for a sidetracked gameplay video."
+    "desc": "I made this for a sidetracked gameplay video.",
+    "link": "https://www.youtube.com/watch?v=3dTJMtK_4Ew"
   },
   {
     "id": 5,

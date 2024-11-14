@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Linkedin",
+    "link": "https://www.linkedin.com/in/justin-kondratenko-365699324/"
+  },
+  {
+    "id": 2,
+    "name": "Instagram",
+    "link": "https://www.instagram.com/papatenk0/"
+  },
+  {
+    "id": 3,
+    "name": "YouTube",
+    "link": "https://www.youtube.com/@PapaTenko"
+  },
+  {
+    "id": 4,
+    "name": "Github",
+    "link": "https://github.com/papatenko"
+  }
+]
