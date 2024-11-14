@@ -5,13 +5,14 @@ import Links from "./data/links.json";
 import Footer from "./components/Footer.js";
 import Header from "./components/Header.js";
 import { ThumbnailCarousel, PosterCarousel } from "./components/Carousel";
+import { useEffect } from "react";
 
 function App() {
   return (
-    <div className="dark flex flex-col justify-between min-h-screen">
+    <div className="flex flex-col justify-between min-h-screen">
       <Header links={Links} />
-      <ThumbnailCarousel thumbnails={Thumbnails} />
       <PosterCarousel posters={Posters} />
+      <ThumbnailCarousel thumbnails={Thumbnails} />
       <Footer />
     </div>
   );

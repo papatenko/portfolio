@@ -2,7 +2,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 
 export const ThumbnailCarousel = ({ thumbnails }) => {
-  const [emblaRef] = useEmblaCarousel({ loop: true }, [AutoScroll()]);
+  const [emblaRef] = useEmblaCarousel({ loop: true }, [AutoScroll({ direction: "backward" })]);
 
   return (
     <section className="embla">
@@ -14,6 +14,7 @@ export const ThumbnailCarousel = ({ thumbnails }) => {
                 key={thumbnail.id}
                 url={process.env.PUBLIC_URL + thumbnail.url}
                 title={thumbnail.title}
+                year={thumbnail.year}
                 alt={thumbnail.alt}
                 desc={thumbnail.desc}
                 link={thumbnail.link}
@@ -28,7 +29,7 @@ export const ThumbnailCarousel = ({ thumbnails }) => {
 
 export const PosterCarousel = ({ posters }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-    AutoScroll({ direction: "backward" }),
+    AutoScroll(),
   ]);
 
   return (
@@ -41,6 +42,7 @@ export const PosterCarousel = ({ posters }) => {
                 key={poster.id}
                 url={process.env.PUBLIC_URL + poster.url}
                 title={poster.title}
+                year={poster.year}
                 alt={poster.alt}
                 desc={poster.desc}
               />
@@ -52,33 +54,33 @@ export const PosterCarousel = ({ posters }) => {
   );
 };
 
-const Text = ({ title, desc }) => {
+const Text = ({ title, year, desc }) => {
   return (
     <div className="flex-grow p-2">
       <h1 className="text-2xl font-bold bg-secondary/25 rounded-lg p-2 text-paragraph">
-        {title}
+        {title} ({year})
       </h1>
       <p className="p-2 text-paragraph">{desc}</p>
     </div>
   );
 };
 
-const ThumbnailCard = ({ url, alt, title, desc, link }) => {
+const ThumbnailCard = ({ url, alt, title, year, desc, link }) => {
   return (
     <div className="embla__slide flex-0 max-w-sm md:w-full sm:w-48 p-2">
       <a href={link}>
         <img src={url} alt={alt} className="rounded-md"></img>
       </a>
-      <Text title={title} desc={desc} />
+      <Text title={title} year={year} desc={desc} />
     </div>
   );
 };
 
-const PosterCard = ({ url, alt, title, desc }) => {
+const PosterCard = ({ url, alt, title, year, desc }) => {
   return (
-    <div className="embla__slide flex flex-0 max-w-sm md:w-full sm:w-48 p-2">
+    <div className="embla__slide flex flex-0 max-w-md md:w-full sm:w-48 p-2">
       <img src={url} alt={alt} className="rounded-md h-72"></img>
-      <Text title={title} desc={desc} />
+      <Text title={title} year={year} desc={desc} />
     </div>
   );
 };
