@@ -545,6 +545,14 @@ video {
   display: none;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.m-auto {
+  margin: auto;
+}
+
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
@@ -552,6 +560,10 @@ video {
 
 .flex {
   display: flex;
+}
+
+.grid {
+  display: grid;
 }
 
 .size-16 {
@@ -584,6 +596,10 @@ video {
   width: 4rem;
 }
 
+.w-full {
+  width: 100%;
+}
+
 .max-w-md {
   max-width: 28rem;
 }
@@ -598,6 +614,10 @@ video {
 
 .flex-grow {
   flex-grow: 1;
+}
+
+.basis-full {
+  flex-basis: 100%;
 }
 
 .flex-col {
@@ -638,6 +658,18 @@ video {
 
 .bg-secondary\/25 {
   background-color: rgba(var(--secondary), 0.25);
+}
+
+.bg-accent\/25 {
+  background-color: rgba(var(--accent), 0.25);
+}
+
+.bg-primary\/25 {
+  background-color: rgba(var(--primary), 0.25);
+}
+
+.bg-primary {
+  background-color: rgba(var(--primary));
 }
 
 .p-2 {

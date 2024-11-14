@@ -2,10 +2,15 @@ import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 
 export const ThumbnailCarousel = ({ thumbnails }) => {
-  const [emblaRef] = useEmblaCarousel({ loop: true }, [AutoScroll({ direction: "backward" })]);
+  const [emblaRef] = useEmblaCarousel({ loop: true }, [
+    AutoScroll({ direction: "backward" }),
+  ]);
 
   return (
     <section className="embla">
+      <h1 className="flex justify-center text-2xl font-bold rounded-lg p-2 text-primary">
+        My YouTube Thumbnails
+      </h1>
       <div className="embla__viewport overflow-hidden" ref={emblaRef}>
         <div className="embla__container flex gap-8 px-8">
           {thumbnails.map((thumbnail) => {
@@ -28,12 +33,13 @@ export const ThumbnailCarousel = ({ thumbnails }) => {
 };
 
 export const PosterCarousel = ({ posters }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-    AutoScroll(),
-  ]);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [AutoScroll()]);
 
   return (
     <section className="embla">
+      <h1 className="flex justify-center text-2xl font-bold rounded-lg p-2 text-primary">
+        My Posters
+      </h1>
       <div className="embla__viewport overflow-hidden" ref={emblaRef}>
         <div className="embla__container flex gap-8 px-8">
           {posters.map((poster) => {
