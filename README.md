@@ -45,7 +45,13 @@ All of these will be showcased as list of scrollable cards.
 - [x] Poster
 - [ ] Logos
 - [ ] Youtube Channel
-- [ ] Client Works
+- [ ] Video Editing
+
+### Design Adjustments
+
+- [ ] Change theme to be more monochrome with glowy elements (black like (zen-browser)[https://zen-browser.app/])
+- [ ] Make carousel glowy
+- [x] Add icons to links
 
 ## 🛠️ Installation and Setup Instructions
 

@@ -5,7 +5,7 @@ import Links from "./data/links.json";
 import Footer from "./components/Footer.js";
 import Header from "./components/Header.js";
 import About from "./components/About.js";
-import { ThumbnailCarousel, PosterCarousel } from "./components/Carousel";
+import { WideCarousel, TallCarousel } from "./components/Carousel";
 
 function App() {
   return (
@@ -15,8 +15,8 @@ function App() {
         <About />
       </section>
       <section className="">
-        <PosterCarousel posters={Posters} />
-        <ThumbnailCarousel thumbnails={Thumbnails} />
+        <TallCarousel posters={Posters} />
+        <WideCarousel thumbnails={Thumbnails} />
       </section>
       <Footer links={Links} />
     </div>

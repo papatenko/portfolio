@@ -1,7 +1,7 @@
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
 
-export const ThumbnailCarousel = ({ thumbnails }) => {
+export const WideCarousel = ({ thumbnails }) => {
   const [emblaRef] = useEmblaCarousel({ loop: true }, [
     AutoScroll({ direction: "backward" }),
   ]);
@@ -9,13 +9,13 @@ export const ThumbnailCarousel = ({ thumbnails }) => {
   return (
     <section className="embla">
       <h1 className="flex justify-center text-2xl font-bold rounded-lg p-2 text-primary">
-        My YouTube Thumbnails
+        YouTube Thumbnails
       </h1>
       <div className="embla__viewport overflow-hidden" ref={emblaRef}>
         <div className="embla__container flex gap-8 px-8">
           {thumbnails.map((thumbnail) => {
             return (
-              <ThumbnailCard
+              <WideCard
                 key={thumbnail.id}
                 url={process.env.PUBLIC_URL + thumbnail.url}
                 title={thumbnail.title}
@@ -32,19 +32,19 @@ export const ThumbnailCarousel = ({ thumbnails }) => {
   );
 };
 
-export const PosterCarousel = ({ posters }) => {
+export const TallCarousel = ({ posters }) => {
   const [emblaRef] = useEmblaCarousel({ loop: true }, [AutoScroll()]);
 
   return (
     <section className="embla">
       <h1 className="flex justify-center text-2xl font-bold rounded-lg p-2 text-primary">
-        My Posters
+        Posters
       </h1>
       <div className="embla__viewport overflow-hidden" ref={emblaRef}>
         <div className="embla__container flex gap-8 px-8">
           {posters.map((poster) => {
             return (
-              <PosterCard
+              <TallCard
                 key={poster.id}
                 url={process.env.PUBLIC_URL + poster.url}
                 title={poster.title}
@@ -71,7 +71,7 @@ const Text = ({ title, year, desc }) => {
   );
 };
 
-const ThumbnailCard = ({ url, alt, title, year, desc, link }) => {
+const WideCard = ({ url, alt, title, year, desc, link }) => {
   return (
     <div className="embla__slide flex-0 max-w-sm md:w-full sm:w-48 p-2">
       <a href={link}>
@@ -82,7 +82,7 @@ const ThumbnailCard = ({ url, alt, title, year, desc, link }) => {
   );
 };
 
-const PosterCard = ({ url, alt, title, year, desc }) => {
+const TallCard = ({ url, alt, title, year, desc }) => {
   return (
     <div className="embla__slide flex flex-col md:flex-row flex-0 max-w-md md:w-full sm:w-48 p-2">
       <img src={url} alt={alt} className="rounded-md md:h-72 "></img>
