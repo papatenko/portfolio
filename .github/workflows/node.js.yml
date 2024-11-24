@@ -1,0 +1,19 @@
+name: Portfolio
+
+on:
+  pull_request:
+    branches: ["main"]
+  push:
+    branches: ["main"]
+
+jobs:
+  test_pull_request:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2 # officially supported action
+      - uses: actions/setup-node@v1
+        with:
+          node-versino: 12
+      - run: npm ci # like npm install but for CI server
+      - run: npm test
+      - run: npm run build
