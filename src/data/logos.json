@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Pig Squad",
+    "year": 2017,
+    "url": "/img/logos/pig_squad.jpg",
+    "alt": "pig_squad.jpg",
+    "desc": "First logo (I think) I ever made. It was for me and my friend's discord server."
+  },
+  {
+    "id": 2,
+    "title": "JK 3D Sun version",
+    "year": 2017,
+    "url": "/img/logos/jk_sun.jpg",
+    "alt": "jk_sun.jpg",
+    "desc": "First iteration of my JK logo. I used blender to create the text used a picture of the sun for the background."
+  },
+  {
+    "id": 2,
+    "title": "YW",
+    "year": 2018,
+    "url": "/img/logos/yw.jpg",
+    "alt": "yw.png",
+    "desc": "Logo for my friend back in middle school. What does YW mean? I don't know anymore"
+  },
+  {
+    "id": 3,
+    "title": "JK Version 1",
+    "year": 2018,
+    "url": "/img/logos/jk.jpg",
+    "alt": "jk.jpg",
+    "desc": "Second iteration of my JK logo. At this point I started appreciating more flat or \"material\" designs"
+  },
+  {
+    "id": 2,
+    "title": "FortCraft",
+    "year": 2018,
+    "url": "/img/logos/fortcraft.jpg",
+    "alt": "fortcraft.jpg",
+    "desc": "Logo for another friend's discord server. We're still at that cringy logo phase so just wait a bit..."
+  }
+]

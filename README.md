@@ -49,7 +49,7 @@ All of these will be showcased as list of scrollable cards.
 
 ### Design Adjustments
 
-- [ ] Change theme to be more monochrome with glowy elements (black like (zen-browser)[https://zen-browser.app/])
+- [ ] Change theme to be more monochrome with glowy elements (black like [ zen-browser ](https://zen-browser.app/))
 - [ ] Make carousel glowy
 - [x] Add icons to links
 
