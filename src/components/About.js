@@ -13,7 +13,7 @@ function About() {
           <br />
           Well lemme show you...
         </h1>
-        <Collage />
+        {/* <Collage /> */}
       </div>
     </div>
   );

@@ -11,12 +11,44 @@
     "id": 2,
     "title": "JK 3D Sun version",
     "year": 2017,
-    "url": "/img/logos/jk_sun.jpg",
-    "alt": "jk_sun.jpg",
+    "url": "/img/logos/jk_sun.png",
+    "alt": "jk_sun.png",
     "desc": "First iteration of my JK logo. I used blender to create the text used a picture of the sun for the background."
   },
   {
-    "id": 2,
+    "id": 3,
+    "title": "3D PVP",
+    "year": 2017,
+    "url": "/img/logos/pvp.png",
+    "alt": "pvp.png",
+    "desc": "First iteration of a PVP logo I made for a server. I used the same technique as my JK logo"
+  },
+  {
+    "id": 3,
+    "title": "3D PVP 2",
+    "year": 2017,
+    "url": "/img/logos/pvp2.png",
+    "alt": "pvp2.png",
+    "desc": "Second iteration of a PVP logo I made for a server."
+  },
+  {
+    "id": 4,
+    "title": "3D TGG",
+    "year": 2017,
+    "url": "/img/logos/tgg.png",
+    "alt": "tgg.png",
+    "desc": "I'm not sure what TGG stands for anymore..."
+  },
+  {
+    "id": 5,
+    "title": "YT logo (Terra)",
+    "year": 2017,
+    "url": "/img/logos/terra.jpg",
+    "alt": "terra.jpg",
+    "desc": "I attempted to rebrand my YouTube channel as Terracraft legends, Terra for terraria and craft for minecraft."
+  },
+  {
+    "id": 6,
     "title": "YW",
     "year": 2018,
     "url": "/img/logos/yw.jpg",
@@ -24,7 +56,7 @@
     "desc": "Logo for my friend back in middle school. What does YW mean? I don't know anymore"
   },
   {
-    "id": 3,
+    "id": 7,
     "title": "JK Version 1",
     "year": 2018,
     "url": "/img/logos/jk.jpg",
@@ -32,11 +64,83 @@
     "desc": "Second iteration of my JK logo. At this point I started appreciating more flat or \"material\" designs"
   },
   {
-    "id": 2,
+    "id": 8,
     "title": "FortCraft",
     "year": 2018,
     "url": "/img/logos/fortcraft.jpg",
     "alt": "fortcraft.jpg",
     "desc": "Logo for another friend's discord server. We're still at that cringy logo phase so just wait a bit..."
+  },
+  {
+    "id": 9,
+    "title": "JK Version 2",
+    "year": 2019,
+    "url": "/img/logos/jk_final.jpg",
+    "alt": "jk_final.jpg",
+    "desc": "Final version of my JK logo. I'm not sure if I state it already but JK stands for my first and last name. I used that as my online name for a while."
+  },
+  {
+    "id": 10,
+    "title": "Radost",
+    "year": 2020,
+    "url": "/img/logos/radost_games.jpg",
+    "alt": "radost_games.jpg",
+    "desc": "Me and my friends tried starting a game company called Radost. Radost meaning happy in russian. So I guess we would've been Happy Games?"
+  },
+  {
+    "id": 11,
+    "title": "Radost Server",
+    "year": 2020,
+    "url": "/img/logos/radost_logo.jpg",
+    "alt": "radost_logo.jpg",
+    "desc": "This was the 1 by 1 version of the last logo."
+  },
+  {
+    "id": 12,
+    "title": "Alpha Pack",
+    "year": 2020,
+    "url": "/img/logos/alpha_pack_abstract.jpg",
+    "alt": "alpha_pack_abstract.jpg",
+    "desc": "This was for a discord server for a game called Brawlstars that I was in. I got full on adicted to the game because I had nothing better to do lol."
+  },
+  {
+    "id": 13,
+    "title": "Alpha Pack Version 2",
+    "year": 2020,
+    "url": "/img/logos/alpha_pack.jpg",
+    "alt": "alpha_pack.jpg",
+    "desc": "This is the second version of the for the same discord server. I made this one just to be petty because the members preferred someone else's logo over mine since I liked the abstractness of my first one."
+  },
+  {
+    "id": 14,
+    "title": "Minecraft PFP",
+    "year": 2020,
+    "url": "/img/logos/mc_pfp.jpg",
+    "alt": "mc_pfp.jpg",
+    "desc": "I made this for my instagram for fun hehe."
+  },
+  {
+    "id": 15,
+    "title": "Alpha Pack",
+    "year": 2020,
+    "url": "/img/logos/alpha_pack_abstract.jpg",
+    "alt": "alpha_pack_abstract.jpg",
+    "desc": "This was for a discord server for a game called Brawlstars that I was in. I got full on adicted to the game because I had nothing better to do lol."
+  },
+  {
+    "id": 16,
+    "title": "Papatenko PFP (fake nft)",
+    "year": 2020,
+    "url": "/img/logos/nft.png",
+    "alt": "nft.jpg",
+    "desc": "As a joke I took one of the most prized NFTs and changed the pixels to look like me. It's so freakin simple I love itttt"
+  },
+  {
+    "id": 17,
+    "title": "Computer Science Club",
+    "year": 2023,
+    "url": "/img/logos/cs_club.png",
+    "alt": "cs_club.png",
+    "desc": "My latest and most pround of work. The logo is used for the computer science club at Lonestar Cyfair campus."
   }
 ]

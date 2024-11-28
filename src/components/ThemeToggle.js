@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Sun, Moon } from "lucide-react";
 
 function DarkmodeToggle() {
+
   const [currentTheme, setTheme] = useState(getInitialTheme());
 
   useEffect(() => {
@@ -13,7 +14,7 @@ function DarkmodeToggle() {
     let systemTheme = true;
     if (typeof window !== "undefined" && window.localStorage) {
       userTheme = localStorage.getItem("theme");
-      systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
     }
 
     return userTheme || (systemTheme ? "dark" : "light");

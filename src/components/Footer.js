@@ -43,6 +43,7 @@ function Footer({ links }) {
           ? links.map((item) => {
             return (
               <IconPlusLink
+                key={item.id}
                 iconName={item.name}
                 link={item.link}
                 text={item.name}

@@ -1,4 +1,4 @@
-import DarkmodeToggle from "./ThemeToggle";
+import ThemeToggle from "./ThemeToggle";
 
 function Header() {
   return (
@@ -12,7 +12,7 @@ function Header() {
         <h1 className="text-4xl text-primary font-bold">Papatenko</h1>
       </div>
       <div className="flex items-center">
-        <DarkmodeToggle />
+        <ThemeToggle />
       </div>
     </header>
   );
