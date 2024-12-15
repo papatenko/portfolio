@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2 # officially supported action
       - uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 20
       - run: npm ci # like npm install but for CI server
       - run: npm test
       - run: npm run build
