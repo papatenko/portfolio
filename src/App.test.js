@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render } from "@testing-library/react";
+import App from "./App";
 
 // Mock the IntersectionObserver, see https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
 export class IntersectionObserver {
@@ -49,10 +49,10 @@ global.IntersectionObserver = IntersectionObserver;
 window.ResizeObserver = ResizeObserver;
 global.ResizeObserver = ResizeObserver;
 
-describe('Test', () => {
+describe("Test", () => {
   // mock window.matchMedia, see https://stackoverflow.com/questions/39830580/jest-test-fails-typeerror-window-matchmedia-is-not-a-function
   beforeAll(() => {
-    Object.defineProperty(window, 'matchMedia', {
+    Object.defineProperty(window, "matchMedia", {
       writable: true,
       value: jest.fn().mockImplementation((query) => ({
         matches: false,
@@ -66,7 +66,7 @@ describe('Test', () => {
       })),
     });
   });
-  test('renders app', () => {
+  test("renders app", () => {
     render(<App />);
   });
 });

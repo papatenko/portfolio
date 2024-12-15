@@ -18,8 +18,9 @@ function About() {
     </div>
   );
 }
+// NOTE: Will add Collage and Text when ready
 
-function Collage() {
+/* function Collage() {
   return (
     <div className="md:w-1/2 ">
       <h1 className="text-paragraph z-10 font-bold text-2xl md:text-6xl top-0">
@@ -34,14 +35,14 @@ function Collage() {
       <Text text="Create Films" />
     </div>
   );
-}
+} */
 
-function Text({ text }) {
-  return (
-    <h1 className="text-paragraph absolute font-bold text-2xl md:text-6xl">
-      {text}
-    </h1>
-  );
-}
+// function Text({ text }) {
+//   return (
+//     <h1 className="text-paragraph absolute font-bold text-2xl md:text-6xl">
+//       {text}
+//     </h1>
+//   );
+// }
 
 export default About;
