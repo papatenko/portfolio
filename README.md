@@ -17,6 +17,12 @@
 
 - [Light Mode](https://www.realtimecolors.com/?colors=101114-e5e6f0-293161-7a89dc-2037cb&fonts=Inter-Inter)
 
+### Libraries
+
+- [Embla](https://www.embla-carousel.com/)
+- [Lucide](https://lucide.dev/)
+- [Motion](https://motion.dev/)
+
 ## 🗺️ Roadmap
 
 In order of which features I'll add to the portfolio.
@@ -28,6 +34,13 @@ In order of which features I'll add to the portfolio.
 - [x] Footer (just contains copyright)
 - [x] Styles
 - [ ] Tabs for each career (?)
+
+### Sections
+
+- [ ] About Me
+- [ ] CS Projects
+- [x] Digital Arts Projects
+- [ ] Tools I know how to use
 
 ### Comp Sci Showcase
 
@@ -43,7 +56,7 @@ All of these will be showcased as list of scrollable cards.
 
 - [x] Thumbnail
 - [x] Poster
-- [ ] Logos
+- [x] Logos
 - [ ] Youtube Channel
 - [ ] Video Editing
 

@@ -16,10 +16,15 @@ function App() {
         <About />
       </section>
       <section className="md:min-h-screen">
-        <TallCarousel cards={Posters} title="Posters" direction="forward" />
-        <WideCarousel cards={Thumbnails} title="YouTube Thumbnails" direction="backward" />
-        <WideCarousel cards={Logos} title="Logos" direction="forward" />
+        <TallCarousel cards={Posters} title="My Posters" direction="forward" />
+        <WideCarousel
+          cards={Thumbnails}
+          title="My YouTube Thumbnails"
+          direction="backward"
+        />
+        <WideCarousel cards={Logos} title="My Logos" direction="forward" />
       </section>
+      <section className="md:min-h-screen"></section>
       <Footer links={Links} />
     </div>
   );

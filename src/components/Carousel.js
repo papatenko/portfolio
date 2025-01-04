@@ -1,5 +1,6 @@
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
+import Text from "./Text";
 
 export const WideCarousel = ({ cards, title, direction }) => {
   const [emblaRef] = useEmblaCarousel({ loop: true }, [
@@ -62,17 +63,6 @@ export const TallCarousel = ({ cards, title, direction }) => {
   );
 };
 
-const Text = ({ title, year, desc }) => {
-  return (
-    <div className="flex-grow p-2">
-      <h1 className="text-2xl font-bold bg-secondary/25 rounded-lg p-2 text-paragraph">
-        {title} ({year})
-      </h1>
-      <p className="p-2 text-paragraph">{desc}</p>
-    </div>
-  );
-};
-
 const WideCard = ({ url, alt, title, year, desc, link }) => {
   return (
     <div className="embla__slide flex-0 max-w-sm p-2 md:w-96 sm:w-48 ">
@@ -84,7 +74,7 @@ const WideCard = ({ url, alt, title, year, desc, link }) => {
   );
 };
 
-export const TallCard = ({ url, alt, title, year, desc }) => {
+const TallCard = ({ url, alt, title, year, desc }) => {
   return (
     <div className="embla__slide flex flex-col md:flex-row flex-0 max-w-md md:w-full sm:w-48 p-2">
       <img src={url} alt={alt} className="rounded-md md:h-72 "></img>

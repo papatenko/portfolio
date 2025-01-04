@@ -1,19 +1,25 @@
 function About() {
   return (
     <div>
-      <div className="flex md:min-h-screen md:ml-20 justify-center md:justify-between items-center">
-        <h1 className="text-paragraph font-bold text-2xl md:text-6xl">
-          Hello, I'm{" "}
-          <span className="text-background bg-accent p-2 md:p-4 rounded-xl md:rounded-2xl">
-            Papatenko.
-          </span>{" "}
-          <br />
-          <br />
-          What do I do you ask? <br />
-          <br />
-          Well lemme show you...
-        </h1>
-        {/* <Collage /> */}
+      <div className="flex md:min-h-screen justify-center items-center ">
+        <div className="bg-secondary/25 rounded-lg flex gap-4 p-4 md:gap-12 md:p-12 items-center">
+          <img
+            className="hidden md:block md:h-48 lg:h-72"
+            src={process.env.PUBLIC_URL + "/img/icons/nft_icon.png"}
+            alt="papatenko-icon"
+          ></img>
+          <h1 className="text-paragraph font-bold text-2xl md:text-4xl lg:text-6xl ">
+            Hello, I'm{" "}
+            <span className="text-background bg-accent md:p-2 lg:p-4 rounded-l md:rounded-xl lg:rounded-2xl">
+              Papatenko.
+            </span>{" "}
+            <br />
+            <br />
+            What do I do you ask? <br />
+            <br />
+            Well lemme show you...
+          </h1>
+        </div>
       </div>
     </div>
   );
