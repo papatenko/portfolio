@@ -27,7 +27,6 @@ function App() {
         />
         <WideCarousel cards={Logos} title="My Logos" direction="forward" />
       </section>
-      <section className="md:min-h-screen"></section>
       <Footer links={Links} />
     </div>
   );
