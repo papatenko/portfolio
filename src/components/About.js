@@ -1,10 +1,7 @@
-import { AnimatePresence, motion, useMotionValue, useTime, useTransform } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 
 // 1. get x motion 2. get repetition 3. animate pfp
 function About({ icons }) {
-  // const x = useMotionValue(0)
-  // const time = useTime();
-  // const transition = useTransform(time, [0,2000, []])
 
   return (
     <div className="flex grow justify-center items-center ">
