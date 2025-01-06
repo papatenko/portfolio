@@ -1,5 +1,6 @@
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
+import { motion } from 'motion/react'
 import Text from "./Text";
 
 export const WideCarousel = ({ cards, title, direction }) => {
@@ -34,9 +35,9 @@ export const WideCarousel = ({ cards, title, direction }) => {
 };
 
 export const TallCarousel = ({ cards, title, direction }) => {
-  const [emblaRef] = useEmblaCarousel({ loop: true }, [AutoScroll(
-    { direction: direction }
-  )]);
+  const [emblaRef] = useEmblaCarousel({ loop: true }, [
+    AutoScroll({ direction: direction }),
+  ]);
 
   return (
     <section className="embla">
@@ -64,11 +65,31 @@ export const TallCarousel = ({ cards, title, direction }) => {
 };
 
 const WideCard = ({ url, alt, title, year, desc, link }) => {
+  const renderLink = () => {
+    return (
+      <a href={link}>
+        <motion.img
+          src={url}
+          alt={alt}
+          className="rounded-md md:h-48 w-auto m-auto"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        ></motion.img>
+      </a>
+    )
+  }
+  const renderThumbnail = () => {
+    return (
+      <img
+        src={url}
+        alt={alt}
+        className="rounded-md md:h-48 w-auto m-auto"
+      ></img>
+    )
+  }
   return (
     <div className="embla__slide flex-0 max-w-sm p-2 md:w-96 sm:w-48 ">
-      <a href={link}>
-        <img src={url} alt={alt} className="rounded-md h-48 w-auto m-auto"></img>
-      </a>
+      {link ? renderLink() : renderThumbnail()}
       <Text title={title} year={year} desc={desc} />
     </div>
   );

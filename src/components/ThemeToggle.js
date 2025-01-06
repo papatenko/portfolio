@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Sun, Moon } from "lucide-react";
+import { motion } from "motion/react";
 
 function DarkmodeToggle() {
 
@@ -37,19 +38,22 @@ function DarkmodeToggle() {
   }
 
   return (
-    <div>
+    <motion.div
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+    >
       {currentTheme === "dark" ? (
         <Moon
-          className="size-8 text-paragraph mr-1 ml-4"
+          className="size-8 text-primary mr-1 ml-4"
           onClick={toggleTheme}
         />
       ) : (
         <Sun
-          className="size-8 text-paragraph mr-1 ml-4"
+          className="size-8 text-primary mr-1 ml-4"
           onClick={toggleTheme}
         />
       )}
-    </div>
+    </motion.div>
   );
 }
 export default DarkmodeToggle;

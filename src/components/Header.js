@@ -1,20 +1,25 @@
 import ThemeToggle from "./ThemeToggle";
+import { motion } from 'motion/react'
 
 function Header() {
   return (
-    <header className="flex p-4 justify-between">
+    <motion.header className="flex p-4 justify-between"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{
+        delay: 1,
+        duration: 1,
+        ease: [0, 0.7, 0.2, 1],
+      }}
+    >
+
       <div className="flex g-12 items-center">
-        <img
-          className="pr-4 h-12"
-          src={process.env.PUBLIC_URL + "/img/icons/nft_icon.png"}
-          alt="papatenko-icon"
-        ></img>
-        <h1 className="text-4xl text-primary font-bold">Papatenko</h1>
+        <div className="text-4xl text-primary font-bold">Papatenko</div>
       </div>
       <div className="flex items-center">
         <ThemeToggle />
       </div>
-    </header>
+    </motion.header>
   );
 }
 

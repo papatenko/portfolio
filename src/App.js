@@ -3,17 +3,20 @@ import Thumbnails from "./data/thumbnails.json";
 import Posters from "./data/posters.json";
 import Logos from "./data/logos.json";
 import Links from "./data/links.json";
+import Icons from "./data/icons.json";
 import Footer from "./components/Footer.js";
 import Header from "./components/Header.js";
 import About from "./components/About.js";
+import Arrows from "./components/Arrows";
 import { WideCarousel, TallCarousel } from "./components/Carousel";
 
 function App() {
   return (
     <div className="flex flex-col justify-between ">
-      <Header />
-      <section className="md:min-h-screen">
-        <About />
+      <section className="min-h-screen flex flex-col">
+        <Header />
+        <About icons={Icons} />
+        <Arrows />
       </section>
       <section className="md:min-h-screen">
         <TallCarousel cards={Posters} title="My Posters" direction="forward" />
@@ -29,5 +32,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;

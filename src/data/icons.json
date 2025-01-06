@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Linkedin",
+    "url": "/img/icons/linkedin.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Instagram",
+    "url": "/img/icons/instagram.jpg"
+  },
+  {
+    "id": 3,
+    "name": "YouTube",
+    "url": "/img/icons/youtube.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Github",
+    "url": "/img/icons/github.png"
+  }
+]

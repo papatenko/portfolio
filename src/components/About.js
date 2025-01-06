@@ -1,54 +1,63 @@
-function About() {
+import { AnimatePresence, motion, useMotionValue, useTime, useTransform } from "motion/react";
+
+// 1. get x motion 2. get repetition 3. animate pfp
+function About({ icons }) {
+  // const x = useMotionValue(0)
+  // const time = useTime();
+  // const transition = useTransform(time, [0,2000, []])
+
   return (
-    <div>
-      <div className="flex md:min-h-screen justify-center items-center ">
-        <div className="bg-secondary/25 rounded-lg flex gap-4 p-4 md:gap-12 md:p-12 items-center">
-          <img
-            className="hidden md:block md:h-48 lg:h-72"
-            src={process.env.PUBLIC_URL + "/img/icons/nft_icon.png"}
-            alt="papatenko-icon"
-          ></img>
-          <h1 className="text-paragraph font-bold text-2xl md:text-4xl lg:text-6xl ">
-            Hello, I'm{" "}
-            <span className="text-background bg-accent md:p-2 lg:p-4 rounded-l md:rounded-xl lg:rounded-2xl">
-              Papatenko.
-            </span>{" "}
-            <br />
-            <br />
-            What do I do you ask? <br />
-            <br />
-            Well lemme show you...
-          </h1>
-        </div>
-      </div>
+    <div className="flex grow justify-center items-center ">
+      <motion.div
+        className="bg-secondary/25 rounded-lg flex flex-col md:flex-row gap-8 p-8 md:gap-12 md:p-12 items-center"
+        initial={{ opacity: 0, scale: 0.75 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.5,
+          delay: 0.5,
+          ease: [0, 0.7, 0.2, 1.],
+        }}
+      >
+        <AnimatePresence>
+          <motion.img
+            className="rounded-lg h-48 lg:h-72"
+            src={process.env.PUBLIC_URL + icons[0].url}
+            alt={icons[0].name}
+            initial={{ opacity: 0, x: 10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 0.5,
+              delay: 1,
+              ease: [0, 0.7, 0.2, 1.],
+            }}
+          />
+        </AnimatePresence>
+        <motion.div className="text-paragraph font-bold text-2xl md:text-4xl "
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            duration: 0.5,
+            delay: 1.1,
+            ease: [0, 0.7, 0.2, 1.],
+          }}
+
+        >
+          Hello, I'm{" "}
+          <span className="text-background bg-accent p-1 md:p-2 lg:p-4 rounded-l md:rounded-xl lg:rounded-2xl">
+            Papatenko.
+          </span>{" "}
+          <br />
+          <br />
+          What do I do you ask?
+          <br />
+          <br />
+          Well, let me show you!
+        </motion.div>
+      </motion.div>
     </div>
+
   );
 }
-// NOTE: Will add Collage and Text when ready
 
-/* function Collage() {
-  return (
-    <div className="md:w-1/2 ">
-      <h1 className="text-paragraph z-10 font-bold text-2xl md:text-6xl top-0">
-        Something
-      </h1>
-      <Text text="Frontend" />
-      <Text text="Video Editing" />
-      <Text text="Digital Arts" />
-      <Text text="Create Apps" />
-      <Text text="Lead Teams" />
-      <Text text="Create Websites" />
-      <Text text="Create Films" />
-    </div>
-  );
-} */
-
-// function Text({ text }) {
-//   return (
-//     <h1 className="text-paragraph absolute font-bold text-2xl md:text-6xl">
-//       {text}
-//     </h1>
-//   );
-// }
 
 export default About;
