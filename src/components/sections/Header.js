@@ -3,6 +3,7 @@ import { motion } from 'motion/react'
 
 function Header() {
   return (
+    /* Cross dissolve animation */
     <motion.header className="flex p-4 justify-between"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

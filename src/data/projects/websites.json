@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "My Odin Projects",
+    "year": 2024,
+    "url": "https://github.com/papatenko/my-odin-projects",
+    "demo": "https://papatenko-odin.netlify.app/",
+    "desc": "This is a collection of projects I made while learning how to make websites via the Odin Project"
+  },
+  {
+    "id": 2,
+    "title": "Library",
+    "year": 2024,
+    "url": "https://github.com/papatenko/my-odin-projects/tree/main/javascript-course/library",
+    "demo": "https://papatenko-odin.netlify.app/javascript-course/library/",
+    "desc": "Website based on the library prompt from the Odin Project inspired by Apple's VisionOS theme."
+  },
+  {
+    "id": 3,
+    "title": "Minecraft Sketch",
+    "year": 2022,
+    "url": "https://github.com/papatenko/my-odin-projects/tree/main/foundations/etch-a-sketch",
+    "demo": "https://papatenko-odin.netlify.app/foundations/etch-a-sketch/",
+    "desc": "This one was a lot of fun lol. It's etch-a-sketch with a minecraft theme and music. Hopefully I won't get copyrighted for it one day..."
+  },
+  {
+    "id": 4,
+    "title": "Spondgebob NFTs",
+    "year": 2022,
+    "url": "https://github.com/papatenko/my-odin-projects/tree/main/foundations/landing-page",
+    "demo": "https://papatenko-odin.netlify.app/foundations/landing-page/",
+    "desc": "This was one of the first websites I took pride in. It was made to practice for flexboxes and I definitely gained a better understanding of flex after finishing it."
+  }
+]

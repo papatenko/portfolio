@@ -1,5 +1,11 @@
-// TODO: Create a card that has a title, image (16:9), github link, and live demo link
-export default function Card() {
+import Project from "components/ui/Project"
+
+/* NOTE: Use motions to animate each project on scroll 
+ * Lay out the projects in a triangle stacked on top of other triangles 
+ * Majority of them will be GitHub pages
+ * */
+
+function Projects() {
   return (
     <div>
 
@@ -8,3 +14,4 @@ export default function Card() {
     </div>
   )
 }
+export default Projects;

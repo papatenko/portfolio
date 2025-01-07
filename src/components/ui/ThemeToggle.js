@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { Sun, Moon } from "lucide-react";
 import { motion } from "motion/react";
 
+// This code came from some website I can't find right now
 function DarkmodeToggle() {
-
   const [currentTheme, setTheme] = useState(getInitialTheme());
 
   useEffect(() => {
@@ -38,6 +38,7 @@ function DarkmodeToggle() {
   }
 
   return (
+    /* onClick bounce animation */
     <motion.div
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}

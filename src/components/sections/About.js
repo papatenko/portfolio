@@ -5,6 +5,7 @@ function About({ icons }) {
 
   return (
     <div className="flex grow justify-center items-center ">
+      {/* Zoom in animation for center item */}
       <motion.div
         className="bg-secondary/25 rounded-lg flex flex-col md:flex-row gap-8 p-8 md:gap-12 md:p-12 items-center"
         initial={{ opacity: 0, scale: 0.75 }}
@@ -15,6 +16,7 @@ function About({ icons }) {
           ease: [0, 0.7, 0.2, 1.],
         }}
       >
+        {/* TODO: Add animation that switches between profile pictures */}
         <AnimatePresence>
           <motion.img
             className="rounded-lg h-48 lg:h-72"
@@ -29,6 +31,8 @@ function About({ icons }) {
             }}
           />
         </AnimatePresence>
+
+        {/* Right Text with a slide over animation */}
         <motion.div className="text-paragraph font-bold text-2xl md:text-4xl "
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
@@ -37,7 +41,6 @@ function About({ icons }) {
             delay: 1.1,
             ease: [0, 0.7, 0.2, 1.],
           }}
-
         >
           Hello, I'm{" "}
           <span className="text-background bg-accent p-1 md:p-2 lg:p-4 rounded-l md:rounded-xl lg:rounded-2xl">
@@ -55,6 +58,5 @@ function About({ icons }) {
 
   );
 }
-
 
 export default About;
