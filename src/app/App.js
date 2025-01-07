@@ -1,14 +1,5 @@
-import "./App.css";
-import Thumbnails from "./data/thumbnails.json";
-import Posters from "./data/posters.json";
-import Logos from "./data/logos.json";
-import Links from "./data/links.json";
-import Icons from "./data/icons.json";
-import Footer from "./components/Footer.js";
-import Header from "./components/Header.js";
-import About from "./components/About.js";
-import Arrows from "./components/Arrows";
-import { WideCarousel, TallCarousel } from "./components/Carousel";
+import { Thumbnails, Posters, Logos, Links, Icons } from "data";
+import { Header, Footer, About, Arrows, WideCarousel, TallCarousel } from "components";
 
 function App() {
   return (

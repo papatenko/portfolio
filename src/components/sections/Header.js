@@ -1,4 +1,4 @@
-import ThemeToggle from "./ThemeToggle";
+import ThemeToggle from "components/ui/ThemeToggle";
 import { motion } from 'motion/react'
 
 function Header() {
