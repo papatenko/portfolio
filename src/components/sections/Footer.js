@@ -36,7 +36,7 @@ function Footer({ links }) {
     <footer className="md:flex text-center p-4 md:justify-between text-paragraph grid gap-4">
       <IconPlusLink
         iconName="Copyright"
-        text={new Date().getFullYear() + " PapaTenko"}
+        text={new Date().getFullYear() + " Justin Kondratenko"}
       />
       <div className="grid gap-4 grid-flow-col grid-rows-3 md:grid-rows-1">
         {links

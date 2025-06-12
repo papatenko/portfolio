@@ -42,16 +42,19 @@ function About({ icons }) {
             ease: [0, 0.7, 0.2, 1.],
           }}
         >
-          Hello, I'm{" "}
+          Hi there! 👋
+          <br />
+          <br />
+          I'm{" "}
           <span className="text-background bg-accent p-1 md:p-2 lg:p-4 rounded-l md:rounded-xl lg:rounded-2xl">
-            Papatenko.
+            Justin Kondratenko.
           </span>{" "}
           <br />
           <br />
-          What do I do you ask?
+          Curious about my skills and experience?
           <br />
           <br />
-          Well, let me show you!
+          Well, let me show you my work!
         </motion.div>
       </motion.div>
     </div>

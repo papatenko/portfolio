@@ -10,14 +10,20 @@ function App() {
         <Arrows />
       </section>
       <section className="md:min-h-screen">
-        <TallCarousel cards={Posters} title="My Posters" direction="forward" />
+        <TallCarousel cards={Posters} title="Posters" direction="forward" />
         <WideCarousel
           cards={Thumbnails}
-          title="My YouTube Thumbnails"
+          title="YouTube Thumbnails"
           direction="backward"
         />
-        <WideCarousel cards={Logos} title="My Logos" direction="forward" />
+        <WideCarousel cards={Logos} title="Logos" direction="forward" />
       </section>
+      <h1 className="flex text-center justify-center text-2xl font-bold rounded-lg p-2 text-primary">
+        Websites, videos, job and volunteer experience,
+        <br />
+        and other projects will be added soon...
+      </h1>
+
       <Footer links={Links} />
     </div>
   );

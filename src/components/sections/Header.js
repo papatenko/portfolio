@@ -15,7 +15,7 @@ function Header() {
     >
 
       <div className="flex g-12 items-center">
-        <div className="text-4xl text-primary font-bold">Papatenko</div>
+        <div className="text-4xl text-primary font-bold">Justin Kondratenko</div>
       </div>
       <div className="flex items-center">
         <ThemeToggle />
