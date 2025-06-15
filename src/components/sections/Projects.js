@@ -1,17 +1,20 @@
-import Project from "components/ui/Project"
+import Project from "components/ui/project";
 
-/* NOTE: Use motions to animate each project on scroll 
- * Lay out the projects in a triangle stacked on top of other triangles 
+/* TODO: Use motions to animate each project on scroll
+ * Lay out the projects in a triangle stacked on top of other triangles
  * Majority of them will be GitHub pages
  * */
 
-function Projects() {
-  return (
-    <div>
+/* TODO: Migrate to typescript bc i have no idea what's going on here
+ *
+ * FIX: Constant type errors
+ * */
 
+function Projects({ projects }) {
+  const renderProjects = projects.map((project, index) => {
+    return <Project key={index} project={project} />;
+  });
 
-
-    </div>
-  )
+  return <div>{renderProjects}</div>;
 }
 export default Projects;
