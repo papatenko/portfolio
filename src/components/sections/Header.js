@@ -1,10 +1,11 @@
 import ThemeToggle from "components/ui/ThemeToggle";
-import { motion } from 'motion/react'
+import { motion } from "motion/react";
 
 function Header() {
   return (
     /* Cross dissolve animation */
-    <motion.header className="flex p-4 justify-between"
+    <motion.header
+      className="flex p-4 justify-between"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{
@@ -13,9 +14,8 @@ function Header() {
         ease: [0, 0.7, 0.2, 1],
       }}
     >
-
       <div className="flex g-12 items-center">
-        <div className="text-4xl text-primary font-bold">Justin Kondratenko</div>
+        <div className="text-4xl text-primary font-bold">PapaTenko</div>
       </div>
       <div className="flex items-center">
         <ThemeToggle />
