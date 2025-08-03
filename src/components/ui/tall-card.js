@@ -1,4 +1,4 @@
-import Text from "components/ui/Text"
+import Text from "components/ui/text"
 
 function TallCard({ url, alt, title, year, desc }) {
   return (

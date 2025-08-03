@@ -1,7 +1,7 @@
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
-import TallCard from "components/ui/TallCard";
-import WideCard from "components/ui/WideCard";
+import TallCard from "components/ui/tall-card";
+import WideCard from "components/ui/wide-card";
 
 export const WideCarousel = ({ cards, title, direction }) => {
   const [emblaRef] = useEmblaCarousel({ loop: true }, [

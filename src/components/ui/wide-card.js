@@ -1,5 +1,5 @@
 import { motion } from 'motion/react'
-import Text from "components/ui/Text"
+import Text from "components/ui/text"
 
 function WideCard({ url, alt, title, year, desc, link }) {
   const renderLink = () => {
