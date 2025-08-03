@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^13.5.0",
+    "caniuse-lite": "^1.0.30001731",
     "embla-carousel": "^8.3.1",
     "embla-carousel-auto-scroll": "^8.3.1",
     "embla-carousel-react": "^8.3.1",
