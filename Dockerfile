@@ -1,16 +1,16 @@
-# Base Sage
+# Build Stage
 
-FROM node:18-alpine AS base
+FROM node:18-alpine AS build
 
 WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm ci # like npm install but for CI server
 
 # Development stage w/ dev dependencies
 
-FROM base AS development
+FROM build AS development
 
 # Install dev dependencies (none at the moment)
 # RUN npm install --save-dev 
@@ -23,7 +23,7 @@ CMD ["npm", "start"]
 
 # Production stage (without NGINX because NGINX Proxy Manager will handle it)
 
-FROM base AS production
+FROM build AS production
 
 COPY . .
 
@@ -31,5 +31,5 @@ RUN npm run build
 
 EXPOSE 3001
 
-CMD
+CMD ["npm", "start"]
 
