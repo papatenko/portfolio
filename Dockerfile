@@ -1,35 +1,21 @@
 # Build Stage
 
 FROM node:18-alpine AS build
-
 WORKDIR /app
-
 COPY package*.json ./
-
 RUN npm ci # like npm install but for CI server
+COPY . .
+RUN npm run build
 
 # Development stage w/ dev dependencies
 
 FROM build AS development
-
-# Install dev dependencies (none at the moment)
 # RUN npm install --save-dev 
-
-COPY . . 
-
 EXPOSE 3000
-
 CMD ["npm", "start"]
 
-# Production stage (without NGINX because NGINX Proxy Manager will handle it)
+# Production stage (no tag so it's the default)
 
-FROM build AS production
-
-COPY . .
-
-RUN npm run build
-
-EXPOSE 3001
-
-CMD ["npm", "start"]
-
+FROM build 
+EXPOSE 4000
+CMD ["npx", "serve", "-s", "build", "-l", "4000"]
