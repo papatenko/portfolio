@@ -1,11 +1,10 @@
 # Build Stage
 
-FROM node:18-alpine AS build
+FROM --platform=linux/amd64 node:18-alpine AS build
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci # like npm install but for CI server
 COPY . .
-RUN npm run build
 
 # Development stage w/ dev dependencies
 
@@ -17,5 +16,6 @@ CMD ["npm", "start"]
 # Production stage (no tag so it's the default)
 
 FROM build 
+RUN npm run build
 EXPOSE 4000
 CMD ["npx", "serve", "-s", "build", "-l", "4000"]
