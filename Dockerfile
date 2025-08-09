@@ -1,6 +1,6 @@
 # Build Stage
 
-FROM --platform=linux/amd64 node:18-alpine AS build
+FROM node:22-alpine AS build
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci # like npm install but for CI server
