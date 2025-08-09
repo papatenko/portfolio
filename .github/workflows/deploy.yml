@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     name: Build Docker Image and Deploy
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: CI
         uses: actions/checkout@v4 # officially supported action
@@ -44,7 +44,7 @@ jobs:
       #     password: ${{ secrets.SSH_PASSWORD }}
       #     key: ${{ secrets.SSH_KEY }}
       #     script: |
-      #       docker image pull papatenko/portfolio:latest
+      #       docker pull --platform linux/arm64 papatenko/portfolio:latest
       #       docker container stop portfolio
       #       docker container rm portfolio
-      #       docker container run -d -p 4000:4000 --name portfolio papatenko/portfolio:latest
+      #       docker container run --platform linux/arm64 -d -p 4000:4000 --name portfolio papatenko/portfolio:latest
