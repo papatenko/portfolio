@@ -8,8 +8,8 @@ on:
 
 jobs:
   build:
-    name: Build Docker Image and Deploy
-    runs-on: self-hosted
+    name: Build Docker Image
+    runs-on: ubuntu-latest
     steps:
       - name: CI
         uses: actions/checkout@v4 # officially supported action
@@ -36,15 +36,16 @@ jobs:
           push: true
           tags: papatenko/portfolio:latest
 
-      # - name: Deploy
-      #   uses: appleboy/ssh-action@master
-      #   with:
-      #     host: ${{ secrets.SSH_HOST }}
-      #     username: ${{ secrets.SSH_USERNAME }}
-      #     password: ${{ secrets.SSH_PASSWORD }}
-      #     key: ${{ secrets.SSH_KEY }}
-      #     script: |
-      #       docker pull --platform linux/arm64 papatenko/portfolio:latest
-      #       docker container stop portfolio
-      #       docker container rm portfolio
-      #       docker container run --platform linux/arm64 -d -p 4000:4000 --name portfolio papatenko/portfolio:latest
+  deploy:
+    name: Deploy Docker Image to Pi
+    runs-on: self-hosted
+    needs: build
+    steps:
+      - name: Deploy
+        uses: actions/github-script@v7
+        with:
+          script: |
+            docker pull --platform linux/arm64 papatenko/portfolio:latest
+            docker container stop portfolio
+            docker container rm portfolio
+            docker container run --platform linux/arm64 -d -p 4000:4000 --name portfolio papatenko/portfolio:latest
