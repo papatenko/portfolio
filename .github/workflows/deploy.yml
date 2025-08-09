@@ -18,9 +18,10 @@ jobs:
       - name: Build and Deploy to Self
         uses: actions/checkout@v4
         # CI
+      - run: npm ci
       - run: npm run build
-      - run: docker build --platform $PLATFORM . -t $CONTAINER_NAME
         # CD
+      - run: docker build --platform $PLATFORM . -t $CONTAINER_NAME
       - run: docker stop $CONTAINER_NAME && docker rm $CONTAINER_NAME
       - run: docker run --platform $PLATFORM -d -p 4000:4000 --name $CONTAINER_NAME $CONTAINER_NAME
 
