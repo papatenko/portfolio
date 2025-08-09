@@ -1,6 +1,5 @@
 # Build Stage
-
-FROM node:22-alpine AS build
+FROM arm64v8/node:lts AS build
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci # like npm install but for CI server
