@@ -7,7 +7,7 @@ on:
     branches: ["main"]
 
 env:
-  CONTAINER_NAME: papatenko/portfolio
+  CONTAINER_NAME: portfolio
   PLATFORM: linux/arm64
 
 jobs:
@@ -16,10 +16,11 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Build and Deploy to Self
-        uses: actions/checkout@v4 # officially supported action
-      - run: npm ci # like npm install but for CI server
+        uses: actions/checkout@v4
+        # CI
       - run: npm run build
       - run: docker build --platform $PLATFORM . -t $CONTAINER_NAME
+        # CD
       - run: docker stop $CONTAINER_NAME && docker rm $CONTAINER_NAME
       - run: docker run --platform $PLATFORM -d -p 4000:4000 --name $CONTAINER_NAME $CONTAINER_NAME
 
