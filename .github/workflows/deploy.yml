@@ -10,6 +10,7 @@ env:
   CONTAINER_NAME: portfolio
   PLATFORM: linux/arm64
   PORT: 4000
+  RESTART_POLICY: always
 
 jobs:
   build:
@@ -24,7 +25,7 @@ jobs:
         # CD
       - run: docker build --platform $PLATFORM . -t $CONTAINER_NAME
       - run: docker stop $CONTAINER_NAME && docker rm $CONTAINER_NAME
-      - run: docker run --platform $PLATFORM -d -p $PORT:$PORT --name $CONTAINER_NAME --restart:always $CONTAINER_NAME
+      - run: docker run --platform $PLATFORM -d -p $PORT:$PORT --name $CONTAINER_NAME --restart $RESTART_POLICY $CONTAINER_NAME
 
       # Keeping incase I want to deploy to Docker Hub
 
