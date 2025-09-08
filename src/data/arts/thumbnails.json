@@ -35,7 +35,7 @@
     "id": 5,
     "title": "Just A Typical Fortnite Video",
     "year": 2019,
-    "url": "/img/thumbnails/fortnite.jpg",
+    "url": "https://i.ytimg.com/vi/_nI1d5pOUS4/maxresdefault.jpg",
     "alt": "fortnite.jpg",
     "desc": "For my personal channel. Pretty short video but I had fun making it.",
     "link": "https://www.youtube.com/watch?v=_nI1d5pOUS4"
@@ -44,7 +44,7 @@
     "id": 6,
     "title": "Bordlands out of Context",
     "year": 2020,
-    "url": "/img/thumbnails/borderlands.jpg",
+    "url": "https://i.ytimg.com/vi/zGq9FSzoMlY/maxresdefault.jpg",
     "alt": "borderlands.jpg",
     "desc": "This one is for my highest grossing video. I wonder why...",
     "link": "https://www.youtube.com/watch?v=zGq9FSzoMlY"
@@ -52,29 +52,29 @@
   {
     "id": 7,
     "title": "Shenanigans Episode 1",
-    "url": "/img/thumbnails/shenanigans.jpg",
+    "url": "https://i.ytimg.com/vi/74X6CUu9xLU/maxresdefault.jpg",
     "year": 2020,
     "alt": "shenanigans.jpg",
     "desc": "First episode of shenangans with the bois",
-    "link": "https://www.youtube.com/watch?v=74X6CUu9xLU&t=1s"
+    "link": "https://www.youtube.com/watch?v=74X6CUu9xLU"
   },
   {
     "id": 8,
     "title": "Shenanigans Episode 2",
-    "url": "/img/thumbnails/episode_2.jpg",
+    "url": "https://i.ytimg.com/vi/cC8c3L49vOo/maxresdefault.jpg",
     "year": 2020,
     "alt": "episode_2.jpg",
     "desc": "Second episode of shenangans with the bois playing brawlhalla",
-    "link": "https://www.youtube.com/watch?v=74X6CUu9xLU&t=1s"
+    "link": "https://www.youtube.com/watch?v=cC8c3L49vOo"
   },
   {
     "id": 9,
     "title": "Shenanigans Episode 3",
-    "url": "/img/thumbnails/episode_3.jpg",
+    "url": "https://i.ytimg.com/vi/_piOTmohnIk/maxresdefault.jpg",
     "year": 2020,
     "alt": "epsisode_3.jpg",
     "desc": "Third episode of shenangans with the bois killing myself over brawlhalla",
-    "link": "https://www.youtube.com/watch?v=74X6CUu9xLU&t=1s"
+    "link": "https://www.youtube.com/watch?v=_piOTmohnIk"
   },
   {
     "id": 10,
@@ -106,7 +106,7 @@
   {
     "id": 13,
     "title": "Falco Can't take it",
-    "url": "/img/thumbnails/falco.jpeg",
+    "url": "https://i.ytimg.com/vi/C5qDhi55efY/maxresdefault.jpg",
     "year": 2023,
     "alt": "falco.jpeg",
     "desc": "This is for a new client named Sit1tches, one of the first I made for his Smash Bros videos.",
@@ -119,7 +119,7 @@
     "year": 2024,
     "alt": "marvel_rivals.png",
     "desc": "I made this for a Marvel Rivals gameplay video.",
-    "link": "https://www.youtube.com/watch?v=Ne-pKvfFAGk&t=323s"
+    "link": "https://www.youtube.com/watch?v=Ne-pKvfFAGk"
   },
   {
     "id": 15,
@@ -127,7 +127,6 @@
     "year": 2024,
     "url": "/img/thumbnails/stitches_mc.png",
     "alt": "stitches_mc.png",
-    "desc": "I made this for a Stitches Mc video.",
-    "link": "https://www.youtube.com/watch?v=LCm6gmssiJ4"
+    "desc": "I made this for a Stitches Mc video."
   }
 ]
