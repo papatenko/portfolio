@@ -9,7 +9,7 @@ on:
 env:
   CONTAINER_NAME: portfolio
   CONTAINER_TAG: papatenko/portfolio:latest
-  PLATFORM: linux/arm64
+  PLATFORM: linux/amd64
   PORT: 4000
   RESTART_POLICY: always
 
