@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import Text from "components/ui/text";
-import { Github, Globe } from "lucide-react";
 
 /**
  * A reusable component for displaying a single project.

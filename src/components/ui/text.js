@@ -1,6 +1,5 @@
-import { Github, Globe, ChevronDown, ChevronUp } from "lucide-react";
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { Github, Globe } from "lucide-react";
+import { motion } from "framer-motion";
 
 function Text({ title, year, desc, github, demo, project = false }) {
   const githubLink = github ? (
