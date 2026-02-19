@@ -1,33 +1,67 @@
 [
   {
+    "id": 0,
+    "index": 0,
+    "title": "Metro Q Ticketing Clone",
+    "year": 2026,
+    "url": "/img/projects/metro-q.png",
+    "alt": "metro-q.png",
+    "github": "https://github.com/papatenko/metro-pass",
+    "demo": "https://mq.papatenko.org/",
+    "desc": "A clone of the metro q ticketing website built with React and Tailwind CSS."
+  },
+  {
     "id": 1,
+    "index": 1,
+    "title": "Rock Paper Scissors Tournament",
+    "year": 2025,
+    "url": "/img/projects/rps.png",
+    "alt": "rps.png",
+    "github": "https://github.com/devaine/RPS-Tournament",
+    "demo": "https://rps.papatenko.org/",
+    "desc": "A tournament-style Rock Paper Scissors game built with React and Tailwind CSS."
+  },
+  {
+    "id": 2,
+    "index": 2,
     "title": "My Odin Projects",
     "year": 2024,
-    "url": "https://github.com/papatenko/my-odin-projects",
+    "url": "/img/projects/odin.png",
+    "alt": "odin.png",
+    "github": "https://github.com/papatenko/my-odin-projects",
     "demo": "https://papatenko-odin.netlify.app/",
     "desc": "This is a collection of projects I made while learning how to make websites via the Odin Project"
   },
   {
-    "id": 2,
+    "id": 3,
+    "index": 3,
     "title": "Library",
     "year": 2024,
-    "url": "https://github.com/papatenko/my-odin-projects/tree/main/javascript-course/library",
+    "url": "/img/projects/library.png",
+    "alt": "library.png",
+    "github": "https://github.com/papatenko/my-odin-projects/tree/main/javascript-course/library",
     "demo": "https://papatenko-odin.netlify.app/javascript-course/library/",
     "desc": "Website based on the library prompt from the Odin Project inspired by Apple's VisionOS theme."
   },
   {
-    "id": 3,
+    "id": 4,
+    "index": 4,
     "title": "Minecraft Sketch",
     "year": 2022,
-    "url": "https://github.com/papatenko/my-odin-projects/tree/main/foundations/etch-a-sketch",
+    "url": "/img/projects/minecraft-sketch.png",
+    "alt": "minecraft-sketch.png",
+    "github": "https://github.com/papatenko/my-odin-projects/tree/main/foundations/etch-a-sketch",
     "demo": "https://papatenko-odin.netlify.app/foundations/etch-a-sketch/",
     "desc": "This one was a lot of fun lol. It's etch-a-sketch with a minecraft theme and music. Hopefully I won't get copyrighted for it one day..."
   },
   {
-    "id": 4,
+    "id": 5,
+    "index": 5,
     "title": "Spondgebob NFTs",
     "year": 2022,
-    "url": "https://github.com/papatenko/my-odin-projects/tree/main/foundations/landing-page",
+    "url": "/img/projects/spondgebob.png",
+    "alt": "spondgebob.png",
+    "github": "https://github.com/papatenko/my-odin-projects/tree/main/foundations/landing-page",
     "demo": "https://papatenko-odin.netlify.app/foundations/landing-page/",
     "desc": "This was one of the first websites I took pride in. It was made to practice for flexboxes and I definitely gained a better understanding of flex after finishing it."
   }

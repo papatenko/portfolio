@@ -1,5 +1,13 @@
-import { Thumbnails, Posters, Logos, Links, Icons } from "data";
-import { Header, Footer, About, Arrows, WideCarousel, TallCarousel } from "components";
+import { Thumbnails, Posters, Logos, Links, Icons, Websites } from "data";
+import {
+  Header,
+  Footer,
+  About,
+  Arrows,
+  WideCarousel,
+  TallCarousel,
+  Projects,
+} from "components";
 
 function App() {
   return (
@@ -8,6 +16,9 @@ function App() {
         <Header />
         <About icons={Icons} />
         <Arrows />
+      </section>
+      <section className="md:min-h-screen">
+        <Projects projects={Websites} title="Websites" />
       </section>
       <section className="md:min-h-screen">
         <TallCarousel cards={Posters} title="Posters" direction="forward" />

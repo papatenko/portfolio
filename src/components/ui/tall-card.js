@@ -1,4 +1,4 @@
-import Text from "components/ui/text"
+import Text from "components/ui/text";
 
 function TallCard({ url, alt, title, year, desc }) {
   return (
@@ -7,6 +7,6 @@ function TallCard({ url, alt, title, year, desc }) {
       <Text title={title} year={year} desc={desc} />
     </div>
   );
-};
+}
 
 export default TallCard;

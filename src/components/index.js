@@ -1,3 +1,4 @@
+export { default as Projects } from "components/sections/projects";
 export { default as Footer } from "components/sections/footer";
 export { default as Header } from "components/sections/header";
 export { default as About } from "components/sections/about";
