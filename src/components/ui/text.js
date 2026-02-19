@@ -50,7 +50,7 @@ function Text({ title, year, desc, github, demo, project = false }) {
       {project ? (
         <p className="p-2 text-lg text-paragraph md:block hidden">{desc}</p>
       ) : (
-        <p className="p-2 text-paragraph">{desc}</p>
+        <p className="p-2 text-lg text-paragraph">{desc}</p>
       )}
     </div>
   );
