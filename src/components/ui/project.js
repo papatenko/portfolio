@@ -18,7 +18,7 @@ const Project = ({ id, title, year, url, alt, github, demo, desc }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="bg-secondary/25 rounded-full flex flex-row items-center px-2 md:p-4 box-shadow border-solid border-2 border-secondary/10"
+      className="bg-secondary/50 rounded-full flex flex-row items-center p-2 md:p-4 box-shadow border-solid border-2 border-secondary/10"
     >
       <motion.div
         whileHover={{ scale: 1.1 }}
@@ -29,7 +29,7 @@ const Project = ({ id, title, year, url, alt, github, demo, desc }) => {
           <img
             src={url}
             alt={alt}
-            className="rounded-full h-20 w-20 md:h-24 md:w-24 object-cover order-first"
+            className="rounded-full h-24 w-24 md:h-24 md:w-24 object-cover order-first"
           ></img>
         </motion.a>
       </motion.div>
@@ -41,7 +41,6 @@ const Project = ({ id, title, year, url, alt, github, demo, desc }) => {
         demo={demo}
         project={true}
         accordion={true}
-        className="flex-1 order-last"
       />
     </motion.div>
   );
