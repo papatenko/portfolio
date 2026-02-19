@@ -5,7 +5,6 @@ import {
   Youtube,
   Github,
   Braces,
-  Globe,
   Code,
 } from "lucide-react";
 
@@ -19,7 +18,6 @@ function Footer({ links }) {
     YouTube: <Youtube size={iconSize} />,
     Github: <Github size={iconSize} />,
     Leetcode: <Braces size={iconSize} />,
-    "Other Websites": <Globe size={iconSize} />,
     Code: <Code size={iconSize} />,
   };
 
@@ -41,15 +39,15 @@ function Footer({ links }) {
       <div className="grid gap-4 grid-flow-col grid-rows-3 md:grid-rows-1">
         {links
           ? links.map((item) => {
-            return (
-              <IconPlusLink
-                key={item.id}
-                iconName={item.name}
-                link={item.link}
-                text={item.name}
-              />
-            );
-          })
+              return (
+                <IconPlusLink
+                  key={item.id}
+                  iconName={item.name}
+                  link={item.link}
+                  text={item.name}
+                />
+              );
+            })
           : null}
       </div>
       <IconPlusLink

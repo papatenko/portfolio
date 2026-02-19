@@ -6,6 +6,7 @@ function Text({ title, year, desc, github, demo, project = false }) {
   const githubLink = github ? (
     <motion.a
       whileHover={{ scale: 1.2 }}
+      whileTap={{ scale: 0.9 }}
       href={github}
       className={"flex items-center gap-2 bg-accent/50 rounded-full p-2"}
     >
@@ -16,6 +17,7 @@ function Text({ title, year, desc, github, demo, project = false }) {
   const demoLink = demo ? (
     <motion.a
       whileHover={{ scale: 1.2 }}
+      whileTap={{ scale: 0.9 }}
       href={demo}
       className={"flex items-center gap-2 bg-accent/50 rounded-full p-2"}
     >
@@ -27,7 +29,7 @@ function Text({ title, year, desc, github, demo, project = false }) {
     <div className="flex-grow p-2">
       {project ? (
         <h1 className="flex flex-col md:flex-row text-lg md:text-2xl gap-2 font-bold text-paragraph justify-between">
-          <div className="bg-accent/25 px-4 pt-1 rounded-full">
+          <div className="md:bg-primary md:text-background px-4 pt-1 rounded-full">
             {" "}
             {title} ({year})
           </div>
@@ -43,7 +45,7 @@ function Text({ title, year, desc, github, demo, project = false }) {
           </div>
         </h1>
       ) : (
-        <h1 className="flex text-2xl font-bold bg-secondary/25 rounded-lg p-2 text-paragraph">
+        <h1 className="flex text-2xl font-bold bg-secondary/25 rounded-lg p-2 text-paragraph box-shadow border-solid border-2 border-secondary/10">
           {title} ({year})
         </h1>
       )}
