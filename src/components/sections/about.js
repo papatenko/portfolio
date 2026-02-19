@@ -33,7 +33,7 @@ function About({ icons }) {
 
         {/* Right Text with a slide over animation */}
         <motion.div
-          className="text-paragraph font-bold text-2xl md:text-4xl max-w-2xl tracking-wide space-y-12"
+          className="text-paragraph font-bold text-2xl md:text-4xl max-w-2xl tracking-wide space-y-4 md:space-y-8"
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{
@@ -52,8 +52,10 @@ function About({ icons }) {
               Justin Kondratenko
             </span>{" "}
           </div>
-          <p>I'm a digital designer, video editor, </p>{" "}
-          <p>web developer, and so much more!</p>
+          <p>
+            I'm a digital designer, video editor, web developer, and so much
+            more!
+          </p>
         </motion.div>
       </motion.div>
     </div>
