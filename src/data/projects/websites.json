@@ -13,6 +13,17 @@
   {
     "id": 1,
     "index": 1,
+    "title": "Schematic Spelunker",
+    "year": 2025,
+    "url": "/img/projects/spelunker.jpg",
+    "alt": "personal-website.png",
+    "github": "https://github.com/devaine/CodeRED-Astra/tree/main",
+    "demo": "https://www.youtube.com/watch?v=4N1DxUTY12A",
+    "desc": "Men wanted to go to space. Rockets are complex, so why not have an AI chatbot to help manage them? We built a website to help them do just that using React, TailwindCSS, Google Cloud's Gemini API and Rust."
+  },
+  {
+    "id": 2,
+    "index": 2,
     "title": "R.P.S. Tournament",
     "year": 2025,
     "url": "/img/projects/rps.png",
@@ -22,8 +33,8 @@
     "desc": "A tournament-style Rock Paper Scissors game built with React and Tailwind CSS."
   },
   {
-    "id": 2,
-    "index": 2,
+    "id": 3,
+    "index": 3,
     "title": "My Odin Projects",
     "year": 2024,
     "url": "/img/projects/odin.png",
@@ -33,8 +44,8 @@
     "desc": "This is a collection of projects I made while learning how to make websites via the Odin Project"
   },
   {
-    "id": 3,
-    "index": 3,
+    "id": 4,
+    "index": 4,
     "title": "Library",
     "year": 2024,
     "url": "/img/projects/library.png",
@@ -44,8 +55,8 @@
     "desc": "Website based on the library prompt from the Odin Project inspired by Apple's VisionOS theme."
   },
   {
-    "id": 4,
-    "index": 4,
+    "id": 5,
+    "index": 5,
     "title": "Minecraft Sketch",
     "year": 2022,
     "url": "/img/projects/minecraft-sketch.png",
@@ -55,8 +66,8 @@
     "desc": "This one was a lot of fun lol. It's etch-a-sketch with a minecraft theme and music. Hopefully I won't get copyrighted for it one day..."
   },
   {
-    "id": 5,
-    "index": 5,
+    "id": 6,
+    "index": 6,
     "title": "Spondgebob NFTs",
     "year": 2022,
     "url": "/img/projects/spondgebob.png",

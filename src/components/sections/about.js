@@ -43,7 +43,7 @@ function About({ icons }) {
           }}
         >
           Hello, I'm{" "}
-          <span className="text-background bg-accent p-2 lg:p-4 rounded-xl lg:rounded-2xl box-shadow">
+          <span className="text-background bg-primary p-2 lg:p-4 rounded-xl lg:rounded-2xl box-shadow">
             PapaTenko
           </span>{" "}
           <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center">

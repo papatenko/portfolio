@@ -1038,6 +1038,10 @@ code {
     background-color: rgba(var(--secondary), 0.25);
   }
 
+  .md\:bg-accent {
+    background-color: rgba(var(--accent));
+  }
+
   .md\:p-4 {
     padding: 1rem;
   }
@@ -1084,6 +1088,10 @@ code {
 
   .md\:text-background {
     color: rgba(var(--background));
+  }
+
+  .md\:text-paragraph {
+    color: rgba(var(--paragraph));
   }
 }
 
