@@ -17,10 +17,13 @@ function App() {
         <About icons={Icons} />
         <Arrows />
       </section>
-      <section className="md:min-h-screen">
+      <section
+        className="flex flex-col justify-center items-center"
+        id="projects"
+      >
         <Projects projects={Websites} title="Websites" />
       </section>
-      <section className="md:min-h-screen">
+      <section id="artwork">
         <TallCarousel cards={Posters} title="Posters" direction="forward" />
         <WideCarousel
           cards={Thumbnails}

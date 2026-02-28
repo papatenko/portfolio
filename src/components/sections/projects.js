@@ -75,11 +75,11 @@ function Projects({ projects, title }) {
   });
 
   return (
-    <div>
+    <div className="max-w-7xl">
       <h1 className="flex justify-center text-2xl font-bold rounded-lg p-2 text-primary">
         {title}
       </h1>
-      <div className="flex flex-col gap-4 lg:gap-8 p-4 md:px-24">
+      <div className="flex flex-col justify-center gap-4 lg:gap-8 p-8">
         {renderProjects}
       </div>
     </div>
