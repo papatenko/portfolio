@@ -14,7 +14,7 @@ CMD ["npm", "start"]
 
 # Production stage (no tag so it's the default)
 
-FROM build 
+FROM build AS production
 RUN npm run build
 EXPOSE 4000
 CMD ["npx", "serve", "-s", "build", "-l", "4000"]
