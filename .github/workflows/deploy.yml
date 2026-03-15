@@ -9,7 +9,7 @@ on:
 
 env:
   REGISTRY: docker.io
-  IMAGE_NAME: papatenko/portfolio:latest
+  IMAGE_NAME: papatenko/portfolio
   PLATFORM: linux/amd64
 
 jobs:
