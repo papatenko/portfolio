@@ -1,5 +1,5 @@
 services:
   web:
-    image: papatenko/portfolio
+    image: docker.io/papatenko/portfolio:latest
     ports:
       - "4000:4000"

@@ -8,6 +8,7 @@ on:
     branches: ["main"]
 
 env:
+  REGISTRY: docker.io
   IMAGE_NAME: papatenko/portfolio:latest
   PLATFORM: linux/amd64
 
@@ -40,7 +41,7 @@ jobs:
           context: .
           platforms: ${{ env.PLATFORM }}
           push: true
-          tags: ${{ env.IMAGE_NAME }}
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
 
       - name: Deploy to Coolify
         run: |
