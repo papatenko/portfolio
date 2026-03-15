@@ -43,13 +43,7 @@ function ScaleOnProximity({ children }) {
   }, [distance]);
 
   return (
-    <motion.div
-      ref={ref}
-      style={{ scale }}
-      drag
-      dragSnapToOrigin
-      dragTransition={{ bounceStiffness: 400, bounceDamping: 20 }}
-    >
+    <motion.div ref={ref} style={{ scale }}>
       {children}
     </motion.div>
   );

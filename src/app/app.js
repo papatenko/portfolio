@@ -38,7 +38,9 @@ function App() {
         and other projects will be added soon...
       </h1>
 
-      <Footer links={Links} />
+      <section id="contact">
+        <Footer links={Links} />
+      </section>
     </div>
   );
 }

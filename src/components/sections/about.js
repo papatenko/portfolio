@@ -42,20 +42,16 @@ function About({ icons }) {
             ease: [0, 0.7, 0.2, 1],
           }}
         >
-          Hello, I'm{" "}
-          <span className="text-background bg-primary p-2 lg:p-4 rounded-xl lg:rounded-2xl box-shadow">
-            PapaTenko
+          Hello, I'm
+          <span className="md:text-background md:bg-primary p-2 md:p-4 md:m-2 md:rounded-2xl box-shadow">
+            Justin Kondratenko
           </span>{" "}
           <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center">
-            My real name is{" "}
-            <span className="text-background bg-primary p-2 lg:p-4 rounded-xl lg:rounded-2xl box-shadow">
-              Justin Kondratenko
-            </span>{" "}
+            I'm a digital designer, video editor, web developer, and...
           </div>
-          <p>
-            I'm a digital designer, video editor, web developer, and so much
-            more!
-          </p>
+          <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center">
+            Well, a lot more but it would be better if I just showed you!
+          </div>
         </motion.div>
       </motion.div>
     </div>

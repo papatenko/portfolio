@@ -47,9 +47,9 @@ function DarkmodeToggle() {
     /* onClick bounce animation */
     <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
       {currentTheme === "dark" ? (
-        <Moon className="size-8 text-primary mr-1 ml-4" onClick={toggleTheme} />
+        <Moon className="size-8 text-primary" onClick={toggleTheme} />
       ) : (
-        <Sun className="size-8 text-primary mr-1 ml-4" onClick={toggleTheme} />
+        <Sun className="size-8 text-primary" onClick={toggleTheme} />
       )}
     </motion.div>
   );
