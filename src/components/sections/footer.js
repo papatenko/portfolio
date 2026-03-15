@@ -6,6 +6,7 @@ import {
   Github,
   Braces,
   Code,
+  Computer,
 } from "lucide-react";
 
 function Footer({ links }) {
@@ -19,6 +20,7 @@ function Footer({ links }) {
     Github: <Github size={iconSize} />,
     Leetcode: <Braces size={iconSize} />,
     Code: <Code size={iconSize} />,
+    Devpost: <Computer size={iconSize} />,
   };
 
   const IconPlusLink = ({ iconName, link, text }) => {
