@@ -33,7 +33,7 @@ function App() {
         <WideCarousel cards={Logos} title="Logos" direction="forward" />
       </section>
       <h1 className="flex text-center justify-center text-2xl font-bold rounded-lg p-2 text-primary">
-        Websites, videos, job and volunteer experience,
+        Job, volunteer experience,
         <br />
         and other projects will be added soon...
       </h1>
