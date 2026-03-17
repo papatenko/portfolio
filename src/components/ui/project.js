@@ -18,7 +18,7 @@ const Project = ({ id, title, year, url, alt, github, demo, desc }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="bg-secondary/50 rounded-full flex flex-row items-center p-2 md:p-4 box-shadow border-solid border-2 border-secondary/10"
+      className="bubble rounded-full flex flex-row items-center p-2 md:p-4 box-shadow"
     >
       <motion.div
         whileHover={{ scale: 1.1 }}

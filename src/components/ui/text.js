@@ -43,7 +43,7 @@ function Text({ title, year, desc, github, demo, project = false }) {
           </div>
         </h1>
       ) : (
-        <h1 className="flex text-2xl font-bold bg-secondary/50 rounded-lg p-2 text-paragraph box-shadow border-solid border-2 border-secondary/10">
+        <h1 className="flex text-2xl font-bold rounded-lg p-2 text-paragraph box-shadow bubble">
           {title} ({year})
         </h1>
       )}

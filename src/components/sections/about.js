@@ -16,20 +16,18 @@ function About({ icons }) {
         }}
       >
         {/* TODO: Add animation that switches between profile pictures */}
-        <AnimatePresence>
-          <motion.img
-            className="rounded-full h-72 lg:h-72 box-shadow"
-            src={process.env.PUBLIC_URL + icons[0].url}
-            alt={icons[0].name}
-            initial={{ opacity: 0, x: 10 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{
-              duration: 0.5,
-              delay: 1,
-              ease: [0, 0.7, 0.2, 1],
-            }}
-          />
-        </AnimatePresence>
+        <motion.img
+          className="rounded-full h-72 lg:h-72 box-shadow"
+          src={process.env.PUBLIC_URL + icons[0].url}
+          alt={icons[0].name}
+          initial={{ opacity: 0, x: 10 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            duration: 0.5,
+            delay: 1,
+            ease: [0, 0.7, 0.2, 1],
+          }}
+        />
 
         {/* Right Text with a slide over animation */}
         <motion.div
