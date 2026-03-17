@@ -8,6 +8,7 @@ import {
   TallCarousel,
   Projects,
 } from "components";
+import Timeline from "components/ui/timeline";
 
 function App() {
   return (
@@ -16,6 +17,12 @@ function App() {
         <Header />
         <About icons={Icons} />
         <Arrows />
+      </section>
+      <section
+        id="experience"
+        className="flex flex-col justify-center items-center"
+      >
+        <Timeline />
       </section>
       <section
         className="flex flex-col justify-center items-center"
