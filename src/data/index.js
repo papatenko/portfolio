@@ -4,3 +4,4 @@ export { default as Logos } from "data/arts/logos.json";
 export { default as Links } from "data/about/links.json";
 export { default as Icons } from "data/about/icons.json";
 export { default as Websites } from "data/projects/websites.json";
+export { Experience } from "data/about/experience.js";

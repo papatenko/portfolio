@@ -15,7 +15,7 @@ function Header() {
         ease: [0, 0.7, 0.2, 1],
       }}
     >
-      <div className="hidden md:flex items-center text-4xl text-primary font-bold rounded-full p-2 pr-4 bubble">
+      <div className="hidden md:flex items-center text-4xl text-primary font-bold rounded-full p-2 pr-4 bubble backdrop-blur-xl">
         <motion.div
           className="bg-primary p-2 rounded-full mr-2 text-background"
           initial={{ opacity: 1 }}
@@ -28,7 +28,7 @@ function Header() {
         Papatenko
       </div>
 
-      <div className="flex gap-2 md:gap-4 items-center text-xl md:text-2xl text-background font-bold rounded-full p-2 bubble">
+      <div className="flex gap-2 md:gap-4 items-center text-xl md:text-2xl text-background font-bold rounded-full p-2 bubble backdrop-blur-xl">
         <Hyperlink href="#projects">Projects</Hyperlink>
         <Hyperlink href="#artwork">Artwork</Hyperlink>
         <Hyperlink href="#contact">Contact</Hyperlink>

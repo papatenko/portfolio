@@ -1,26 +1,5 @@
 import { Chrono } from "react-chrono";
 
-const items = [
-  {
-    title: "January 2022",
-    cardTitle: "1",
-    cardSubtitle: "Event 1 Subtitle",
-    cardDetailedText: "This is the first event on the timeline.",
-  },
-  {
-    title: "February 2022",
-    cardTitle: "2",
-    cardSubtitle: "Event 2 Subtitle",
-    cardDetailedText: "This is the second event on the timeline.",
-  },
-  {
-    title: "March 2022",
-    cardTitle: "3",
-    cardSubtitle: "Event 3 Subtitle",
-    cardDetailedText: "This is the third event on the timeline.",
-  },
-];
-
 export const lightTheme = {
   primary: "#293161",
   secondary: "#7a89dc",
@@ -39,11 +18,14 @@ export const darkTheme = {
   titleColorActive: "#0f101a",
 };
 
-const VerticalTimeline = () => {
+const VerticalTimeline = ({ experience, title }) => {
   return (
     <div className="max-w-7xl">
+      <h1 className="flex justify-center text-2xl font-bold rounded-lg p-2 text-primary">
+        {title}
+      </h1>
       <Chrono
-        items={items}
+        items={experience}
         mode="VERTICAL_ALTERNATING"
         disableToolbar={true}
         theme={darkTheme}

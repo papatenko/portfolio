@@ -1,4 +1,12 @@
-import { Thumbnails, Posters, Logos, Links, Icons, Websites } from "data";
+import {
+  Thumbnails,
+  Posters,
+  Logos,
+  Links,
+  Icons,
+  Websites,
+  Experience,
+} from "data";
 import {
   Header,
   Footer,
@@ -7,8 +15,8 @@ import {
   WideCarousel,
   TallCarousel,
   Projects,
+  Timeline,
 } from "components";
-import Timeline from "components/ui/timeline";
 
 function App() {
   return (
@@ -22,7 +30,7 @@ function App() {
         id="experience"
         className="flex flex-col justify-center items-center"
       >
-        <Timeline />
+        <Timeline experience={Experience} title="Experience" />
       </section>
       <section
         className="flex flex-col justify-center items-center"
