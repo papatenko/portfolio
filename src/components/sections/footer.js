@@ -7,11 +7,11 @@ import {
   Braces,
   Code,
   Computer,
+  Mail,
 } from "lucide-react";
 
 function Footer({ links }) {
   const iconSize = 14;
-
   const icons = {
     Copyright: <Copyright size={iconSize} />,
     Linkedin: <Linkedin size={iconSize} />,
@@ -21,42 +21,53 @@ function Footer({ links }) {
     Leetcode: <Braces size={iconSize} />,
     Code: <Code size={iconSize} />,
     Devpost: <Computer size={iconSize} />,
+    Mail: <Mail size={iconSize} />,
   };
 
-  const IconPlusLink = ({ iconName, link, text }) => {
-    return (
-      <a href={link} className="flex gap-2 items-center">
-        {icons[iconName] || <span>Icon not found</span>}
-        <p>{text}</p>
-      </a>
-    );
-  };
+  const IconPlusLink = ({ iconName, link, text }) => (
+    <a
+      href={link}
+      className="flex gap-2 items-center hover:text-primary transition-colors"
+    >
+      {icons[iconName] || <span>Icon not found</span>}
+      <p>{text}</p>
+    </a>
+  );
 
   return (
-    <footer className="md:flex text-center p-4 md:justify-between text-paragraph grid gap-4">
+    <footer className="flex flex-col md:flex-row text-paragraph p-4 gap-6 md:gap-0 md:justify-between md:items-center">
+      {/* Left — copyright + all links */}
       <IconPlusLink
         iconName="Copyright"
         text={new Date().getFullYear() + " Justin Kondratenko"}
       />
-      <div className="grid gap-4 grid-flow-col grid-rows-3 md:grid-rows-1">
-        {links
-          ? links.map((item) => {
-              return (
-                <IconPlusLink
-                  key={item.id}
-                  iconName={item.name}
-                  link={item.link}
-                  text={item.name}
-                />
-              );
-            })
-          : null}
+      <div className="flex flex-wrap gap-4">
+        {links?.map((item) => (
+          <IconPlusLink
+            key={item.id}
+            iconName={item.name}
+            link={item.link}
+            text={item.name}
+          />
+        ))}
+        <IconPlusLink
+          iconName="Code"
+          link="https://github.com/papatenko/portfolio"
+          text="Source Code"
+        />
       </div>
-      <IconPlusLink
-        iconName="Code"
-        link="https://github.com/papatenko/portfolio"
-        text="Source Code"
-      />
+
+      {/* Right — email CTA */}
+      <div className="flex flex-col gap-1">
+        <p className="text-xs text-paragraph/50 uppercase tracking-widest">
+          Contact
+        </p>
+        <IconPlusLink
+          iconName="Mail"
+          link="mailto:justinkondratenko@proton.me"
+          text="justinkondratenko@proton.me"
+        />
+      </div>
     </footer>
   );
 }

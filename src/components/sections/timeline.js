@@ -12,8 +12,10 @@ export const lightTheme = {
 export const darkTheme = {
   primary: "#9ea6d6",
   secondary: "#9ea6d6",
-  cardBgColor: "#0f101a",
+  cardBgColor: "#192150",
+  cardDetailsBackGround: "#192150",
   cardTitleColor: "#ebecef",
+  cardSubtitleColor: "#9ea6d6",
   titleColor: "#9ea6d6",
   titleColorActive: "#0f101a",
 };
@@ -30,7 +32,13 @@ const VerticalTimeline = ({ experience, title }) => {
         disableToolbar={true}
         theme={darkTheme}
         darkMode={{ enabled: true, showToggle: true }}
-        layout={{ itemWidth: 150 }}
+        flipLayout={true}
+        fontSizes={{
+          cardTitle: "1.4rem",
+          cardSubtitle: "1.1rem",
+          cardText: "1.1rem",
+          title: "1.4rem",
+        }}
       />
     </div>
   );

@@ -1,57 +1,69 @@
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 
-// 1. get x motion 2. get repetition 3. animate pfp
+// Stagger helper
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 18 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.55, delay, ease: [0, 0.7, 0.2, 1] },
+});
+
 function About({ icons }) {
   return (
-    <div className="flex grow justify-center items-center">
-      {/* Zoom in animation for center item */}
-      <motion.div
-        className="md:bg-secondary/25 rounded-2xl flex flex-col text-center lg:text-left lg:flex-row gap-8 p-8 lg:gap-12 lg:p-12 items-center md:box-shadow border-solid md:border-2 border-secondary/10"
-        initial={{ opacity: 0, scale: 0.75 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{
-          duration: 0.5,
-          delay: 0.5,
-          ease: [0, 0.7, 0.2, 1],
-        }}
-      >
-        {/* TODO: Add animation that switches between profile pictures */}
+    <div className="flex grow justify-center items-center px-6 py-12">
+      <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 max-w-5xl w-full">
+        {/* ── 4. Professional Photo ── */}
         <motion.img
-          className="rounded-full h-72 lg:h-72 box-shadow"
+          className="rounded-full h-52 w-52 lg:h-64 lg:w-64 object-cover box-shadow flex-shrink-0"
           src={process.env.PUBLIC_URL + icons[0].url}
           alt={icons[0].name}
-          initial={{ opacity: 0, x: 10 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{
-            duration: 0.5,
-            delay: 1,
-            ease: [0, 0.7, 0.2, 1],
-          }}
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.55, delay: 0.3, ease: [0, 0.7, 0.2, 1] }}
         />
 
-        {/* Right Text with a slide over animation */}
-        <motion.div
-          className="text-paragraph font-bold text-2xl md:text-4xl max-w-2xl tracking-wide space-y-4 md:space-y-8"
-          initial={{ opacity: 0, x: -10 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{
-            duration: 0.5,
-            delay: 1.1,
-            ease: [0, 0.7, 0.2, 1],
-          }}
-        >
-          Hello, I'm
-          <span className="md:text-background md:bg-primary p-2 md:p-4 md:m-2 md:rounded-2xl box-shadow">
-            Justin Kondratenko
-          </span>{" "}
-          <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center">
-            I'm a digital designer, video editor, web developer, and...
-          </div>
-          <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center">
-            Well, a lot more but it would be better if I just showed you!
-          </div>
-        </motion.div>
-      </motion.div>
+        {/* ── Right Column ── */}
+        <div className="flex flex-col text-center lg:text-left gap-5 max-w-xl">
+          {/* ── 2. Specific Headline ── */}
+          <motion.h1
+            className="text-paragraph font-bold text-3xl md:text-5xl leading-tight tracking-tight"
+            {...fadeUp(0.45)}
+          >
+            Full-Stack Engineer,&nbsp;
+            <span className="text-primary">UI/UX Designer</span>
+            &nbsp;&amp;&nbsp;
+            <span className="text-primary">Digital Artist</span>
+          </motion.h1>
+
+          {/* ── 3. Supporting Tagline ── */}
+          <motion.p
+            className="text-paragraph/70 text-base md:text-lg font-medium leading-relaxed"
+            {...fadeUp(0.6)}
+          >
+            I build fast, accessible web apps — from Figma mockups to production
+            deploys. 3+ years turning complex problems into clean, delightful
+            interfaces. I love to code, design and create art.
+          </motion.p>
+
+          {/* ── 5. Call to Action ── */}
+          <motion.div
+            className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mt-2"
+            {...fadeUp(0.75)}
+          >
+            <a
+              href="#websites"
+              className="bg-primary text-background font-semibold px-6 py-3 rounded-xl box-shadow hover:opacity-90 transition-opacity text-sm md:text-base"
+            >
+              View My Websites
+            </a>
+            <a
+              href="#contact"
+              className="border-2 border-secondary/30 text-paragraph font-semibold px-6 py-3 rounded-xl hover:border-primary/60 transition-colors text-sm md:text-base"
+            >
+              Get in Touch
+            </a>
+          </motion.div>
+        </div>
+      </div>
     </div>
   );
 }

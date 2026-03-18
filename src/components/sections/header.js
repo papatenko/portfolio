@@ -5,16 +5,7 @@ import { motion } from "motion/react";
 function Header() {
   return (
     /* Cross dissolve animation */
-    <motion.header
-      className="sticky top-0 flex p-4 justify-center md:justify-between"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{
-        delay: 1,
-        duration: 1,
-        ease: [0, 0.7, 0.2, 1],
-      }}
-    >
+    <header className="flex p-4 justify-center md:justify-between">
       <div className="hidden md:flex items-center text-4xl text-primary font-bold rounded-full p-2 pr-4 bubble backdrop-blur-xl">
         <motion.div
           className="bg-primary p-2 rounded-full mr-2 text-background"
@@ -29,14 +20,16 @@ function Header() {
       </div>
 
       <div className="flex gap-2 md:gap-4 items-center text-xl md:text-2xl text-background font-bold rounded-full p-2 bubble backdrop-blur-xl">
-        <Hyperlink href="#projects">Projects</Hyperlink>
+        <Hyperlink href="#experience">Experience</Hyperlink>
+        <Hyperlink href="#websites">Websites</Hyperlink>
         <Hyperlink href="#artwork">Artwork</Hyperlink>
         <Hyperlink href="#contact">Contact</Hyperlink>
-        <div className="pr-2">
+        {/* Needs to be hidden to keep dark mode working */}
+        <div className="hidden pr-2">
           <ThemeToggle />
         </div>
       </div>
-    </motion.header>
+    </header>
   );
 }
 

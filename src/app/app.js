@@ -22,7 +22,9 @@ function App() {
   return (
     <div className="flex flex-col justify-between ">
       <section className="min-h-screen flex flex-col">
-        <Header />
+        <header className="fixed top-0 left-0 right-0 z-50">
+          <Header />
+        </header>
         <About icons={Icons} />
         <Arrows />
       </section>
@@ -34,7 +36,7 @@ function App() {
       </section>
       <section
         className="flex flex-col justify-center items-center"
-        id="projects"
+        id="websites"
       >
         <Projects projects={Websites} title="Websites" />
       </section>
@@ -47,14 +49,8 @@ function App() {
         />
         <WideCarousel cards={Logos} title="Logos" direction="forward" />
       </section>
-      <h1 className="flex text-center justify-center text-2xl font-bold rounded-lg p-2 text-primary">
-        Job, volunteer experience,
-        <br />
-        and other projects will be added soon...
-      </h1>
-
       <section id="contact">
-        <Footer links={Links} />
+        <Footer links={Links} title="Contact" />
       </section>
     </div>
   );
