@@ -3,7 +3,7 @@ FROM node:alpine AS build
 WORKDIR /app
 COPY package*.json ./
 RUN npm config set legacy-peer-deps true
-RUN npm i # like npm install but for CI server
+RUN npm i --legacy-peer-deps # like npm install but for CI server
 COPY . .
 
 # Development stage w/ dev dependencies
