@@ -19,7 +19,7 @@ function Header() {
         Papatenko
       </div>
 
-      <div className="flex gap-2 md:gap-4 items-center text-xl md:text-2xl text-background font-bold rounded-full p-2 bubble backdrop-blur-xl">
+      <div className="flex gap-2 md:gap-4 items-center text-md md:text-2xl text-background font-bold rounded-full p-2 bubble backdrop-blur-xl">
         <Hyperlink href="#experience">Experience</Hyperlink>
         <Hyperlink href="#websites">Websites</Hyperlink>
         <Hyperlink href="#artwork">Artwork</Hyperlink>
