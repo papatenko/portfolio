@@ -2,6 +2,7 @@
 FROM node:alpine AS build
 WORKDIR /app
 COPY package*.json ./
+RUN npm config set legacy-peer-deps true
 RUN npm ci # like npm install but for CI server
 COPY . .
 
@@ -17,4 +18,5 @@ CMD ["npm", "start"]
 FROM build AS production
 RUN npm run build
 EXPOSE 4000
+
 CMD ["npx", "serve", "-s", "build", "-l", "4000"]
