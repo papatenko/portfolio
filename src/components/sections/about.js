@@ -9,7 +9,7 @@ const fadeUp = (delay = 0) => ({
 
 function About({ icons }) {
   return (
-    <div className="flex grow justify-center items-center px-6 py-12">
+    <div className="flex grow justify-center items-center px-6 py-24">
       <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 max-w-5xl w-full">
         {/* ── 4. Professional Photo ── */}
         <motion.img
