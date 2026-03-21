@@ -13,4 +13,11 @@ export const Experience = [
     cardDetailedText:
       "Redesigned mobile UI with TailwindCSS driving a 20% increase in mobile traffic. Architected a 40+ node user flow diagram and built a full-stack data modeling app using React, Firebase, and Electron visualizing 100+ data entries.",
   },
+  {
+    title: "September 2021 - May 2022",
+    cardTitle: "Computer Science Club Historian",
+    cardSubtitle: "Mayde Creek High School",
+    cardDetailedText:
+      "Competed in several competitions where I flexed my programming skills and won 13th to last place. I also competed in Cyber Patriot where I learned about Linux and how bad Window's Security is by default.",
+  },
 ];
