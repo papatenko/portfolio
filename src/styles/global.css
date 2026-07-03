@@ -23,6 +23,7 @@
   --glow-gold: rgba(232, 135, 30, 0.30);
   --glow-pink: rgba(194, 24, 91, 0.22);
   --glow-red: rgba(214, 40, 57, 0.16);
+  --grain-opacity: 0.15;
   --radius: 12px;
   --radius-sm: 8px;
   --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
@@ -33,26 +34,28 @@
   --container: 1100px;
 }
 
-/* Dark variant — warm gray with the same gold/pink accents */
+/* Dark variant — muted gray with pastel tropical takes on the
+   banner colors (soft mango gold, pastel hibiscus pink, coral) */
 html[data-theme='dark'] {
-  --bg: #171314;
-  --bg-soft: #1e191a;
-  --surface: #221c1e;
-  --surface-2: #2a2224;
-  --border: rgba(240, 98, 146, 0.14);
-  --border-strong: rgba(240, 98, 146, 0.34);
-  --text: #f3ebec;
-  --text-muted: #b0a2a5;
-  --accent: #f06292;
-  --accent-strong: #d6336c;
-  --accent-soft: rgba(240, 98, 146, 0.10);
-  --gold: #f4a340;
-  --shadow-card: 0 18px 44px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(240, 98, 146, 0.08);
-  --shadow-card-hover: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(240, 98, 146, 0.16);
+  --bg: #1e1c1d;
+  --bg-soft: #252223;
+  --surface: #2a2728;
+  --surface-2: #332f30;
+  --border: rgba(242, 160, 184, 0.15);
+  --border-strong: rgba(242, 160, 184, 0.36);
+  --text: #f2eeee;
+  --text-muted: #b7aeb0;
+  --accent: #f2a0b8; /* pastel hibiscus */
+  --accent-strong: #e0708f;
+  --accent-soft: rgba(242, 160, 184, 0.10);
+  --gold: #f6c778; /* pastel mango */
+  --shadow-card: 0 18px 44px rgba(0, 0, 0, 0.42), 0 0 0 1px rgba(242, 160, 184, 0.08);
+  --shadow-card-hover: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(242, 160, 184, 0.16);
   --icon-filter: invert(0.9) sepia(0.12) saturate(1.5) hue-rotate(-15deg);
-  --glow-gold: rgba(232, 135, 30, 0.13);
-  --glow-pink: rgba(214, 51, 108, 0.12);
-  --glow-red: rgba(214, 40, 57, 0.08);
+  --glow-gold: rgba(246, 199, 120, 0.14);
+  --glow-pink: rgba(242, 160, 184, 0.13);
+  --glow-red: rgba(240, 128, 128, 0.09); /* soft coral */
+  --grain-opacity: 0.22;
 }
 
 /* ============================================================
@@ -94,13 +97,33 @@ body {
   transition: background 250ms ease;
 }
 .backdrop::after {
-  /* film grain — the banner's signature texture */
+  /* film grain — the banner's signature texture. Chunkier noise
+     (lower frequency, higher contrast) so it reads like the grainy
+     gradients it's based on, not a faint haze. */
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.62' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='discrete' tableValues='0 0.25 0.5 0.75 1'/%3E%3CfeFuncG type='discrete' tableValues='0 0.25 0.5 0.75 1'/%3E%3CfeFuncB type='discrete' tableValues='0 0.25 0.5 0.75 1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: var(--grain-opacity, 0.15);
   mix-blend-mode: overlay;
+}
+/* extra grain pass concentrated where the color glows live, so the
+   gradient itself looks grainy (soft-light keeps midtones clean) */
+.backdrop::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)'/%3E%3C/svg%3E");
+  opacity: calc(var(--grain-opacity, 0.15) * 0.8);
+  mix-blend-mode: soft-light;
+  mask-image:
+    radial-gradient(ellipse 70% 55% at 22% -8%, black, transparent 65%),
+    radial-gradient(ellipse 60% 45% at 90% 14%, black, transparent 66%),
+    radial-gradient(ellipse 65% 50% at 50% 110%, black, transparent 65%);
+  -webkit-mask-image:
+    radial-gradient(ellipse 70% 55% at 22% -8%, black, transparent 65%),
+    radial-gradient(ellipse 60% 45% at 90% 14%, black, transparent 66%),
+    radial-gradient(ellipse 65% 50% at 50% 110%, black, transparent 65%);
 }
 
 h1, h2, h3, h4 {
@@ -344,14 +367,32 @@ html.has-custom-cursor * {
   left: 0;
   z-index: 999;
   pointer-events: none;
-  background: color-mix(in srgb, var(--accent) 14%, transparent);
-  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
-  box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 18%, transparent);
+  display: grid;
+  place-items: center;
+  /* free-roaming: transparent box, the banana IS the cursor */
+  background: transparent;
+  border: 1px solid transparent;
   will-change: transform, width, height, border-radius;
-  transition: opacity 200ms ease, background 200ms ease;
+  transition:
+    opacity 200ms ease,
+    background 250ms ease,
+    border-color 250ms ease,
+    box-shadow 250ms ease;
 }
-.cursor-blob.on-target {
-  background: color-mix(in srgb, var(--accent) 10%, transparent);
+/* bubble chrome appears when morphing onto / growing over elements */
+.cursor-blob.morphed {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+.cursor-blob .banana {
+  grid-area: 1 / 1;
+  filter: drop-shadow(0 2px 4px rgba(90, 30, 45, 0.25));
+  transition: opacity 250ms ease, transform 250ms ease;
+}
+.cursor-blob.morphed .banana {
+  opacity: 0;
+  transform: scale(0.4) rotate(40deg);
 }
 .cursor-blob.hidden { opacity: 0; }
 

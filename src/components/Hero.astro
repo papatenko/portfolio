@@ -22,22 +22,47 @@ import SocialLinks from './SocialLinks.astro';
     </div>
   </div>
 
-  <div class="hero-terminal" data-enter style="--enter-i: 3">
-    <div class="terminal" role="img" aria-label="Decorative terminal window">
-      <div class="terminal-bar">
-        <span class="dot dot-r"></span>
-        <span class="dot dot-y"></span>
-        <span class="dot dot-g"></span>
-        <span class="title">justin@homelab: ~</span>
-      </div>
-      <div class="terminal-body">
-        <div><span class="prompt">~$</span> <span class="cmd">cat stack.txt</span></div>
-        <div class="out">typescript · react · node · python</div>
-        <div class="out">docker · proxmox · linux · nginx</div>
-        <div><span class="prompt">~$</span> <span class="cmd">systemctl status portfolio</span></div>
-        <div class="out"><span class="ok">●</span> active (running) — self-hosted</div>
-        <div><span class="prompt">~$</span> <span class="cmd">./deploy.sh --agents</span></div>
-        <div class="out">✓ ai automations online</div>
+  <div class="hero-visual" data-enter style="--enter-i: 3">
+    <!-- 3D flip card: terminal ↔ profile photo. Auto-flips slowly;
+         click / Enter flips manually; tilts toward the mouse. -->
+    <div
+      class="flip"
+      id="hero-flip"
+      role="button"
+      tabindex="0"
+      aria-label="Flip card showing a terminal window and Justin's profile photo. Press to flip."
+    >
+      <div class="flip-inner">
+        <div class="face front">
+          <div class="terminal">
+            <div class="terminal-bar">
+              <span class="dot dot-r"></span>
+              <span class="dot dot-y"></span>
+              <span class="dot dot-g"></span>
+              <span class="title">justin@homelab: ~</span>
+            </div>
+            <div class="terminal-body">
+              <div><span class="prompt">~$</span> <span class="cmd">cat stack.txt</span></div>
+              <div class="out">typescript · react · node · python</div>
+              <div class="out">docker · proxmox · linux · nginx</div>
+              <div><span class="prompt">~$</span> <span class="cmd">systemctl status portfolio</span></div>
+              <div class="out"><span class="ok">●</span> active (running) — self-hosted</div>
+              <div><span class="prompt">~$</span> <span class="cmd">./deploy.sh --agents</span></div>
+              <div class="out">✓ ai automations online</div>
+            </div>
+          </div>
+        </div>
+        <div class="face back">
+          <img
+            src="/images/profile.jpg"
+            alt="Portrait of Justin Kondratenko"
+            width="800"
+            height="800"
+            loading="eager"
+            decoding="async"
+          />
+          <span class="back-caption mono">~$ whoami --photo</span>
+        </div>
       </div>
     </div>
   </div>
@@ -80,6 +105,51 @@ import SocialLinks from './SocialLinks.astro';
   }
   .ok { color: #34d399; } /* terminal status green — theme-independent */
 
+  /* ── Flip card (terminal ↔ profile photo) ─────────────────── */
+  .hero-visual { perspective: 1200px; }
+  .flip {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 550ms var(--ease);
+    will-change: transform;
+    border-radius: var(--radius);
+  }
+  .flip.tilting { transition: transform 120ms ease-out; }
+  .flip-inner {
+    position: relative;
+    transform-style: preserve-3d;
+    /* the slow, noticeable flip */
+    transition: transform 1600ms cubic-bezier(0.45, 0.05, 0.2, 1);
+  }
+  .flip.flipped .flip-inner { transform: rotateY(180deg); }
+  .face { backface-visibility: hidden; }
+  .front { position: relative; }
+  .back {
+    position: absolute;
+    inset: 0;
+    transform: rotateY(180deg);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid rgba(244, 163, 64, 0.35);
+    box-shadow: 0 24px 60px rgba(60, 20, 30, 0.35);
+  }
+  .back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 22%;
+  }
+  .back-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.75rem;
+    color: #f4a340;
+    background: linear-gradient(transparent, rgba(26, 20, 22, 0.85));
+  }
+
   @media (max-width: 860px) {
     .hero {
       grid-template-columns: 1fr;
@@ -120,5 +190,48 @@ import SocialLinks from './SocialLinks.astro';
       setTimeout(tick, delay);
     };
     setTimeout(tick, 1800);
+  }
+
+  // ── Hero flip card: terminal ↔ profile photo ────────────────
+  const flip = document.getElementById('hero-flip');
+  if (flip) {
+    const FLIP_EVERY = 7000; // slow but noticeable
+    let hovering = false;
+
+    const toggle = () => flip.classList.toggle('flipped');
+
+    // Auto-flip on an interval (skipped for reduced motion, paused on hover)
+    if (!reduced) {
+      setInterval(() => {
+        if (!hovering) toggle();
+      }, FLIP_EVERY);
+    }
+
+    // Manual flip: click / Enter / Space
+    flip.addEventListener('click', toggle);
+    flip.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggle();
+      }
+    });
+
+    // 3D tilt toward the mouse (same feel as the project cards)
+    const fine = window.matchMedia('(pointer: fine)').matches;
+    if (fine && !reduced) {
+      flip.addEventListener('mouseenter', () => (hovering = true));
+      flip.addEventListener('mousemove', (e) => {
+        const r = flip.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        flip.classList.add('tilting');
+        flip.style.transform = `rotateX(${(-py * 10).toFixed(2)}deg) rotateY(${(px * 12).toFixed(2)}deg) scale3d(1.02, 1.02, 1.02)`;
+      });
+      flip.addEventListener('mouseleave', () => {
+        hovering = false;
+        flip.classList.remove('tilting');
+        flip.style.transform = '';
+      });
+    }
   }
 </script>
