@@ -1,7 +1,5 @@
 node_modules/
 dist/
 .astro/
-.turbo/
 .DS_Store
 *.log
-.env

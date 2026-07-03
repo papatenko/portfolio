@@ -1,15 +1,17 @@
 {
-  "name": "justin-kondratenko-portfolio",
-  "type": "module",
-  "version": "1.0.0",
+  "name": "papatenko-portfolio",
   "private": true,
+  "packageManager": "npm@10.9.2",
+  "workspaces": [
+    "apps/*"
+  ],
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "build:dev": "turbo run build --filter=dev",
+    "build:creative": "turbo run build --filter=creative"
   },
-  "dependencies": {
-    "astro": "^5.1.0"
+  "devDependencies": {
+    "turbo": "^2.3.0"
   }
 }

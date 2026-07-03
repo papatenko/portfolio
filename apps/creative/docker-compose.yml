@@ -1,0 +1,8 @@
+# Replaces the old React app at papatenko.org: `docker compose up -d --build`
+services:
+  papatenko-creative:
+    build: .
+    container_name: papatenko-creative
+    restart: unless-stopped
+    ports:
+      - '8086:80'

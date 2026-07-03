@@ -1,0 +1,201 @@
+/* ============================================================
+   PAPATENKO CREATIVE — same banner DNA (white/gold/pink-red),
+   turned up: sticker cards, hard shadows, wobble, heavy grain.
+   ============================================================ */
+:root {
+  --bg: #faf6ef;
+  --ink: #2a1a1f;
+  --paper: #ffffff;
+  --pink: #c2185b;
+  --pink-deep: #a4133c;
+  --gold: #e8871e;
+  --gold-soft: #f4a340;
+  --coral: #d62839;
+  --shadow: #2a1a1f;
+  --radius: 14px;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+* , *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Grainy banner backdrop — loud version */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse 65% 55% at 15% 0%, rgba(232, 135, 30, 0.4), transparent 62%),
+    radial-gradient(ellipse 60% 50% at 95% 20%, rgba(194, 24, 91, 0.32), transparent 64%),
+    radial-gradient(ellipse 70% 55% at 45% 110%, rgba(214, 40, 57, 0.24), transparent 62%),
+    var(--bg);
+}
+.backdrop::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.62' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='discrete' tableValues='0 0.25 0.5 0.75 1'/%3E%3CfeFuncG type='discrete' tableValues='0 0.25 0.5 0.75 1'/%3E%3CfeFuncB type='discrete' tableValues='0 0.25 0.5 0.75 1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.2;
+  mix-blend-mode: overlay;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.6rem;
+}
+h1 { font-size: clamp(2.6rem, 9vw, 5.5rem); }
+h2 { font-size: clamp(1.8rem, 5vw, 3rem); }
+p { margin: 0 0 1rem; }
+
+a { color: var(--pink); }
+a:hover { color: var(--ink); }
+img { max-width: 100%; height: auto; display: block; }
+.mono { font-family: var(--font-mono); }
+
+::selection { background: var(--gold); color: var(--ink); }
+:focus-visible { outline: 3px solid var(--pink); outline-offset: 3px; border-radius: 4px; }
+
+.skip-link {
+  position: absolute; left: 1rem; top: -3.5rem; z-index: 100;
+  background: var(--ink); color: var(--bg);
+  padding: 0.5rem 1rem; border-radius: 8px;
+  transition: top 180ms ease;
+}
+.skip-link:focus { top: 1rem; }
+
+.container { width: min(1150px, 100% - 2.5rem); margin-inline: auto; }
+.section { padding-block: clamp(3.5rem, 9vw, 6rem); }
+
+.section-title {
+  display: inline-block;
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  box-shadow: 5px 5px 0 var(--shadow);
+  padding: 0.4rem 1.4rem;
+  transform: rotate(-1.5deg);
+  margin-bottom: 2rem;
+}
+
+/* ── Sticker cards: thick border + hard offset shadow ────────── */
+.sticker {
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 6px 6px 0 var(--shadow);
+  transition:
+    transform 300ms var(--ease-spring),
+    box-shadow 300ms var(--ease-spring);
+}
+.sticker:hover,
+.sticker:focus-within {
+  transform: translate(-3px, -3px) rotate(var(--tilt, 0deg)) scale(1.015);
+  box-shadow: 10px 10px 0 var(--pink);
+}
+
+/* ── Big goofy button ────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.75rem 1.6rem;
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  background: var(--gold-soft);
+  color: var(--ink);
+  text-decoration: none;
+  box-shadow: 5px 5px 0 var(--shadow);
+  cursor: pointer;
+  transition: transform 250ms var(--ease-spring), box-shadow 250ms var(--ease-spring), background 200ms ease;
+}
+.btn:hover {
+  transform: translate(-2px, -2px) rotate(-1deg);
+  box-shadow: 8px 8px 0 var(--pink);
+  background: var(--gold);
+  color: var(--ink);
+}
+.btn:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--shadow); }
+.btn.pink { background: var(--pink); color: #fff; }
+.btn.pink:hover { background: var(--pink-deep); color: #fff; }
+
+/* ── Marquee ─────────────────────────────────────────────────── */
+.marquee {
+  overflow: hidden;
+  border-block: 3px solid var(--ink);
+  background: var(--pink);
+  color: #fff;
+  transform: rotate(-1deg) scale(1.02);
+  padding-block: 0.55rem;
+}
+.marquee-track {
+  display: flex;
+  gap: 2.5rem;
+  width: max-content;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  animation: scroll 28s linear infinite;
+}
+.marquee-track span::after { content: ' ★'; color: var(--gold-soft); }
+@keyframes scroll { to { transform: translateX(-50%); } }
+
+/* ── Scroll reveal (springy) ─────────────────────────────────── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(22px) rotate(var(--tilt, 0deg));
+  transition: opacity 650ms ease, transform 650ms var(--ease-spring);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+[data-reveal].revealed { opacity: 1; transform: rotate(var(--tilt, 0deg)); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  [data-reveal] { opacity: 1; transform: none; }
+  .marquee-track { animation: none; }
+}
+
+/* ── Banana cursor (the mascot) ──────────────────────────────── */
+html.has-custom-cursor, html.has-custom-cursor * { cursor: none !important; }
+.cursor-blob {
+  position: fixed; top: 0; left: 0; z-index: 999;
+  pointer-events: none;
+  display: grid; place-items: center;
+  background: transparent;
+  border: 2px solid transparent;
+  will-change: transform, width, height, border-radius;
+  transition: opacity 200ms ease, background 250ms ease, border-color 250ms ease;
+}
+.cursor-blob.morphed {
+  background: rgba(194, 24, 91, 0.14);
+  border-color: rgba(194, 24, 91, 0.45);
+}
+.cursor-blob .banana {
+  grid-area: 1 / 1;
+  filter: drop-shadow(2px 3px 0 rgba(42, 26, 31, 0.35));
+  transition: opacity 250ms ease, transform 250ms ease;
+}
+.cursor-blob.morphed .banana { opacity: 0; transform: scale(0.4) rotate(60deg); }
+.cursor-blob.hidden { opacity: 0; }

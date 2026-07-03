@@ -1,6 +1,8 @@
+# Deploys the DEV portfolio (apps/dev) — the justinkondratenko Netlify project.
+# Netlify reads this from the repo root, so no dashboard changes are needed.
 [build]
-  command = "npm run build"
-  publish = "dist"
+  command = "npx turbo run build --filter=dev"
+  publish = "apps/dev/dist"
 
 [build.environment]
   NODE_VERSION = "22"

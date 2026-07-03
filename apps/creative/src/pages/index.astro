@@ -1,0 +1,285 @@
+---
+import Base from '../layouts/Base.astro';
+import { site, videos, art } from '../data/content';
+
+const letters = 'PAPATENKO'.split('');
+const kinds = ['all', 'thumbnail', 'poster', 'logo'];
+---
+
+<Base>
+  <!-- ══ HERO ══════════════════════════════════════════════════ -->
+  <header class="hero container">
+    <div class="hero-top">
+      <img class="avatar sticker" src="/art/pixel-pfp-transparent.png" alt="Pixel-art avatar of Justin Kondratenko" width="120" height="120" />
+      <a class="btn dev-link" href={site.devSite}>
+        &lt;/&gt; I also write code — justinkondratenko.dev
+      </a>
+    </div>
+
+    <h1 class="wordmark" aria-label="Papatenko">
+      {letters.map((l, i) => (
+        <span class="letter" style={`--i: ${i}; --rot: ${((i * 7) % 5) - 2}deg`}>{l}</span>
+      ))}
+    </h1>
+    <p class="tagline mono">{site.tagline}</p>
+    <p class="byline">
+      The creative half of <strong>{site.realName}</strong> — I edit videos people finish
+      watching and design thumbnails people actually click.
+    </p>
+    <div class="hero-cta">
+      <a href="#videos" class="btn pink">Watch the work</a>
+      <a href="#art" class="btn">See the art</a>
+      <a href={`mailto:${site.email}`} class="btn">Hire me</a>
+    </div>
+  </header>
+
+  <!-- ══ MARQUEE ═══════════════════════════════════════════════ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      {[...site.marquee, ...site.marquee].map((m) => <span>{m}</span>)}
+    </div>
+  </div>
+
+  <!-- ══ VIDEO WORK ════════════════════════════════════════════ -->
+  <section id="videos" class="section container" aria-labelledby="videos-title">
+    <h2 id="videos-title" class="section-title">Video work 🎬</h2>
+    <div class="video-grid">
+      {videos.map((v) => (
+        <article class="sticker video-card" data-reveal style={`--tilt: ${(Math.random() * 3 - 1.5).toFixed(1)}deg`}>
+          <button
+            class="yt-lite"
+            data-video-id={v.videoId}
+            aria-label={`Play: ${v.title} by ${v.client}`}
+          >
+            <img
+              src={`https://i.ytimg.com/vi/${v.videoId}/hqdefault.jpg`}
+              alt={`${v.title} thumbnail`}
+              loading="lazy"
+              width="480"
+              height="270"
+            />
+            <span class="play" aria-hidden="true">▶</span>
+          </button>
+          <div class="video-body">
+            <p class="client mono">
+              <a href={v.channelUrl} target="_blank" rel="noopener noreferrer">@{v.client}</a>
+            </p>
+            <h3>{v.title}</h3>
+            <p class="role">{v.role}</p>
+            <p class="blurb">{v.blurb}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- ══ ART GALLERY ═══════════════════════════════════════════ -->
+  <section id="art" class="section container" aria-labelledby="art-title">
+    <h2 id="art-title" class="section-title">Recent art 🎨</h2>
+    <div class="filters" role="group" aria-label="Filter artwork by type">
+      {kinds.map((k, i) => (
+        <button class={`btn filter ${i === 0 ? 'active' : ''}`} data-kind={k}>
+          {k === 'all' ? 'everything' : `${k}s`}
+        </button>
+      ))}
+    </div>
+    <div class="art-grid">
+      {art.map((a) => (
+        <figure
+          class="sticker art-card"
+          data-reveal
+          data-kind={a.kind}
+          style={`--tilt: ${a.tilt}deg`}
+        >
+          {a.link ? (
+            <a href={a.link} target="_blank" rel="noopener noreferrer">
+              <img src={a.src} alt={`${a.title} — ${a.kind}`} loading="lazy" />
+            </a>
+          ) : (
+            <img src={a.src} alt={`${a.title} — ${a.kind}`} loading="lazy" />
+          )}
+          <figcaption>
+            <span class="art-title">{a.title}</span>
+            <span class="art-meta mono">{a.kind} · {a.year}</span>
+            <span class="art-desc">{a.desc}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+    <p class="archive-note">
+      Older stuff (2017–2023 logo archaeology included) lives in the
+      <a href="https://old.papatenko.org/" target="_blank" rel="noopener noreferrer">archive</a>.
+    </p>
+  </section>
+
+  <!-- ══ FOOTER / CONTACT ══════════════════════════════════════ -->
+  <footer class="section container footer" id="contact">
+    <h2 class="section-title">Let's make something 🍌</h2>
+    <p class="footer-pitch">
+      Commercials, YouTube edits, thumbnails, logos, posters — if it needs to look good and
+      feel fun, I'm in. Serious inquiries also accepted (I clean up nice:
+      <a href={site.devSite}>see the engineer version of me</a>).
+    </p>
+    <div class="footer-links">
+      <a class="btn pink" href={`mailto:${site.email}`}>{site.email}</a>
+      <a class="btn" href={site.social.upwork} target="_blank" rel="noopener noreferrer">Upwork</a>
+      <a class="btn" href={site.social.youtube} target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a class="btn" href={site.social.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a class="btn" href={site.social.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+    <p class="copyright mono">© {new Date().getFullYear()} {site.realName} · built weird on purpose</p>
+  </footer>
+</Base>
+
+<style>
+  /* ── hero ── */
+  .hero { padding-block: clamp(2.5rem, 7vw, 5rem) 2rem; }
+  .hero-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  .avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 22px;
+    image-rendering: pixelated;
+    transform: rotate(-3deg);
+  }
+  .dev-link { font-size: 0.9rem; }
+  .wordmark {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.02em;
+    margin: 0;
+  }
+  .letter {
+    display: inline-block;
+    transform: rotate(var(--rot));
+    animation: pop-in 600ms var(--ease-spring) both;
+    animation-delay: calc(var(--i) * 70ms);
+    transition: transform 250ms var(--ease-spring), color 200ms ease;
+  }
+  .letter:nth-child(3n) { color: var(--pink); }
+  .letter:nth-child(3n + 1) { color: var(--gold); }
+  .letter:hover { transform: rotate(calc(var(--rot) * -2)) translateY(-8px) scale(1.1); }
+  @keyframes pop-in {
+    from { opacity: 0; transform: translateY(30px) rotate(var(--rot)) scale(0.8); }
+    to { opacity: 1; transform: rotate(var(--rot)); }
+  }
+  .tagline { color: var(--pink-deep); font-size: clamp(0.9rem, 2.5vw, 1.15rem); margin: 0.6rem 0 1rem; }
+  .byline { max-width: 52ch; font-size: 1.1rem; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 1.6rem; }
+
+  /* ── video grid ── */
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr));
+    gap: 1.8rem;
+  }
+  .video-card { overflow: hidden; border-radius: var(--radius); }
+  .yt-lite {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    border-bottom: 3px solid var(--ink);
+    background: var(--ink);
+    cursor: pointer;
+  }
+  .yt-lite img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+  .yt-lite .play {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: 1.4rem;
+    color: var(--ink);
+  }
+  .yt-lite .play::before {
+    content: '';
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    background: var(--gold-soft);
+    border: 3px solid var(--ink);
+    border-radius: 50%;
+    box-shadow: 4px 4px 0 rgba(42, 26, 31, 0.55);
+    transition: transform 250ms var(--ease-spring), background 200ms ease;
+  }
+  .yt-lite:hover .play::before { transform: scale(1.15); background: var(--pink); }
+  .yt-lite .play { z-index: 1; }
+  .yt-lite iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    display: block;
+  }
+  .video-body { padding: 1.1rem 1.2rem 1.3rem; }
+  .client { margin: 0 0 0.3rem; font-size: 0.8rem; }
+  .video-body h3 { font-size: 1.15rem; }
+  .role { color: var(--pink-deep); font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem; }
+  .blurb { font-size: 0.92rem; margin: 0; color: #5c4a50; }
+
+  /* ── art gallery ── */
+  .filters { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 2rem; }
+  .filter { font-size: 0.85rem; padding: 0.45rem 1.1rem; background: var(--paper); }
+  .filter.active { background: var(--pink); color: #fff; }
+  .art-grid {
+    columns: 3 300px;
+    column-gap: 1.6rem;
+  }
+  .art-card {
+    margin: 0 0 1.6rem;
+    break-inside: avoid;
+    overflow: hidden;
+    border-radius: var(--radius);
+  }
+  .art-card.hide { display: none; }
+  .art-card img { width: 100%; border-bottom: 3px solid var(--ink); }
+  .art-card figcaption { padding: 0.9rem 1.1rem 1.1rem; display: grid; gap: 0.2rem; }
+  .art-title { font-family: var(--font-display); font-weight: 700; }
+  .art-meta { font-size: 0.72rem; color: var(--pink-deep); }
+  .art-desc { font-size: 0.85rem; color: #5c4a50; }
+  .archive-note { margin-top: 2rem; font-size: 0.9rem; }
+
+  /* ── footer ── */
+  .footer { text-align: left; }
+  .footer-pitch { max-width: 58ch; font-size: 1.05rem; }
+  .footer-links { display: flex; flex-wrap: wrap; gap: 0.9rem; margin: 1.6rem 0 2.2rem; }
+  .copyright { font-size: 0.78rem; color: #5c4a50; }
+</style>
+
+<script>
+  // Lite YouTube embeds: swap thumbnail for iframe on click
+  document.querySelectorAll<HTMLButtonElement>('.yt-lite').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.videoId;
+      if (!id) return;
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1`;
+      iframe.title = btn.getAttribute('aria-label') ?? 'YouTube video';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      btn.replaceWith(iframe);
+    });
+  });
+
+  // Art gallery filters
+  const filters = document.querySelectorAll<HTMLButtonElement>('.filter');
+  const cards = document.querySelectorAll<HTMLElement>('.art-card');
+  filters.forEach((f) => {
+    f.addEventListener('click', () => {
+      filters.forEach((x) => x.classList.remove('active'));
+      f.classList.add('active');
+      const kind = f.dataset.kind;
+      cards.forEach((c) => {
+        c.classList.toggle('hide', kind !== 'all' && c.dataset.kind !== kind);
+      });
+    });
+  });
+</script>
