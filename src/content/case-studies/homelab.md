@@ -3,7 +3,7 @@ title: 'Proxmox Homelab'
 summary: 'Self-hosted infrastructure running Nextcloud, Immich, and this portfolio — with documented backup strategies.'
 tech: ['Proxmox', 'Docker', 'Linux', 'Nginx', 'Backrest', 'rsync', 'Networking']
 repoUrl: 'https://github.com/papatenko/homelab'
-image: '/images/projects/homelab.svg'
+image: '/images/projects/homelab.png'
 order: 3
 ---
 

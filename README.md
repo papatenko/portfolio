@@ -1,6 +1,8 @@
 # Justin Kondratenko — Developer Portfolio
 
-Dark, purple grainy-gradient portfolio built with **Astro** (static output, zero database). Content lives in plain TypeScript/Markdown files; GitHub star counts are pulled automatically at build time.
+Grainy white/gold/pink-red portfolio (matching the LinkedIn banner) built with **Astro** — static output, zero database. Light theme by default with a warm-gray dark mode (toggle in the nav, follows OS preference, persists in localStorage). Content lives in plain TypeScript/Markdown files; GitHub star counts are pulled automatically at build time.
+
+**Git branches**: `main` is this design; `v1-purple` preserves the original purple dark-only version.
 
 ## Quick start
 
@@ -20,8 +22,9 @@ npm run preview   # preview the build
 | Skills icon grid | `src/data/skills.ts` |
 | Experience timeline | `src/data/experience.ts` |
 | Case-study pages | `src/content/case-studies/*.md` |
-| Project screenshots | `public/images/projects/` |
-| Resume | drop PDF at `public/resume.pdf` |
+| Project screenshots | `public/images/projects/` — overwrite the placeholder PNGs with real screenshots (16:9) |
+| Resume | `public/resume.pdf` (already in place) |
+| Theme colors (light + dark) | CSS variables at the top of `src/styles/global.css` |
 
 Full instructions with examples: **[docs/EDITING-CONTENT.md](docs/EDITING-CONTENT.md)**.
 

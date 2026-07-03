@@ -10,29 +10,29 @@ export const site = {
   location: 'Houston, Texas',
   // Roles cycled by the hero typing animation — reorder or edit freely.
   roles: [
-    'AI Automation Engineer',
     'Full-Stack Developer',
+    'AI Automation Engineer',
+    'UI/UX Designer',
     'Homelab & Server Admin',
-    'CS Student @ UH', // TODO: remove after graduation
   ],
   intro:
-    'I build AI-powered automation systems, full-stack web apps, and the self-hosted infrastructure that runs them. Currently focused on Momenta OS — a Slack-first AI assistant for LinkedIn content operations.',
-  // TODO: confirm exact title + company name for the About section.
+    'I design and build AI-powered automation systems, full-stack web apps, and the self-hosted infrastructure that runs them — from Figma mockups to production deploys. Currently focused on Momenta OS, a Slack-first AI assistant for LinkedIn content operations.',
   currentRole: {
-    title: 'AI Automation Engineer',
+    title: 'AI Automation Engineer', // TODO: confirm exact title
     company: 'Momenta',
     companyUrl: '#',
   },
   funFact:
     'My entire portfolio, photo backups, and cloud storage run on a Proxmox homelab in my house — "I don\'t know what I\'m doing, but I\'m doing it."',
-  yearsExperience: 4, // TODO: adjust
-  resumePath: '/resume.pdf', // drop your resume at public/resume.pdf
+  yearsExperience: 4, // building since late 2022 (Incarnate Editors)
+  resumePath: '/resume.pdf',
   responseTime: 'I usually reply within 24–48 hours.',
   availability:
-    'Open to full-time roles, freelance builds, and consulting on AI automation or self-hosted infrastructure.',
+    'Open to full-time roles, freelance builds (find me on Upwork), and consulting on AI automation or self-hosted infrastructure.',
   social: {
     github: 'https://github.com/papatenko',
     linkedin: 'https://www.linkedin.com/in/justinkondratenko/',
+    upwork: 'https://www.upwork.com/freelancers/~01e832daf1053cb695',
     twitter: '', // leave empty to hide
     instagram: 'https://www.instagram.com/papatenk0/',
     devpost: 'https://devpost.com/jkcondor13',

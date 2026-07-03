@@ -2,7 +2,7 @@
 title: 'Momenta OS'
 summary: 'A Slack-first AI assistant that streamlines LinkedIn content creation across multiple clients.'
 tech: ['AI Agents', 'Slack API', 'JSON Schema', 'MCP', 'Google Drive API', 'Canva API']
-image: '/images/projects/momenta-os.svg'
+image: '/images/projects/momenta-os.png'
 order: 1
 ---
 

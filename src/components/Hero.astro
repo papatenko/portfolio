@@ -53,9 +53,10 @@ import SocialLinks from './SocialLinks.astro';
     padding-block: 4rem;
   }
   .kicker { color: var(--text-muted); margin-bottom: 0.5rem; }
-  .prompt { color: var(--green); }
+  .prompt { color: var(--gold); }
   .grad {
-    background: linear-gradient(120deg, #c4b5fd, var(--accent-strong));
+    /* banner gradient: gold → magenta */
+    background: linear-gradient(120deg, #e8871e, var(--accent));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -77,7 +78,7 @@ import SocialLinks from './SocialLinks.astro';
     gap: 0.9rem;
     margin: 1.6rem 0 1.8rem;
   }
-  .ok { color: var(--green); }
+  .ok { color: #34d399; } /* terminal status green — theme-independent */
 
   @media (max-width: 860px) {
     .hero {

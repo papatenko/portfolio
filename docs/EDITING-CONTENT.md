@@ -69,14 +69,15 @@ The page appears at `/case-studies/my-new-thing/`. Frontmatter is schema-validat
 
 Overwrite `public/resume.pdf`. Both "Download Resume" buttons point there.
 
-## 7. Retheme
+## 7. Retheme / themes
 
-All colors, fonts, speeds, and radii are CSS variables at the top of `src/styles/global.css`. Change `--accent-strong` and the whole site follows.
+All colors are CSS variables at the top of `src/styles/global.css` — `:root` holds the light (banner white/gold/pink) palette, `html[data-theme='dark']` holds the warm-gray dark variant. Change `--accent` in both blocks and the whole site follows. The nav toggle persists the user's choice in localStorage; first visit follows their OS setting.
 
 ## Remaining placeholders (search for `TODO:`)
 
-- Exact job titles/dates in `src/data/experience.ts` and `site.ts` (LinkedIn couldn't be read automatically)
+- Momenta company name / exact title in `src/data/site.ts` and `experience.ts`
 - Real metrics in `src/content/case-studies/momenta-os.md`
-- Real screenshots to replace the generated SVG placeholders in `public/images/projects/`
-- `public/resume.pdf`
+- Real screenshots: overwrite the placeholder PNGs in `public/images/projects/`
+  (`rps-tournament.png`, `homelab.png`, `shako-kabob.png`, `portfolio-platform.png`,
+  `momenta-os.png`, `schematic-spelunker.png`) — 1200×675 / 16:9 looks best
 - Architecture diagrams in case studies (export from Excalidraw → `public/images/case-studies/`)

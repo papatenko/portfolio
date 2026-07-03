@@ -77,8 +77,8 @@ const iconUrl = (slug: string) =>
     border-color: var(--accent);
     background: var(--accent-soft);
   }
-  /* simple-icons ship black — invert to fit the dark theme */
-  .skill img { filter: invert(0.82) sepia(0.2) saturate(2) hue-rotate(215deg); }
+  /* simple-icons ship black — fine on light, inverted in dark mode */
+  .skill img { filter: var(--icon-filter); }
   .skill :global(.fallback) {
     font-size: 1.1rem;
     color: var(--accent);

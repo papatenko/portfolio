@@ -4,7 +4,7 @@ summary: 'Real-time competitive RPS tournament platform with a retro arcade them
 tech: ['TypeScript', 'React', 'Node.js', 'Socket.IO']
 repoUrl: 'https://github.com/devaine/RPS-Tournament'
 demoUrl: 'https://rps.papatenko.org/'
-image: '/images/projects/rps-tournament.svg'
+image: '/images/projects/rps-tournament.png'
 order: 2
 ---
 
