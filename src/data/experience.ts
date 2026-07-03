@@ -19,8 +19,8 @@ export const experience: Experience[] = [
     start: '2025',
     end: 'Present',
     description:
-      'Building Momenta OS, a Slack-first AI assistant for multi-client LinkedIn content operations: research pipelines that reverse-engineer client brand voice, JSON-schema automation workflows, MCP server integrations, and branded asset generation via Google Drive and Canva endpoints.',
-    tech: ['AI Agents', 'Slack API', 'MCP', 'JSON Schema', 'Google Drive API', 'Canva API'],
+      "Building Momenta OS, an AI OS harness synced across the team's ChatGPT instances via a shared project/agent config. Designed the knowledge vault (client context, brand voice docs, content rules, feedback logs) that acts as the single source of truth, plus the draft → score → revise → approve workflow and governed feedback-update process behind consistent multi-client LinkedIn content.",
+    tech: ['ChatGPT Agents', 'Knowledge Vault', 'Prompt Systems', 'Workflow Design', 'AI Automations'],
   },
   {
     company: 'Incarnate Editors',

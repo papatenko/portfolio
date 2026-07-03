@@ -1,8 +1,7 @@
 ---
 title: 'Schematic Spelunker'
 summary: 'AI chatbot that parses machinery schematics so technicians get informed answers about their unique equipment.'
-tech: ['Python', 'LLMs', 'RAG', 'Document Parsing']
-demoUrl: 'https://devpost.com/software/schematic-spelunker'
+tech: ['React', 'Rust', 'Gemini API', 'RAG', 'Document Parsing']
 image: '/images/projects/schematic-spelunker.png'
 order: 4
 ---

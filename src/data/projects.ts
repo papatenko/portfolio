@@ -25,11 +25,11 @@ export const projects: Project[] = [
     title: 'Momenta OS',
     slug: 'momenta-os',
     description:
-      'Slack-first AI assistant that streamlines LinkedIn content creation across multiple clients — text, image, and video generation with per-client knowledge that improves over time.',
+      "AI OS harness that syncs across the whole team's ChatGPT instances via a shared project/agent config — a knowledge vault of client context, brand voice docs, content rules, and feedback logs becomes the single source of truth every assistant loads from.",
     outcome:
-      'Cut multi-client LinkedIn content production from hours to minutes per post.',
+      'One shared AI brain: consistent brand voice and client context for every teammate.',
     image: '/images/projects/momenta-os.png',
-    tech: ['AI Agents', 'Slack API', 'JSON Schema', 'MCP', 'Google Drive API', 'Canva API'],
+    tech: ['ChatGPT Agents', 'Knowledge Vault', 'Prompt Systems', 'Workflow Design', 'Feedback Loops'],
     // Private/commercial — no public repo.
   },
   {
@@ -75,7 +75,7 @@ export const projects: Project[] = [
     outcome: 'Under 30s processing for 15+ concurrent PDF documents.',
     image: '/images/projects/schematic-spelunker.png',
     tech: ['React', 'Rust', 'Gemini API', 'RAG', 'Document Parsing'],
-    demoUrl: 'https://devpost.com/software/schematic-spelunker',
+    // No live demo — hackathon project.
   },
   {
     title: 'Portfolio Platform',

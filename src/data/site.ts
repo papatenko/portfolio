@@ -16,7 +16,7 @@ export const site = {
     'Homelab & Server Admin',
   ],
   intro:
-    'I design and build AI-powered automation systems, full-stack web apps, and the self-hosted infrastructure that runs them — from Figma mockups to production deploys. Currently focused on Momenta OS, a Slack-first AI assistant for LinkedIn content operations.',
+    "I design and build AI-powered automation systems, full-stack web apps, and the self-hosted infrastructure that runs them — from Figma mockups to production deploys. Currently focused on Momenta OS, an AI OS harness that syncs client context and brand voice across a whole team's ChatGPT instances.",
   currentRole: {
     title: 'AI Automation Engineer', // TODO: confirm exact title
     company: 'Momenta',

@@ -1,12 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#1d1618"/>
-  <rect width="64" height="64" rx="14" fill="url(#g)" opacity="0.6"/>
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="64" y2="64">
-      <stop offset="0" stop-color="#e8871e"/>
-      <stop offset="1" stop-color="#c2185b"/>
-    </linearGradient>
-  </defs>
-  <text x="10" y="42" font-family="monospace" font-size="26" font-weight="bold" fill="#f4a340">&gt;</text>
-  <text x="26" y="42" font-family="monospace" font-size="26" font-weight="bold" fill="#fdf6ee">jk</text>
+  <rect width="64" height="64" rx="14" fill="#faf6ef"/>
+  <rect x="2" y="2" width="60" height="60" rx="12" fill="none" stroke="#c2185b" stroke-width="3"/>
+  <text x="10" y="42" font-family="monospace" font-size="26" font-weight="bold" fill="#e8871e">&gt;</text>
+  <text x="26" y="42" font-family="monospace" font-size="26" font-weight="bold" fill="#2a1a1f">jk</text>
 </svg>
