@@ -1,0 +1,141 @@
+---
+import { site } from '../data/site';
+
+const links = [
+  { href: '/#about', label: 'About' },
+  { href: '/#skills', label: 'Skills' },
+  { href: '/#projects', label: 'Projects' },
+  { href: '/#experience', label: 'Experience' },
+  { href: '/#contact', label: 'Contact' },
+];
+---
+
+<header class="nav-wrap">
+  <nav class="container nav" aria-label="Main navigation">
+    <a href="/" class="brand mono" aria-label="Home">
+      <span class="prompt">~$</span> {site.firstName.toLowerCase()}<span class="caret">&nbsp;</span>
+    </a>
+
+    <button
+      class="hamburger"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      aria-controls="nav-menu"
+    >
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul id="nav-menu" class="menu">
+      {links.map((l) => (
+        <li><a href={l.href}>{l.label}</a></li>
+      ))}
+      <li>
+        <a href={site.resumePath} class="btn btn-ghost resume-btn" download>Resume</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .nav-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(14px);
+    background: rgba(11, 6, 19, 0.72);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 4rem;
+    gap: 1rem;
+  }
+  .brand {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .brand .prompt { color: var(--green); }
+  .menu {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .menu a:not(.btn) {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  .menu a:not(.btn):hover { color: var(--text); }
+  .resume-btn { padding: 0.45rem 1rem; font-size: 0.85rem; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: var(--text);
+    border-radius: 2px;
+    transition: transform var(--speed) var(--ease), opacity var(--speed) var(--ease);
+  }
+  .hamburger[aria-expanded='true'] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger[aria-expanded='true'] span:nth-child(2) { opacity: 0; }
+  .hamburger[aria-expanded='true'] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  @media (max-width: 760px) {
+    .hamburger { display: flex; }
+    .menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      background: var(--bg-soft);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1.25rem 1rem;
+      display: none;
+    }
+    .menu.open { display: flex; }
+    .menu li a:not(.btn) {
+      display: block;
+      padding: 0.8rem 0.25rem;
+    }
+    .resume-btn { margin-top: 0.5rem; justify-content: center; }
+  }
+</style>
+
+<script>
+  const btn = document.querySelector('.hamburger');
+  const menu = document.getElementById('nav-menu');
+  btn?.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    menu?.classList.toggle('open', !open);
+  });
+  // Close the mobile menu after navigating
+  menu?.addEventListener('click', (e) => {
+    if ((e.target as HTMLElement).tagName === 'A') {
+      btn?.setAttribute('aria-expanded', 'false');
+      menu.classList.remove('open');
+    }
+  });
+</script>

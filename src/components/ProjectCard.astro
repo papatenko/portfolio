@@ -1,0 +1,112 @@
+---
+import type { Project } from '../data/projects';
+import { getStars } from '../lib/github';
+
+interface Props { project: Project }
+const { project } = Astro.props;
+
+// Live star count at build time, static fallback if offline/rate-limited.
+const stars = project.repo ? ((await getStars(project.repo)) ?? project.stars ?? null) : null;
+const caseStudyUrl = project.slug ? `/case-studies/${project.slug}/` : null;
+---
+
+<article class="card project-card" data-reveal>
+  <a class="thumb-link pop-sm" href={caseStudyUrl ?? project.demoUrl ?? project.repoUrl ?? '#'} aria-label={`${project.title} details`} tabindex="-1">
+    <img
+      class="thumb"
+      src={project.image}
+      alt={`${project.title} screenshot`}
+      width="1200"
+      height="675"
+      loading="lazy"
+      decoding="async"
+    />
+  </a>
+  <div class="body pop">
+    <header class="head">
+      <h3>
+        {caseStudyUrl ? <a href={caseStudyUrl}>{project.title}</a> : project.title}
+      </h3>
+      {stars !== null && (
+        <span class="stars mono" title={`${stars} GitHub stars`}>★ {stars}</span>
+      )}
+    </header>
+    <p class="desc">{project.description}</p>
+    <p class="outcome mono">→ {project.outcome}</p>
+    <ul class="tags" role="list">
+      {project.tech.map((t) => <li class="tag">{t}</li>)}
+    </ul>
+    <footer class="links">
+      {caseStudyUrl && <a href={caseStudyUrl} class="link">Case study</a>}
+      {project.repoUrl && (
+        <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" class="link">GitHub</a>
+      )}
+      {project.demoUrl && (
+        <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" class="link">Live demo</a>
+      )}
+    </footer>
+  </div>
+</article>
+
+<style>
+  .project-card { display: flex; flex-direction: column; }
+  /* The card keeps overflow visible for the 3D tilt, so the image
+     clips itself to the card's top corners. */
+  .thumb-link {
+    display: block;
+    overflow: hidden;
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+  .thumb {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    width: 100%;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface-2);
+  }
+  .body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1.3rem;
+    flex: 1;
+  }
+  .head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.8rem;
+  }
+  .head h3 { margin: 0; }
+  .head a { color: var(--text); }
+  .head a:hover { color: var(--accent); }
+  .stars { color: #fbbf24; font-size: 0.85rem; white-space: nowrap; }
+  .desc { color: var(--text-muted); font-size: 0.95rem; margin: 0; }
+  .outcome {
+    color: var(--green);
+    font-size: 0.8rem;
+    margin: 0;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    list-style: none;
+    margin: 0.2rem 0 0;
+    padding: 0;
+  }
+  .links {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: auto;
+    padding-top: 0.8rem;
+  }
+  .link {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  .link::after {
+    content: ' ↗';
+    font-size: 0.8em;
+  }
+</style>

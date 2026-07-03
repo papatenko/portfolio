@@ -1,0 +1,88 @@
+---
+import { skillCategories } from '../data/skills';
+
+const iconUrl = (slug: string) =>
+  `https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/${slug}.svg`;
+---
+
+<section id="skills" class="section container" aria-labelledby="skills-title">
+  <span class="section-label">skills</span>
+  <h2 id="skills-title" data-reveal>Tools I reach for</h2>
+
+  <div class="categories">
+    {skillCategories.map((cat) => (
+      <div class="category" data-reveal>
+        <h3 class="mono">{cat.category}</h3>
+        <ul class="icon-grid" role="list">
+          {cat.skills.map((skill) => (
+            <li class="skill">
+              {skill.icon ? (
+                <img
+                  src={iconUrl(skill.icon)}
+                  alt=""
+                  width="28"
+                  height="28"
+                  loading="lazy"
+                  onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'>_',className:'fallback'}))"
+                />
+              ) : (
+                <span class="fallback mono" aria-hidden="true">&gt;_</span>
+              )}
+              <span class="label">{skill.name}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .categories {
+    display: grid;
+    gap: 2.2rem;
+    margin-top: 1rem;
+  }
+  .category h3 {
+    font-size: 0.9rem;
+    color: var(--accent);
+    margin-bottom: 0.9rem;
+  }
+  .category h3::before { content: '## '; color: var(--text-muted); }
+  .icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+    gap: 0.8rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 1rem 0.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-align: center;
+    transition:
+      transform var(--speed) var(--ease),
+      border-color var(--speed) var(--ease),
+      background var(--speed) var(--ease);
+  }
+  .skill:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+  /* simple-icons ship black — invert to fit the dark theme */
+  .skill img { filter: invert(0.82) sepia(0.2) saturate(2) hue-rotate(215deg); }
+  .skill :global(.fallback) {
+    font-size: 1.1rem;
+    color: var(--accent);
+    line-height: 28px;
+  }
+  .label { font-size: 0.8rem; color: var(--text-muted); }
+</style>

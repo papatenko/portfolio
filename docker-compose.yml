@@ -1,0 +1,10 @@
+# Homelab deployment: `docker compose up -d --build`
+# Put behind your existing Nginx/Caddy/Traefik reverse proxy for TLS.
+services:
+  portfolio:
+    build: .
+    container_name: portfolio
+    restart: unless-stopped
+    ports:
+      - '8085:80' # host:container — change 8085 to taste
+    # If you use Traefik, replace `ports` with labels for your setup.

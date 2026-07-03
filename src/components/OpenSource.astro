@@ -1,0 +1,67 @@
+---
+import { site } from '../data/site';
+import { contributions } from '../data/projects';
+
+// Contribution graph rendered by ghchart (no JS, plain <img>).
+const chartUrl = `https://ghchart.rshah.org/8b5cf6/${site.githubUsername}`;
+---
+
+<section id="open-source" class="section container" aria-labelledby="oss-title">
+  <span class="section-label">open-source</span>
+  <h2 id="oss-title" data-reveal>On GitHub</h2>
+
+  <div class="chart-wrap" data-reveal>
+    <img
+      src={chartUrl}
+      alt={`GitHub contribution graph for ${site.githubUsername}`}
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+
+  <ul class="contribs" role="list">
+    {contributions.map((c) => (
+      <li class="contrib" data-reveal>
+        <a href={c.url} target="_blank" rel="noopener noreferrer" class="mono repo">{c.title}</a>
+        <span class="note">{c.note}</span>
+      </li>
+    ))}
+  </ul>
+
+  <a href={site.social.github} target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+    View GitHub Profile
+  </a>
+</section>
+
+<style>
+  .chart-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.2rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+  .chart-wrap img { min-width: 660px; width: 100%; }
+  .contribs {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+    gap: 0.9rem;
+    list-style: none;
+    margin: 0 0 1.8rem;
+    padding: 0;
+  }
+  .contrib {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.1rem;
+    transition: border-color var(--speed) var(--ease), transform var(--speed) var(--ease);
+  }
+  .contrib:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+  .repo { font-size: 0.9rem; font-weight: 600; }
+  .note { color: var(--text-muted); font-size: 0.85rem; }
+</style>

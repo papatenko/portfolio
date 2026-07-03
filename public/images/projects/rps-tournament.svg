@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" font-family="monospace">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#17102a"/><stop offset="1" stop-color="#0b0613"/>
+    </linearGradient>
+    <filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.05"/></feComponentTransfer><feComposite operator="over" in2="SourceGraphic"/></filter>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="180" cy="120" r="320" fill="#7c3aed" opacity="0.18"/>
+  <circle cx="1050" cy="600" r="280" fill="#7c3aed" opacity="0.12"/>
+  <rect width="1200" height="675" filter="url(#n)" opacity="0.5"/>
+  <rect x="80" y="80" width="1040" height="515" rx="16" fill="#0b0613" stroke="#7c3aed" stroke-opacity="0.4" stroke-width="2"/>
+  <circle cx="120" cy="115" r="8" fill="#f87171"/><circle cx="146" cy="115" r="8" fill="#fbbf24"/><circle cx="172" cy="115" r="8" fill="#34d399"/>
+  <text x="110" y="220" font-size="34" fill="#6ee7b7">~$</text>
+  <text x="170" y="220" font-size="34" fill="#ece7f8">open rps-tournament</text>
+  <text x="110" y="330" font-size="58" font-weight="bold" fill="#7c3aed">RPS Tournament</text>
+  <text x="110" y="400" font-size="26" fill="#a79fc0">// replace with a real screenshot</text>
+  <text x="110" y="440" font-size="26" fill="#a79fc0">// public/images/projects/rps-tournament.png (1200x675)</text>
+</svg>

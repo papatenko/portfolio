@@ -1,0 +1,95 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { site } from '../../data/site';
+
+export async function getStaticPaths() {
+  const studies = await getCollection('case-studies');
+  return studies.map((study) => ({
+    params: { slug: study.id },
+    props: { study },
+  }));
+}
+
+const { study } = Astro.props;
+const { Content } = await render(study);
+const { title, summary, tech, repoUrl, demoUrl, image } = study.data;
+---
+
+<Base title={`${title} — Case Study | ${site.name}`} description={summary}>
+  <article class="container section">
+    <nav class="breadcrumb mono" aria-label="Breadcrumb">
+      <a href="/#projects">← all projects</a>
+    </nav>
+
+    <header class="head">
+      <span class="section-label">case-study</span>
+      <h1>{title}</h1>
+      <p class="summary">{summary}</p>
+      <ul class="tags" role="list">
+        {tech.map((t) => <li class="tag">{t}</li>)}
+      </ul>
+      <div class="links">
+        {repoUrl && (
+          <a class="btn btn-ghost" href={repoUrl} target="_blank" rel="noopener noreferrer">
+            View on GitHub
+          </a>
+        )}
+        {demoUrl && (
+          <a class="btn btn-primary" href={demoUrl} target="_blank" rel="noopener noreferrer">
+            Live demo
+          </a>
+        )}
+      </div>
+    </header>
+
+    {image && (
+      <img class="cover" src={image} alt={`${title} cover`} width="1200" height="675" />
+    )}
+
+    <div class="prose">
+      <Content />
+    </div>
+
+    <footer class="cta-footer">
+      <p>Want a system like this?</p>
+      <a href="/#contact" class="btn btn-primary">Get in touch</a>
+    </footer>
+  </article>
+</Base>
+
+<style>
+  .breadcrumb { margin-bottom: 2rem; font-size: 0.85rem; }
+  .head { margin-bottom: 2rem; }
+  .summary { color: var(--text-muted); font-size: 1.1rem; max-width: 65ch; }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    list-style: none;
+    margin: 0 0 1.4rem;
+    padding: 0;
+  }
+  .links { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+  .cover {
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+  .cta-footer {
+    margin-top: 3.5rem;
+    padding: 2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .cta-footer p { margin: 0; font-weight: 600; font-size: 1.1rem; }
+</style>

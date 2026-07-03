@@ -1,0 +1,222 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title = `${site.name} — Full-Stack Developer & AI Automation Engineer`,
+  description = `Developer portfolio of ${site.name}: full-stack developer, AI automation engineer, and homelab/server administrator in ${site.location}. Built with Claude Code.`,
+  ogImage = '/og-image.png',
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, site.domain).href;
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.name,
+  url: site.domain,
+  email: `mailto:${site.email}`,
+  jobTitle: site.currentRole.title,
+  address: { '@type': 'PostalAddress', addressLocality: 'Houston', addressRegion: 'TX' },
+  sameAs: Object.values(site.social).filter(Boolean),
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="developer portfolio, full-stack developer portfolio, Claude Code portfolio, AI automation engineer, Justin Kondratenko, Houston developer"
+    />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="theme-color" content="#0b0613" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(ogImage, site.domain).href} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    />
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+  </head>
+  <body>
+    <div class="backdrop" aria-hidden="true"></div>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <Nav />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+
+    <script>
+      // ── Scroll reveal with stagger ─────────────────────────────
+      // Elements revealed in the same frame cascade in 70ms apart,
+      // so grids (projects, skills, contribs) ripple into view.
+      const observer = new IntersectionObserver(
+        (entries) => {
+          let i = 0;
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              (e.target as HTMLElement).style.setProperty('--reveal-delay', `${i++ * 70}ms`);
+              e.target.classList.add('revealed');
+              observer.unobserve(e.target);
+            }
+          }
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+      );
+      document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
+    </script>
+
+    <script>
+      // ── 3D tilt cards (Aceternity-style) ───────────────────────
+      // Cards rotate in perspective toward the mouse; .pop children
+      // lift off the surface (translateZ) while hovered.
+      const fine = window.matchMedia('(pointer: fine)').matches;
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (fine && !reduced) {
+        const MAX_X = 9; // deg
+        const MAX_Y = 11; // deg
+        document.querySelectorAll<HTMLElement>('.card, .stat, .contrib').forEach((el) => {
+          el.classList.add('tilt');
+          el.addEventListener('mousemove', (e) => {
+            const r = el.getBoundingClientRect();
+            const px = (e.clientX - r.left) / r.width - 0.5;
+            const py = (e.clientY - r.top) / r.height - 0.5;
+            el.classList.add('tilting');
+            el.style.transform =
+              `perspective(1000px) rotateX(${(-py * MAX_X).toFixed(2)}deg)` +
+              ` rotateY(${(px * MAX_Y).toFixed(2)}deg) translateY(-4px) scale3d(1.015, 1.015, 1.015)`;
+          });
+          el.addEventListener('mouseleave', () => {
+            el.classList.remove('tilting');
+            el.style.transform = '';
+          });
+        });
+      }
+    </script>
+
+    <script>
+      // ── iPadOS-style cursor blob ────────────────────────────────
+      // A translucent circle trails the mouse. When it touches an
+      // interactive element (nav links, buttons, socials, tags) it
+      // morphs onto that element and gently magnetizes it, like the
+      // iPadOS pointer. Fine pointers only; reduced-motion opts out.
+      const finePtr = window.matchMedia('(pointer: fine)').matches;
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (finePtr && !reducedMotion) {
+        const SIZE = 22;
+        const MORPH_MAX_W = 260; // elements bigger than this just enlarge the blob
+        const MORPH_MAX_H = 96;
+        const PAD = 6;
+        const INTERACTIVE = 'a, button, .btn, input, textarea, .tag, [data-cursor]';
+
+        const blob = document.createElement('div');
+        blob.className = 'cursor-blob hidden';
+        document.body.appendChild(blob);
+        document.documentElement.classList.add('has-custom-cursor');
+
+        let mx = innerWidth / 2;
+        let my = innerHeight / 2;
+        let target: HTMLElement | null = null;
+        // current (lerped) blob state
+        const cur = { x: mx, y: my, w: SIZE, h: SIZE, r: SIZE / 2 };
+
+        addEventListener('mousemove', (e) => {
+          mx = e.clientX;
+          my = e.clientY;
+          blob.classList.remove('hidden');
+        });
+        document.addEventListener('mouseleave', () => blob.classList.add('hidden'));
+
+        document.addEventListener('mouseover', (e) => {
+          const el = (e.target as HTMLElement).closest<HTMLElement>(INTERACTIVE);
+          if (el !== target && target) {
+            target.style.translate = ''; // release magnet
+          }
+          target = el;
+        });
+        document.addEventListener('mouseout', (e) => {
+          if (target && !target.contains(e.relatedTarget as Node)) {
+            target.style.translate = '';
+            target = null;
+          }
+        });
+        // Morphing onto text inputs feels sticky — skip them.
+        const skipMorph = (el: HTMLElement) =>
+          el.tagName === 'INPUT' || el.tagName === 'TEXTAREA';
+
+        const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
+
+        const frame = () => {
+          let tx = mx, ty = my, tw = SIZE, th = SIZE, tr = SIZE / 2;
+
+          if (target && document.contains(target) && !skipMorph(target)) {
+            const rect = target.getBoundingClientRect();
+            if (rect.width <= MORPH_MAX_W && rect.height <= MORPH_MAX_H) {
+              // Morph: wrap the element, slightly pulled toward the mouse
+              const cx = rect.left + rect.width / 2;
+              const cy = rect.top + rect.height / 2;
+              tw = rect.width + PAD * 2;
+              th = rect.height + PAD * 2;
+              tx = cx + (mx - cx) * 0.15;
+              ty = cy + (my - cy) * 0.15;
+              const style = getComputedStyle(target);
+              const elRadius = parseFloat(style.borderRadius) || 8;
+              tr = Math.min(th / 2, elRadius + PAD);
+              // Magnetize the element toward the cursor
+              target.style.translate = `${((mx - cx) * 0.12).toFixed(1)}px ${((my - cy) * 0.12).toFixed(1)}px`;
+              blob.classList.add('on-target');
+            } else {
+              // Large target (cards, images): blob just grows
+              tw = th = SIZE * 1.9;
+              tr = th / 2;
+              blob.classList.remove('on-target');
+            }
+          } else {
+            blob.classList.remove('on-target');
+          }
+
+          const t = 0.22; // follow smoothing — lower = floatier
+          cur.x = lerp(cur.x, tx, t);
+          cur.y = lerp(cur.y, ty, t);
+          cur.w = lerp(cur.w, tw, t);
+          cur.h = lerp(cur.h, th, t);
+          cur.r = lerp(cur.r, tr, t);
+
+          blob.style.width = `${cur.w}px`;
+          blob.style.height = `${cur.h}px`;
+          blob.style.borderRadius = `${cur.r}px`;
+          blob.style.transform = `translate(${cur.x - cur.w / 2}px, ${cur.y - cur.h / 2}px)`;
+
+          requestAnimationFrame(frame);
+        };
+        requestAnimationFrame(frame);
+      }
+    </script>
+  </body>
+</html>

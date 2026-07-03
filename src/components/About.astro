@@ -1,0 +1,96 @@
+---
+import { site } from '../data/site';
+import { projects } from '../data/projects';
+import { skillCategories } from '../data/skills';
+
+const skillCount = skillCategories.reduce((n, c) => n + c.skills.length, 0);
+const stats = [
+  { value: `${site.yearsExperience}+`, label: 'years building' },
+  { value: String(projects.length), label: 'featured projects' },
+  { value: `${skillCount}+`, label: 'technologies' },
+  { value: '24/7', label: 'homelab uptime goal' },
+];
+---
+
+<section id="about" class="section container" aria-labelledby="about-title">
+  <span class="section-label">about</span>
+  <h2 id="about-title" data-reveal>From marketing automation to bare metal</h2>
+
+  <div class="about-grid">
+    <div data-reveal>
+      <p>
+        I'm a developer in {site.location} who likes owning the whole stack — from AI agents
+        that draft a client's LinkedIn strategy, down to the Proxmox host they're deployed on.
+        Currently I'm the engineer behind <strong>Momenta OS</strong> at
+        <a href={site.currentRole.companyUrl}>{site.currentRole.company}</a>, a Slack-first AI
+        assistant for multi-client content operations.
+      </p>
+      <p>
+        Before and alongside that: full-stack web apps in React and TypeScript, real-time
+        multiplayer systems, and a self-hosted infrastructure practice that treats my homelab
+        like production — documented runbooks, tested backups, and all.
+      </p>
+      <p class="fun mono">
+        <span class="prompt">~$</span> fortune<br />
+        <span class="fun-out">{site.funFact}</span>
+      </p>
+    </div>
+
+    <dl class="stats" data-reveal>
+      {stats.map((s) => (
+        <div class="stat">
+          <dd class="mono">{s.value}</dd>
+          <dt>{s.label}</dt>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>
+
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-top: 1rem;
+  }
+  .about-grid p { color: var(--text-muted); }
+  .about-grid strong { color: var(--text); }
+  .prompt { color: var(--green); }
+  .fun {
+    margin-top: 1.5rem;
+    padding: 1rem 1.2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+  }
+  .fun-out { color: var(--accent); }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 0;
+  }
+  .stat {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.2rem 1.3rem;
+    transition: border-color var(--speed) var(--ease), transform var(--speed) var(--ease);
+  }
+  .stat:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+  .stat dd {
+    margin: 0;
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .stat dt { color: var(--text-muted); font-size: 0.85rem; }
+
+  @media (max-width: 860px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>

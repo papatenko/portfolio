@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="404 — Not Found">
+  <section class="container section wrap">
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span class="dot dot-r"></span>
+        <span class="dot dot-y"></span>
+        <span class="dot dot-g"></span>
+        <span class="title">justin@homelab: ~</span>
+      </div>
+      <div class="terminal-body">
+        <div><span class="prompt">~$</span> <span class="cmd">cd {'{page}'}</span></div>
+        <div class="out">bash: cd: no such file or directory (404)</div>
+        <div><span class="prompt">~$</span> <a href="/">cd ~ # go home</a><span class="caret">&nbsp;</span></div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .wrap { max-width: 560px; margin-inline: auto; min-height: 55vh; display: grid; place-content: center; }
+  .terminal { font-size: 1rem; }
+</style>

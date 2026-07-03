@@ -1,0 +1,123 @@
+---
+import { site } from '../data/site';
+import SocialLinks from './SocialLinks.astro';
+---
+
+<section class="hero container" aria-label="Introduction">
+  <div class="hero-text">
+    <p class="mono kicker" data-enter style="--enter-i: 0">
+      <span class="prompt">~$</span> whoami
+    </p>
+    <h1 data-enter style="--enter-i: 1">Hi, I'm <span class="grad">{site.firstName}</span>.</h1>
+    <p class="roles mono" aria-live="polite" data-enter style="--enter-i: 2">
+      <span id="typed">{site.roles[0]}</span><span class="caret">&nbsp;</span>
+    </p>
+    <p class="intro" data-enter style="--enter-i: 3">{site.intro}</p>
+    <div class="cta" data-enter style="--enter-i: 4">
+      <a href="/#projects" class="btn btn-primary">View Projects</a>
+      <a href={site.resumePath} class="btn btn-ghost" download>Download Resume</a>
+    </div>
+    <div data-enter style="--enter-i: 5">
+      <SocialLinks class="hero-social" />
+    </div>
+  </div>
+
+  <div class="hero-terminal" data-enter style="--enter-i: 3">
+    <div class="terminal" role="img" aria-label="Decorative terminal window">
+      <div class="terminal-bar">
+        <span class="dot dot-r"></span>
+        <span class="dot dot-y"></span>
+        <span class="dot dot-g"></span>
+        <span class="title">justin@homelab: ~</span>
+      </div>
+      <div class="terminal-body">
+        <div><span class="prompt">~$</span> <span class="cmd">cat stack.txt</span></div>
+        <div class="out">typescript · react · node · python</div>
+        <div class="out">docker · proxmox · linux · nginx</div>
+        <div><span class="prompt">~$</span> <span class="cmd">systemctl status portfolio</span></div>
+        <div class="out"><span class="ok">●</span> active (running) — self-hosted</div>
+        <div><span class="prompt">~$</span> <span class="cmd">./deploy.sh --agents</span></div>
+        <div class="out">✓ ai automations online</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: 3rem;
+    min-height: calc(88vh - 4rem);
+    padding-block: 4rem;
+  }
+  .kicker { color: var(--text-muted); margin-bottom: 0.5rem; }
+  .prompt { color: var(--green); }
+  .grad {
+    background: linear-gradient(120deg, #c4b5fd, var(--accent-strong));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .roles {
+    font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+    color: var(--accent);
+    min-height: 1.6em;
+    margin-bottom: 1rem;
+  }
+  .intro {
+    color: var(--text-muted);
+    max-width: 54ch;
+    font-size: 1.05rem;
+  }
+  .cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    margin: 1.6rem 0 1.8rem;
+  }
+  .ok { color: var(--green); }
+
+  @media (max-width: 860px) {
+    .hero {
+      grid-template-columns: 1fr;
+      min-height: 0;
+      padding-block: 3rem 2rem;
+      gap: 2.2rem;
+    }
+  }
+</style>
+
+<script>
+  // Typing animation for hero roles — fast, fluid, reduced-motion aware.
+  import { site } from '../data/site';
+
+  const el = document.getElementById('typed');
+  const roles = site.roles;
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (el && roles.length > 1 && !reduced) {
+    let role = 0;
+    let chars = roles[0]!.length;
+    let deleting = true;
+
+    const tick = () => {
+      const current = roles[role]!;
+      chars = deleting ? chars - 1 : chars + 1;
+      el.textContent = current.slice(0, chars);
+
+      let delay = deleting ? 32 : 58;
+      if (!deleting && chars === current.length) {
+        deleting = true;
+        delay = 2100; // pause on full word
+      } else if (deleting && chars === 0) {
+        deleting = false;
+        role = (role + 1) % roles.length;
+        delay = 350;
+      }
+      setTimeout(tick, delay);
+    };
+    setTimeout(tick, 1800);
+  }
+</script>
