@@ -42,6 +42,7 @@ export const projects: Project[] = [
     tech: ['React', 'Vite', 'Node.js', 'MySQL', 'Docker', 'GitHub Actions', 'Turborepo'],
     repo: 'papatenko/point-of-sale-system',
     repoUrl: 'https://github.com/papatenko/point-of-sale-system',
+    demoUrl: 'https://pos.papatenko.org/',
   },
   {
     title: 'Rock Paper Scissors Tournament',
@@ -87,7 +88,7 @@ export const projects: Project[] = [
     tech: ['React', 'CI/CD', 'GitHub Actions', 'Linux', 'Nginx'],
     repo: 'papatenko/portfolio',
     repoUrl: 'https://github.com/papatenko/portfolio',
-    demoUrl: 'https://papatenko.org/',
+    demoUrl: 'https://old.papatenko.org/',
   },
 ];
 
