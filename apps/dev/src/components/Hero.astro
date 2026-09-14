@@ -13,11 +13,14 @@ import SocialLinks from './SocialLinks.astro';
       <span id="typed">{site.roles[0]}</span><span class="caret">&nbsp;</span>
     </p>
     <p class="intro" data-enter style="--enter-i: 3">{site.intro}</p>
-    <div class="cta" data-enter style="--enter-i: 4">
+    <p class="availability" data-enter style="--enter-i: 4">
+      <span class="dot-live" aria-hidden="true"></span>{site.availabilityLine}
+    </p>
+    <div class="cta" data-enter style="--enter-i: 5">
       <a href="/#projects" class="btn btn-primary">View Projects</a>
       <a href={site.resumePath} class="btn btn-ghost" download>Download Resume</a>
     </div>
-    <div data-enter style="--enter-i: 5">
+    <div data-enter style="--enter-i: 6">
       <SocialLinks class="hero-social" />
     </div>
   </div>
@@ -43,14 +46,14 @@ import SocialLinks from './SocialLinks.astro';
             </div>
             <div class="terminal-body">
               <div><span class="prompt">~$</span> <span class="cmd">whoami --location</span></div>
-              <div class="out">justin · houston, tx · uh cs '27</div>
+              <div class="out">justin · katy, tx · uh cs '27</div>
               <div><span class="prompt">~$</span> <span class="cmd">cat stack.txt</span></div>
               <div class="out">typescript · react · node · python</div>
               <div class="out">docker · proxmox · linux · nginx</div>
               <div><span class="prompt">~$</span> <span class="cmd">systemctl status portfolio</span></div>
               <div class="out"><span class="ok">●</span> active (running) — self-hosted</div>
               <div><span class="prompt">~$</span> <span class="cmd">./deploy.sh --agents</span></div>
-              <div class="out">✓ ai automations online</div>
+              <div class="out">✓ 60+ agent skills loaded</div>
               <div><span class="prompt">~$</span> <span class="cmd">ping papatenko.org</span></div>
               <div class="out">64 bytes: the art side is alive ✓</div>
             </div>
@@ -98,11 +101,27 @@ import SocialLinks from './SocialLinks.astro';
     max-width: 54ch;
     font-size: 1.05rem;
   }
+  .availability {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin: 1.2rem 0 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  .dot-live {
+    flex: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #34d399;
+    box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.22);
+  }
   .cta {
     display: flex;
     flex-wrap: wrap;
     gap: 0.9rem;
-    margin: 1.6rem 0 1.8rem;
+    margin: 1.2rem 0 1.8rem;
   }
   .ok { color: #34d399; } /* terminal status green — theme-independent */
 

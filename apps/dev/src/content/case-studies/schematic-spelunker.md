@@ -1,6 +1,8 @@
 ---
 title: 'Schematic Spelunker'
 summary: 'AI chatbot that parses machinery schematics so technicians get informed answers about their unique equipment.'
+description: 'A retrieval-augmented chatbot that parses machinery schematics — React, Rust, and the Gemini API — built in 24 hours with a team of four. Case study by Justin Kondratenko.'
+ogImage: '/og/schematic-spelunker.png'
 tech: ['React', 'Rust', 'Gemini API', 'RAG', 'Document Parsing']
 image: '/images/projects/schematic-spelunker.png'
 order: 4

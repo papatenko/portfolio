@@ -1,15 +1,8 @@
 ---
 import { site } from '../data/site';
-import { projects } from '../data/projects';
-import { skillCategories } from '../data/skills';
 
-const skillCount = skillCategories.reduce((n, c) => n + c.skills.length, 0);
-const stats = [
-  { value: `${site.yearsExperience}+`, label: 'years building' },
-  { value: String(projects.length), label: 'featured projects' },
-  { value: `${skillCount}+`, label: 'technologies' },
-  { value: '24/7', label: 'homelab uptime goal' },
-];
+// The metric row. Every figure is sourced — see src/data/site.ts.
+const stats = site.metrics;
 ---
 
 <section id="about" class="section container" aria-labelledby="about-title">
@@ -21,13 +14,22 @@ const stats = [
       <p>
         I'm a developer in {site.location} who likes owning the whole stack — from AI agents
         that draft a client's LinkedIn strategy, down to the Proxmox host they're deployed on.
-        Currently I'm the engineer behind <strong>Momenta OS</strong> at
-        <a href={site.currentRole.companyUrl}>{site.currentRole.company}</a> — an AI OS harness
-        that syncs the whole team's ChatGPT instances to one shared vault of client context,
-        brand voice, and institutional memory.
+        I'm the {site.currentRole.title} at{' '}
+        {site.currentRole.companyUrl ? (
+          <a href={site.currentRole.companyUrl}>{site.currentRole.company}</a>
+        ) : (
+          <strong>{site.currentRole.company}</strong>
+        )}, where I built <strong>Momenta OS</strong> — a Claude-powered agent operating system
+        on a governed Google Drive vault, with 60+ versioned skills that turn WordPress audits,
+        SEO remediation, and site updates into runbooks an agent can actually follow.
       </p>
       <p>
-        Before and alongside that: full-stack web apps in React and TypeScript, real-time
+        Alongside it I'm building a usage-based billing platform on Azure that meters per-lead
+        usage into automated Stripe invoicing. It isn't deployed yet, and I'd rather describe it
+        precisely than round it up.
+      </p>
+      <p>
+        Before and around all of that: full-stack web apps in React and TypeScript, real-time
         multiplayer systems, and a self-hosted infrastructure practice that treats my homelab
         like production — documented runbooks, tested backups, and all.
       </p>

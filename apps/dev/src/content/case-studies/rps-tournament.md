@@ -1,6 +1,8 @@
 ---
 title: 'Rock Paper Scissors Tournament'
 summary: 'Real-time competitive RPS tournament platform with a retro arcade theme, run live on campus.'
+description: 'A real-time multiplayer tournament platform in React, TypeScript, and Socket.IO, with live brackets and a retro arcade UI, run live on campus. Case study by Justin Kondratenko.'
+ogImage: '/og/rps-tournament.png'
 tech: ['TypeScript', 'React', 'Node.js', 'Socket.IO']
 repoUrl: 'https://github.com/devaine/RPS-Tournament'
 demoUrl: 'https://rps.papatenko.org/'

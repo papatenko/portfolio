@@ -13,10 +13,42 @@ export async function getStaticPaths() {
 
 const { study } = Astro.props;
 const { Content } = await render(study);
-const { title, summary, tech, repoUrl, demoUrl, image } = study.data;
+const { title, summary, description, ogImage, tech, repoUrl, demoUrl, image } = study.data;
+
+const pageTitle = `${title} — Case Study | ${site.name}`;
+const pageDescription = description ?? summary;
+const pageUrl = new URL(`/case-studies/${study.id}/`, site.domain).href;
+
+// CreativeWork JSON-LD for this case study, credited to the Person graph
+// declared in Base.astro.
+const creativeWork = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  '@id': `${pageUrl}#work`,
+  name: title,
+  headline: title,
+  description: pageDescription,
+  abstract: summary,
+  url: pageUrl,
+  inLanguage: 'en',
+  keywords: tech,
+  about: tech,
+  ...(image ? { image: new URL(image, site.domain).href } : {}),
+  ...(repoUrl ? { codeRepository: repoUrl } : {}),
+  ...(demoUrl ? { sameAs: [demoUrl] } : {}),
+  author: { '@id': `${site.domain}/#person` },
+  creator: { '@id': `${site.domain}/#person` },
+  isPartOf: { '@type': 'WebSite', name: site.name, url: site.domain },
+};
 ---
 
-<Base title={`${title} — Case Study | ${site.name}`} description={summary}>
+<Base
+  title={pageTitle}
+  description={pageDescription}
+  ogImage={ogImage ?? image ?? '/og/default.png'}
+  ogType="article"
+  schema={creativeWork}
+>
   <article class="container section">
     <nav class="breadcrumb mono" aria-label="Breadcrumb">
       <a href="/#projects">← all projects</a>

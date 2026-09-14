@@ -1,12 +1,16 @@
 /**
  * EXPERIENCE TIMELINE — newest first. Edit freely; dates are plain strings.
- * Sourced from Justin's resume (Apr 2026 version).
+ *
+ * Titles, employers, dates and locations here are shared values under the
+ * resume/portfolio/LinkedIn consistency contract. Do not change one without
+ * changing the resumes and LinkedIn to match.
  */
 export interface Experience {
   company: string;
   role: string;
   start: string;
   end: string; // 'Present' for current
+  location?: string; // city, state — jobs only
   description: string;
   tech: string[];
   url?: string;
@@ -14,19 +18,29 @@ export interface Experience {
 
 export const experience: Experience[] = [
   {
-    company: 'Momenta', // TODO: confirm company name + exact title
-    role: 'AI Automation Engineer',
-    start: '2025',
+    company: 'Momenta Fire',
+    role: 'AI Systems and Marketing Intern',
+    start: 'May 2026',
     end: 'Present',
+    location: 'Tomball, TX',
     description:
-      "Building Momenta OS, an AI OS harness synced across the team's ChatGPT instances via a shared project/agent config. Designed the knowledge vault (client context, brand voice docs, content rules, feedback logs) that acts as the single source of truth, plus the draft → score → revise → approve workflow and governed feedback-update process behind consistent multi-client LinkedIn content.",
-    tech: ['ChatGPT Agents', 'Knowledge Vault', 'Prompt Systems', 'Workflow Design', 'AI Automations'],
+      'Built Momenta OS, an AI agent operating system on a governed Google Drive vault that keeps brand voice, client context, and content rules in sync across an 8-person agency team. Per-post content turnaround dropped from 45 minutes to under 10. Authored 60+ versioned agent skills that run unmodified across 3 AI harnesses, audited GA4 and GTM coverage across 54 client WordPress sites, and wrote the company access governance standard defining 5 trust tiers. Currently building a usage-based billing platform on Azure.',
+    tech: [
+      'Claude / MCP',
+      'Agent Skills',
+      'Google Drive API',
+      'WordPress',
+      'GA4 & GTM',
+      'Azure',
+      'Stripe',
+    ],
   },
   {
     company: 'Incarnate Editors',
-    role: 'Senior Front-End Engineer (Contract)',
+    role: 'Front-End Developer (Freelance)',
     start: 'Dec 2022',
     end: 'Feb 2025',
+    location: 'Remote',
     description:
       'Redesigned the mobile UI with TailwindCSS, driving a 20% increase in mobile traffic. Architected a 40+ node user-flow diagram to streamline navigation, and programmed a full-stack data-modeling application with React, Firebase, and Electron visualizing 100+ data entries.',
     tech: ['React', 'TailwindCSS', 'Firebase', 'Electron', 'Figma'],
@@ -46,7 +60,7 @@ export const experience: Experience[] = [
     start: '2025',
     end: 'Present',
     description:
-      'Cumulative GPA 3.5/4.0. Coursework in machine learning, database systems, and algorithms. Hackathon builds include an AI schematic-parsing chatbot (React + Rust + Gemini) shipped in 24 hours.',
+      'Hackathon builds include an AI schematic-parsing chatbot (React + Rust + Gemini) shipped in 24 hours.',
     tech: ['Machine Learning', 'Databases', 'Algorithms', 'Python', 'Java'],
     url: 'https://www.uh.edu/',
   },

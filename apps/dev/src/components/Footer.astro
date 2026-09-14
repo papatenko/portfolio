@@ -13,6 +13,9 @@ const year = new Date().getFullYear();
     <SocialLinks />
     <p class="built mono">built with Astro + Claude Code · self-hosted on a Proxmox homelab</p>
   </div>
+  <p class="signoff mono container">
+    <span class="prompt">~$</span> echo "{site.footerLine}"
+  </p>
 </footer>
 
 <style>
@@ -31,4 +34,11 @@ const year = new Date().getFullYear();
   .inner p { margin: 0; font-size: 0.85rem; color: var(--text-muted); }
   .prompt { color: var(--gold); }
   .built { font-size: 0.75rem; }
+  .signoff {
+    margin-top: 1.4rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    color: var(--accent);
+    text-align: center;
+  }
 </style>

@@ -11,6 +11,10 @@ const caseStudies = defineCollection({
   schema: z.object({
     title: z.string(),
     summary: z.string(),
+    /** <meta name="description"> for this page. Falls back to `summary`. */
+    description: z.string().optional(),
+    /** Open Graph / Twitter card image for this page. Falls back to /og/default.png. */
+    ogImage: z.string().optional(),
     tech: z.array(z.string()),
     repoUrl: z.string().optional(),
     demoUrl: z.string().optional(),

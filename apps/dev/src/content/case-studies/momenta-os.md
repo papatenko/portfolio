@@ -1,56 +1,55 @@
 ---
 title: 'Momenta OS'
-summary: "An AI OS harness that syncs across the whole team's ChatGPT instances — one shared vault of client context, brand voice, and institutional memory."
-tech: ['ChatGPT Agents', 'Knowledge Vault', 'Prompt Systems', 'Workflow Design', 'Feedback Loops']
+summary: 'An AI agent operating system for a marketing agency, built on a governed Google Drive vault — Claude loads client context, brand voice, and content rules before it writes a word.'
+description: 'Momenta OS: a Claude-powered agent operating system on a governed Google Drive vault, with 60+ versioned agent skills and Pressable MCP site updates. Case study by Justin Kondratenko.'
+tech: ['Claude', 'MCP', 'Agent Skills', 'Google Drive', 'WordPress', 'Pressable', 'Governance']
 image: '/images/projects/momenta-os.png'
+ogImage: '/og/momenta-os.png'
 order: 1
 ---
 
 ## Problem & user context
 
-Marketing teams managing LinkedIn for multiple clients burn hours per post: researching each client's audience, matching their brand voice, drafting copy, and routing everything through approvals. Worse, every teammate's AI assistant starts from zero — context lives in scattered docs, and two people asking ChatGPT for "a post for the same client" get two different brands.
+A marketing agency running LinkedIn content for several industrial B2B clients burns hours per post: researching the audience, matching brand voice, drafting, and routing everything through approvals. Worse, every teammate's AI assistant starts from zero. Context lives in scattered docs, and two people asking for "a post for the same client" get two different brands.
 
-Momenta OS fixes the *sync* problem. It's an AI OS harness distributed to the whole Momenta Fire team through a shared ChatGPT project/agent config, all pointing at one knowledge vault: client folders, brand voice docs, content rules, approved and rejected examples, feedback logs, and automation docs. The vault is the single source of truth; every teammate's assistant behaves like the same assistant.
+Momenta OS fixes the context problem at the source. Instead of prompts living in individual chat histories, one governed Google Drive vault holds client folders, brand voice docs, content rules, approved and rejected examples, feedback logs, and the agent runbooks themselves. Claude reads from the vault before it writes anything, so the vault — not anyone's memory — is what the team's AI actually knows.
 
 ## How it works
 
-Every request follows the same workflow, enforced by the harness:
+**The vault is the source of truth.** Client context, brand voice, and content rules are versioned files, not prompt text. Changing a rule changes every agent's behaviour at once.
 
-1. **Load the right context.** The assistant pulls from the vault structure — the client's folder, brand voice doc, content rules, approved/rejected examples, and feedback history — before writing a word.
-2. **Follow the right workflow.** For LinkedIn content: identify the client, load context, review examples and feedback, draft the post, score it against the brand rules, revise, then hand back a decision point — revise, approve, reject, or mark as published.
-3. **Respect the feedback system.** One offhand comment doesn't silently rewrite brand rules. Repeatable feedback gets turned into a *proposed* update that goes through an explicit update process — institutional memory changes deliberately, not accidentally.
-4. **Create usable outputs.** Posts, visual briefs, captions, client onboarding docs, content calendars, feedback logs, and vault organization — each filed where it belongs.
+**Skills are runbooks, not prompts.** 60+ versioned agent skills encode the recurring work as machine-readable procedures: WordPress audits, SEO remediation, analytics coverage checks, site updates. Each one is a directory with a `SKILL.md` describing when it applies and what it does, so the same skill runs unmodified across three AI harnesses.
 
-Day-to-day usage is command-like: *"create post for ChangeOvr about filter maintenance"*, *"score this post"*, *"log this as approved feedback"*, *"help onboard a new client"*.
+**Site updates go through MCP.** WordPress changes run against the Pressable MCP server rather than a browser session, which means an agent can make a scoped, reviewable change to a live site instead of a human clicking through an admin panel. This replaced a MainWP-based workflow that had been the earlier approach.
+
+**Content moves through a governed pipeline.** Draft → score against the brand rules → revise → approve, reject, or mark published, with a structured feedback log behind it. One offhand comment doesn't silently rewrite a brand rule; repeatable feedback becomes a *proposed* update that goes through an explicit approval step. Institutional memory changes deliberately.
 
 ## Constraints & tradeoffs
 
-- **Harness over app.** Instead of building custom software, the OS lives inside the tool the team already uses (ChatGPT) via project/agent config — zero onboarding friction, instant sync when the config or vault updates.
-- **Vault as source of truth.** All client knowledge is externalized into the vault rather than living in any one person's chat history — the team can grow without losing memory.
-- **Governed change.** The scoring and feedback-approval loop trades a little speed for brand consistency clients can trust.
+- **Governance over speed.** The scoring and feedback-approval loop costs a round trip. It buys brand consistency a client can trust, and an audit trail for why a rule exists.
+- **Portable skills over a bespoke app.** Writing the skills as plain, versioned files rather than building custom software means they survive a change of model or harness. They already run across three.
+- **Least privilege by design.** Alongside the OS I wrote the company access governance standard — five trust tiers plus a non-human class, and a per-service permission matrix — because an agent with vault access is an access-control question before it's a productivity one.
 
 ## Architecture
 
 ```text
-Team member A ─┐
-Team member B ─┼─► ChatGPT (shared project / agent config = Momenta OS harness)
-Team member C ─┘            │
-                            ▼
-                  Momenta OS knowledge vault
-                  ├── client folders (context, onboarding)
-                  ├── brand voice docs + content rules
-                  ├── approved / rejected examples
-                  ├── feedback logs ──► proposed rule updates (governed)
-                  └── automation & workflow docs
+ Agent harnesses (3)                   Governed Google Drive vault
+ ├── Claude Code            ┌────────► ├── client folders (context, onboarding)
+ ├── Codex CLI      ────────┤          ├── brand voice docs + content rules
+ └── OpenCode               │          ├── approved / rejected examples
+                            │          ├── feedback logs ─► proposed rule updates
+                            │          └── skills/ (60+ versioned runbooks)
                             │
                             ▼
-        Drafts → score → revise → approve / reject / published
+                    Pressable MCP server ──► client WordPress sites
+                            │
+                            ▼
+        Draft → score → revise → approve / reject / published
 ```
 
 ## Results & lessons
 
-<!-- TODO: add real metrics (posts/week, clients onboarded, revision rounds saved) -->
-
-- The whole team's AI now speaks each client's brand voice consistently — no per-person prompt drift.
-- Feedback compounds: every approval/rejection makes the next draft better for everyone, not just the person who received the note.
-- Lesson: the vault structure matters more than the prompts — a well-organized source of truth makes even simple instructions reliable.
+- Per-post content turnaround dropped from 45 minutes to under 10 across an 8-person team.
+- A GA4 and GTM coverage audit across 54 client WordPress sites turned raw scan output into a triaged rollout plan covering 25 untagged properties and 2 legacy tracking migrations.
+- Lesson: the vault structure matters more than the prompt. A well-organised source of truth makes even plain instructions reliable, and a badly organised one makes clever prompts fragile.
+- Lesson: retiring the MainWP workflow for MCP was the moment the system stopped being a writing assistant and started being able to *do* things — which is exactly when the access governance work became non-optional.

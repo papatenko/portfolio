@@ -1,6 +1,8 @@
 ---
 title: 'Shako Kabob — Foodtruck POS'
 summary: 'Full-stack point-of-sale and online ordering platform for a food truck, from database schema to automated deploys.'
+description: 'A full-stack food-truck point-of-sale and online ordering platform — React, Node, MySQL, and Docker on Coolify — from database schema to automated deploys. Case study by Justin Kondratenko.'
+ogImage: '/og/shako-kabob-pos.png'
 tech: ['React', 'Vite', 'Node.js', 'MySQL', 'Docker', 'GitHub Actions', 'Turborepo', 'Coolify']
 repoUrl: 'https://github.com/papatenko/point-of-sale-system'
 demoUrl: 'https://pos.papatenko.org/'

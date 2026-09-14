@@ -1,29 +1,50 @@
 /**
  * SITE-WIDE SETTINGS — edit this file to change your name, roles,
  * social links, email, and hero copy. Everything here flows into the UI.
+ *
+ * Shared values (title, employer, dates, location, degree, graduation date,
+ * email) are fixed by the resume/portfolio/LinkedIn consistency contract.
+ * Changing one here means changing it on the resumes and LinkedIn too.
  */
 export const site = {
   name: 'Justin Kondratenko',
   firstName: 'Justin',
   domain: 'https://justinkondratenko.dev',
   email: 'justinkondratenko@proton.me',
-  location: 'Houston, Texas',
-  // Roles cycled by the hero typing animation — reorder or edit freely.
+  location: 'Katy, Texas',
+  // Roles cycled by the hero typing animation — self-descriptors, not job titles.
   roles: [
     'Full-Stack Developer',
-    'AI Automation Engineer',
-    'UI/UX Designer',
+    'AI Systems & Automation',
     'Homelab & Server Admin',
+    'UI/UX Designer',
   ],
   intro:
-    "I design and build AI-powered automation systems, full-stack web apps, and the self-hosted infrastructure that runs them — from Figma mockups to production deploys. Currently focused on Momenta OS, an AI OS harness that syncs client context and brand voice across a whole team's ChatGPT instances.",
+    'I build AI systems that take work off people\'s plates, the web apps around them, and the self-hosted infrastructure they run on. Right now that means an agent operating system a marketing agency runs its content on, a usage-based billing platform on Azure, and a five-host estate at home I treat like production.',
   currentRole: {
-    title: 'AI Automation Engineer', // TODO: confirm exact title
-    company: 'Momenta',
-    companyUrl: '#',
+    title: 'AI Systems and Marketing Intern',
+    company: 'Momenta Fire',
+    companyUrl: '', // leave empty to render as plain text — see report note
+    location: 'Tomball, TX',
+    start: 'May 2026',
   },
+  /**
+   * Hero metric row. Every figure here is traceable — do not add one that
+   * isn't. Source: Phase 0 corrected copy deck, 2026-09-14.
+   */
+  metrics: [
+    { value: '54', label: 'client sites audited' },
+    { value: '60+', label: 'agent skills shipped' },
+    { value: '20+', label: 'self-hosted stacks' },
+    { value: '99%+', label: 'uptime' },
+  ],
+  /** Shown under the hero CTA. Mirrors the LinkedIn "open to work" settings. */
+  availabilityLine:
+    'Graduating May 2027 · based in Katy, TX · open to hybrid and on-site roles.',
   funFact:
-    'My entire portfolio, photo backups, and cloud storage run on a Proxmox homelab in my house — "I don\'t know what I\'m doing, but I\'m doing it."',
+    'My entire portfolio, photo backups, and cloud storage run on a Proxmox homelab in my house.',
+  /** Sign-off line in the footer. */
+  footerLine: "I don't know what I'm doing, but I'm doing it.",
   yearsExperience: 4, // building since late 2022 (Incarnate Editors)
   resumePath: '/resume.pdf',
   responseTime: 'I usually reply within 24–48 hours.',

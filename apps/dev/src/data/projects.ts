@@ -6,6 +6,13 @@
  *
  * SCREENSHOTS: overwrite the generated placeholder PNGs in
  * public/images/projects/ with real screenshots (1200x675 / 16:9 best).
+ *
+ * `metaDescription` is the per-project <meta name="description"> used on the
+ * case-study page; it falls back to the case study's own summary.
+ *
+ * NO CLIENT OR PARTNER NAMES. Client work is described by mechanism, not by
+ * company, product, or project name. This is a standing constraint, not a
+ * placeholder.
  */
 export interface Project {
   title: string;
@@ -18,6 +25,8 @@ export interface Project {
   repoUrl?: string;
   demoUrl?: string;
   stars?: number; // fallback if the GitHub API is unreachable at build
+  metaDescription?: string;
+  status?: string; // e.g. 'In progress' — shown as a badge on the card
 }
 
 export const projects: Project[] = [
@@ -25,12 +34,47 @@ export const projects: Project[] = [
     title: 'Momenta OS',
     slug: 'momenta-os',
     description:
-      "AI OS harness that syncs across the whole team's ChatGPT instances via a shared project/agent config — a knowledge vault of client context, brand voice docs, content rules, and feedback logs becomes the single source of truth every assistant loads from.",
+      'An AI agent operating system for a marketing agency, built on a governed Google Drive vault. Claude loads client context, brand voice, and content rules from the vault before it writes anything, and 60+ versioned agent skills turn recurring work — WordPress audits, SEO remediation, site updates over the Pressable MCP server — into machine-readable runbooks that run unmodified across three AI harnesses.',
     outcome:
-      'One shared AI brain: consistent brand voice and client context for every teammate.',
+      'Per-post content turnaround dropped from 45 minutes to under 10 across an 8-person team.',
     image: '/images/projects/momenta-os.png',
-    tech: ['ChatGPT Agents', 'Knowledge Vault', 'Prompt Systems', 'Workflow Design', 'Feedback Loops'],
+    tech: ['Claude', 'MCP', 'Agent Skills', 'Google Drive', 'WordPress', 'Governance'],
+    metaDescription:
+      'Momenta OS: a Claude-powered agent operating system on a governed Google Drive vault, with 60+ versioned agent skills and Pressable MCP site updates. Case study by Justin Kondratenko.',
     // Private/commercial — no public repo.
+  },
+  {
+    title: 'Usage-Based Billing Platform',
+    slug: '',
+    status: 'In progress',
+    description:
+      'A usage-based billing platform that meters per-lead usage from a partner SaaS product into automated Stripe invoicing. Server-calculated integer-cent pricing, signed webhooks, event deduplication, and idempotent billing cycles, behind Auth.js sign-in with mandatory per-login 2FA, login throttling, and fail-closed behavior. Ships through a GitHub Actions to Azure OIDC pipeline — verify, build, migrate, deploy — onto App Service and PostgreSQL Flexible Server, with secrets in Azure Key Vault under a system-assigned managed identity.',
+    outcome: 'In progress — the build exists, the deployment does not yet.',
+    image: '/images/projects/billing-platform.png',
+    tech: ['TypeScript', 'Prisma', 'PostgreSQL', 'Stripe', 'Auth.js', 'Azure', 'GitHub Actions'],
+    // Client work — no public repo, no demo, no names.
+  },
+  {
+    title: 'Self-Hosted AI Agent Infrastructure',
+    slug: '',
+    description:
+      'An OAuth-protected MCP context server behind centralized SSO and an NGINX reverse proxy with wildcard TLS, giving 3 AI coding clients semantic recall over a shared knowledge base. Every service underneath it runs as a git-backed container stack, so the repository is the only deployment path and the estate rebuilds from a clean host with no manual compose steps.',
+    outcome: 'One shared memory for every AI client, rebuildable from git alone.',
+    image: '/images/projects/agent-infrastructure.png',
+    tech: ['MCP', 'OAuth / SSO', 'Nginx', 'Docker', 'GitOps', 'Vector Search'],
+  },
+  {
+    title: 'Proxmox Homelab',
+    slug: 'homelab',
+    description:
+      'A 5-host Proxmox and Docker estate running 20+ container stacks under GitOps, with centralized SSO, network-wide DNS filtering, and a Tailscale mesh for zero-trust remote access. Scheduled restic backups run tiered daily, weekly, and monthly retention across host configs, service stacks, and Docker volumes, monitored by completion hooks that page on a missed run.',
+    outcome: 'Sustained 99%+ uptime across 8+ publicly reachable services.',
+    image: '/images/projects/homelab.png',
+    tech: ['Proxmox', 'Docker', 'GitOps', 'Tailscale', 'Nginx', 'restic', 'Linux'],
+    metaDescription:
+      'A 5-host Proxmox and Docker estate: 20+ container stacks under GitOps, centralized SSO, DNS filtering, a Tailscale mesh, and tested restic backups. Case study by Justin Kondratenko.',
+    repo: 'papatenko/homelab',
+    repoUrl: 'https://github.com/papatenko/homelab',
   },
   {
     title: 'Shako Kabob — Foodtruck POS',
@@ -40,6 +84,8 @@ export const projects: Project[] = [
     outcome: 'Cut build times 50% via Docker layer caching; led a team of 4 to production.',
     image: '/images/projects/shako-kabob.png',
     tech: ['React', 'Vite', 'Node.js', 'MySQL', 'Docker', 'GitHub Actions', 'Turborepo'],
+    metaDescription:
+      'A full-stack food-truck point-of-sale platform — React, Node, MySQL, and Docker on Coolify — built with a team of four. Case study by Justin Kondratenko.',
     repo: 'papatenko/point-of-sale-system',
     repoUrl: 'https://github.com/papatenko/point-of-sale-system',
     demoUrl: 'https://pos.papatenko.org/',
@@ -52,21 +98,12 @@ export const projects: Project[] = [
     outcome: '95+ Google Lighthouse score; hosted live tournaments with real-time brackets.',
     image: '/images/projects/rps-tournament.png',
     tech: ['TypeScript', 'React', 'Socket.IO', 'TailwindCSS', 'Figma'],
+    metaDescription:
+      'A real-time multiplayer tournament platform in React, TypeScript, and Socket.IO, run live on campus. Case study by Justin Kondratenko.',
     repo: 'devaine/RPS-Tournament',
     repoUrl: 'https://github.com/devaine/RPS-Tournament',
     demoUrl: 'https://rps.papatenko.org/',
     stars: 2,
-  },
-  {
-    title: 'Proxmox Homelab',
-    slug: 'homelab',
-    description:
-      'VLAN-segmented home infrastructure on Proxmox: ZFS NAS with RAID and automated snapshots, Nextcloud, Immich, and an NGINX reverse proxy with SSL/TLS + Cloudflare serving 8+ websites.',
-    outcome: 'Securely self-hosts 8+ public sites and services for a fraction of SaaS cost.',
-    image: '/images/projects/homelab.png',
-    tech: ['Proxmox', 'ZFS', 'VLANs', 'Docker', 'Nginx', 'Cloudflare', 'Backrest'],
-    repo: 'papatenko/homelab',
-    repoUrl: 'https://github.com/papatenko/homelab',
   },
   {
     title: 'Schematic Spelunker',
@@ -76,6 +113,8 @@ export const projects: Project[] = [
     outcome: 'Under 30s processing for 15+ concurrent PDF documents.',
     image: '/images/projects/schematic-spelunker.png',
     tech: ['React', 'Rust', 'Gemini API', 'RAG', 'Document Parsing'],
+    metaDescription:
+      'A retrieval-augmented chatbot that parses machinery schematics — React, Rust, and the Gemini API — built in 24 hours. Case study by Justin Kondratenko.',
     // No live demo — hackathon project.
   },
   {
