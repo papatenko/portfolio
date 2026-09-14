@@ -24,9 +24,9 @@ export const experience: Experience[] = [
     end: 'Present',
     location: 'Tomball, TX',
     description:
-      'Built Momenta OS, an AI agent operating system on a governed Google Drive vault that keeps brand voice, client context, and content rules in sync across an 8-person agency team. Per-post content turnaround dropped from 45 minutes to under 10. Authored 60+ versioned agent skills that run unmodified across 3 AI harnesses, audited GA4 and GTM coverage across 54 client WordPress sites, and wrote the company access governance standard defining 5 trust tiers. Currently building a usage-based billing platform on Azure.',
+      'Built Momenta OS, an AI agent operating system on a governed Google Drive vault that keeps brand voice, client context, and content rules in sync across an 8-person agency team. Per-post content turnaround dropped from 45 minutes to under 10. Authored 60+ versioned agent skills that any supported AI harness can follow, audited GA4 and GTM coverage across 54 client WordPress sites, and wrote the company access governance standard defining 5 trust tiers. Currently building a usage-based billing platform on Azure.',
     tech: [
-      'Claude / MCP',
+      'Agent Harnesses / MCP',
       'Agent Skills',
       'Google Drive API',
       'WordPress',

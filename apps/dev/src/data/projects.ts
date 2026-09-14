@@ -34,13 +34,13 @@ export const projects: Project[] = [
     title: 'Momenta OS',
     slug: 'momenta-os',
     description:
-      'An AI agent operating system for a marketing agency, built on a governed Google Drive vault. Claude loads client context, brand voice, and content rules from the vault before it writes anything, and 60+ versioned agent skills turn recurring work — WordPress audits, SEO remediation, site updates over the Pressable MCP server — into machine-readable runbooks that run unmodified across three AI harnesses.',
+      'An AI agent operating system for a marketing agency, built on a governed Google Drive vault. Any supported AI assistant loads client context, brand voice, and content rules from the vault before it writes anything, and 60+ versioned agent skills turn recurring work — WordPress audits, SEO remediation, site updates over the Pressable MCP server — into machine-readable runbooks.',
     outcome:
       'Per-post content turnaround dropped from 45 minutes to under 10 across an 8-person team.',
     image: '/images/projects/momenta-os.png',
-    tech: ['Claude', 'MCP', 'Agent Skills', 'Google Drive', 'WordPress', 'Governance'],
+    tech: ['Agent Harnesses', 'MCP', 'Agent Skills', 'Google Drive', 'WordPress', 'Governance'],
     metaDescription:
-      'Momenta OS: a Claude-powered agent operating system on a governed Google Drive vault, with 60+ versioned agent skills and Pressable MCP site updates. Case study by Justin Kondratenko.',
+      'Momenta OS: an agent operating system on a governed Google Drive vault, with 60+ versioned agent skills and Pressable MCP site updates. Case study by Justin Kondratenko.',
     // Private/commercial — no public repo.
   },
   {
@@ -53,15 +53,6 @@ export const projects: Project[] = [
     image: '/images/projects/billing-platform.png',
     tech: ['TypeScript', 'Prisma', 'PostgreSQL', 'Stripe', 'Auth.js', 'Azure', 'GitHub Actions'],
     // Client work — no public repo, no demo, no names.
-  },
-  {
-    title: 'Self-Hosted AI Agent Infrastructure',
-    slug: '',
-    description:
-      'An OAuth-protected MCP context server behind centralized SSO and an NGINX reverse proxy with wildcard TLS, giving 3 AI coding clients semantic recall over a shared knowledge base. Every service underneath it runs as a git-backed container stack, so the repository is the only deployment path and the estate rebuilds from a clean host with no manual compose steps.',
-    outcome: 'One shared memory for every AI client, rebuildable from git alone.',
-    image: '/images/projects/agent-infrastructure.png',
-    tech: ['MCP', 'OAuth / SSO', 'Nginx', 'Docker', 'GitOps', 'Vector Search'],
   },
   {
     title: 'Proxmox Homelab',

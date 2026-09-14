@@ -45,8 +45,8 @@ CARDS = {
     "momenta-os": (
         "~$ cat case-studies/momenta-os",
         "Momenta OS",
-        "A Claude-powered agent operating system on a\ngoverned Drive vault, with 60+ versioned skills.",
-        ["Claude", "MCP", "Agent Skills", "Governance"],
+        "An agent operating system on a\ngoverned Drive vault, with 60+ versioned skills.",
+        ["Agent Harnesses", "MCP", "Agent Skills", "Governance"],
     ),
     "homelab": (
         "~$ cat case-studies/homelab",

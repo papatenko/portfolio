@@ -43,8 +43,6 @@ export const site = {
     'Graduating May 2027 · based in Katy, TX · open to hybrid and on-site roles.',
   funFact:
     'My entire portfolio, photo backups, and cloud storage run on a Proxmox homelab in my house.',
-  /** Sign-off line in the footer. */
-  footerLine: "I don't know what I'm doing, but I'm doing it.",
   yearsExperience: 4, // building since late 2022 (Incarnate Editors)
   resumePath: '/resume.pdf',
   responseTime: 'I usually reply within 24–48 hours.',
