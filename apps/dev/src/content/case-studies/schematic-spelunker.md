@@ -1,7 +1,7 @@
 ---
 title: 'Schematic Spelunker'
 summary: 'AI chatbot that parses machinery schematics so technicians get informed answers about their unique equipment.'
-description: 'A retrieval-augmented chatbot that parses machinery schematics — React, Rust, and the Gemini API — built in 24 hours with a team of four. Case study by Justin Kondratenko.'
+description: 'A retrieval-augmented chatbot that parses machinery schematics with React, Rust, and the Gemini API. Built in 24 hours with a team of four. Case study by Justin Kondratenko.'
 ogImage: '/og/schematic-spelunker.png'
 tech: ['React', 'Rust', 'Gemini API', 'RAG', 'Document Parsing']
 image: '/images/projects/schematic-spelunker.png'
@@ -14,8 +14,8 @@ Technicians working on specialized machinery rely on dense schematic documents t
 
 ## Constraints & tradeoffs
 
-- **Hackathon clock.** Scope ruthlessly: parse → retrieve → answer, with citations back to the source schematic, before adding anything else.
-- **Accuracy over fluency.** Grounded retrieval (RAG) over freeform generation — an answer that cites the schematic beats a confident guess.
+- Hackathon clock. Scope was parse, retrieve, and answer, with citations back to the source schematic.
+- Accuracy over fluency. Grounded retrieval (RAG) takes priority over freeform generation. An answer that cites the schematic beats a confident guess.
 
 ## Architecture
 
@@ -31,4 +31,4 @@ User question ──► LLM (grounded prompt) ◄──┘
 ## Results & lessons
 
 - Working demo shipped within the hackathon window with a 4-person team.
-- Lesson: document parsing quality is the ceiling on answer quality — the chunking strategy mattered more than the model choice.
+- Lesson: document parsing quality sets the ceiling for answer quality. The chunking strategy mattered more than the model choice.

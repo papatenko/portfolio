@@ -24,7 +24,7 @@ export const experience: Experience[] = [
     end: 'Present',
     location: 'Tomball, TX',
     description:
-      'Built Momenta OS, an AI agent operating system on a governed Google Drive vault that keeps brand voice, client context, and content rules in sync across an 8-person agency team. Per-post content turnaround dropped from 45 minutes to under 10. Authored 60+ versioned agent skills that any supported AI harness can follow, audited GA4 and GTM coverage across 54 client WordPress sites, and wrote the company access governance standard defining 5 trust tiers. Currently building a usage-based billing platform on Azure.',
+      'Built Momenta OS, an AI agent operating system on a governed Google Drive vault that keeps brand voice, client context, and content rules in sync across an 8-person agency team. Per-post content turnaround dropped from 45 minutes to under 10. Authored more than 60 versioned agent skills, audited GA4 and GTM coverage across 54 client WordPress sites, and wrote the company access governance standard with 5 trust tiers. Currently building a usage-based billing platform on Azure.',
     tech: [
       'Agent Harnesses / MCP',
       'Agent Skills',
@@ -42,7 +42,7 @@ export const experience: Experience[] = [
     end: 'Feb 2025',
     location: 'Remote',
     description:
-      'Redesigned the mobile UI with TailwindCSS, driving a 20% increase in mobile traffic. Architected a 40+ node user-flow diagram to streamline navigation, and programmed a full-stack data-modeling application with React, Firebase, and Electron visualizing 100+ data entries.',
+      'Redesigned the mobile UI with TailwindCSS, increasing mobile traffic by 20%. Built a 40+ node user-flow diagram for navigation planning and programmed a full-stack data-modeling application with React, Firebase, and Electron that visualized more than 100 data entries.',
     tech: ['React', 'TailwindCSS', 'Firebase', 'Electron', 'Figma'],
   },
   {
@@ -51,7 +51,7 @@ export const experience: Experience[] = [
     start: 'May 2022',
     end: 'May 2025',
     description:
-      'Led a 275+ member organization, growing membership 20% through targeted recruitment. Hosted Git, web-development, and computer-engineering workshops for 50+ students, and coordinated 4 inter-club competitions plus 3+ hackathon and VEX robotics runs.',
+      'Led a 275+ member organization and grew membership 20% through targeted recruitment. Hosted Git, web development, and computer engineering workshops for 50+ students. Coordinated 4 inter-club competitions plus 3+ hackathon and VEX robotics events.',
     tech: ['Leadership', 'Git', 'Web Development', 'Workshops'],
   },
   {

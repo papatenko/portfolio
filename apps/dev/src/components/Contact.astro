@@ -43,7 +43,7 @@ const hasForm = Boolean(site.contactFormEndpoint && site.contactFormAccessKey);
       {!hasForm && (
         <p class="form-note">
           {/* Remove once contactFormEndpoint is set in src/data/site.ts */}
-          Form opens your email client until a Web3Forms key is configured — see README.
+          Form opens your email client until a Web3Forms key is configured. See README.
         </p>
       )}
     </form>
@@ -123,9 +123,9 @@ const hasForm = Boolean(site.contactFormEndpoint && site.contactFormAccessKey);
         });
         if (!res.ok) throw new Error(String(res.status));
         form.reset();
-        if (status) status.textContent = '✓ Message sent — talk soon!';
+        if (status) status.textContent = '✓ Message sent. Talk soon!';
       } catch {
-        if (status) status.textContent = '✗ Something broke — email me directly instead.';
+        if (status) status.textContent = '✗ Something broke. Email me directly instead.';
       }
     });
   }

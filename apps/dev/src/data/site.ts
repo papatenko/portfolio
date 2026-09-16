@@ -20,7 +20,7 @@ export const site = {
     'UI/UX Designer',
   ],
   intro:
-    'I build AI systems that take work off people\'s plates, the web apps around them, and the self-hosted infrastructure they run on. Right now that means an agent operating system a marketing agency runs its content on, a usage-based billing platform on Azure, and a five-host estate at home I treat like production.',
+    'I build AI systems that take work off people\'s plates, the web apps around them, and the self-hosted infrastructure they run on. Right now I\'m working on an agent operating system for a marketing agency, a usage-based billing platform on Azure, and a five-host home estate I run like production.',
   currentRole: {
     title: 'AI Systems and Marketing Intern',
     company: 'Momenta Fire',
@@ -40,14 +40,14 @@ export const site = {
   ],
   /** Shown under the hero CTA. Mirrors the LinkedIn "open to work" settings. */
   availabilityLine:
-    'Graduating May 2027 · based in Katy, TX · open to hybrid and on-site roles.',
+    'Graduating May 2027 · based in Katy, TX · open to hybrid or on-site roles.',
   funFact:
     'My entire portfolio, photo backups, and cloud storage run on a Proxmox homelab in my house.',
   yearsExperience: 4, // building since late 2022 (Incarnate Editors)
   resumePath: '/resume.pdf',
   responseTime: 'I usually reply within 24–48 hours.',
   availability:
-    'Open to full-time roles, freelance builds (find me on Upwork), and consulting on AI automation or self-hosted infrastructure.',
+    'Open to full-time roles, freelance builds through Upwork, and consulting on AI automation or self-hosted infrastructure.',
   social: {
     github: 'https://github.com/papatenko',
     linkedin: 'https://www.linkedin.com/in/justinkondratenko/',

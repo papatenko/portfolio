@@ -34,7 +34,7 @@ export const projects: Project[] = [
     title: 'Momenta OS',
     slug: 'momenta-os',
     description:
-      'An AI agent operating system for a marketing agency, built on a governed Google Drive vault. Any supported AI assistant loads client context, brand voice, and content rules from the vault before it writes anything, and 60+ versioned agent skills turn recurring work — WordPress audits, SEO remediation, site updates over the Pressable MCP server — into machine-readable runbooks.',
+      'An AI agent operating system for a marketing agency, built on a governed Google Drive vault. Supported AI assistants load client context, brand voice, and content rules before writing. More than 60 versioned agent skills turn recurring work such as WordPress audits, SEO remediation, and Pressable MCP site updates into machine-readable runbooks.',
     outcome:
       'Per-post content turnaround dropped from 45 minutes to under 10 across an 8-person team.',
     image: '/images/projects/momenta-os.png',
@@ -48,8 +48,8 @@ export const projects: Project[] = [
     slug: '',
     status: 'In progress',
     description:
-      'A usage-based billing platform that meters per-lead usage from a partner SaaS product into automated Stripe invoicing. Server-calculated integer-cent pricing, signed webhooks, event deduplication, and idempotent billing cycles, behind Auth.js sign-in with mandatory per-login 2FA, login throttling, and fail-closed behavior. Ships through a GitHub Actions to Azure OIDC pipeline — verify, build, migrate, deploy — onto App Service and PostgreSQL Flexible Server, with secrets in Azure Key Vault under a system-assigned managed identity.',
-    outcome: 'In progress — the build exists, the deployment does not yet.',
+      'A usage-based billing platform that meters per-lead usage from a partner SaaS product and sends it to Stripe for invoicing. It uses integer-cent pricing calculated on the server, signed webhooks, event deduplication, and idempotent billing cycles. Auth.js sign-in adds per-login 2FA, login throttling, and fail-closed behavior. A GitHub Actions and Azure OIDC pipeline verifies, builds, migrates, and deploys to App Service and PostgreSQL Flexible Server. Azure Key Vault stores secrets under a system-assigned managed identity.',
+    outcome: 'In progress. The build exists; deployment comes later.',
     image: '/images/projects/billing-platform.png',
     tech: ['TypeScript', 'Prisma', 'PostgreSQL', 'Stripe', 'Auth.js', 'Azure', 'GitHub Actions'],
     // Client work — no public repo, no demo, no names.
@@ -58,7 +58,7 @@ export const projects: Project[] = [
     title: 'Proxmox Homelab',
     slug: 'homelab',
     description:
-      'A 5-host Proxmox and Docker estate running 20+ container stacks under GitOps, with centralized SSO, network-wide DNS filtering, and a Tailscale mesh for zero-trust remote access. Scheduled restic backups run tiered daily, weekly, and monthly retention across host configs, service stacks, and Docker volumes, monitored by completion hooks that page on a missed run.',
+      'A 5-host Proxmox and Docker estate running more than 20 container stacks under GitOps. It has centralized SSO, network-wide DNS filtering, and a Tailscale mesh for zero-trust remote access. Scheduled restic backups use daily, weekly, and monthly retention for host configs, service stacks, and Docker volumes. Completion hooks page when a run is missed.',
     outcome: 'Sustained 99%+ uptime across 8+ publicly reachable services.',
     image: '/images/projects/homelab.png',
     tech: ['Proxmox', 'Docker', 'GitOps', 'Tailscale', 'Nginx', 'restic', 'Linux'],
@@ -76,7 +76,7 @@ export const projects: Project[] = [
     image: '/images/projects/shako-kabob.png',
     tech: ['React', 'Vite', 'Node.js', 'MySQL', 'Docker', 'GitHub Actions', 'Turborepo'],
     metaDescription:
-      'A full-stack food-truck point-of-sale platform — React, Node, MySQL, and Docker on Coolify — built with a team of four. Case study by Justin Kondratenko.',
+      'A full-stack food-truck point-of-sale platform using React, Node, MySQL, and Docker on Coolify, built with a team of four. Case study by Justin Kondratenko.',
     repo: 'papatenko/point-of-sale-system',
     repoUrl: 'https://github.com/papatenko/point-of-sale-system',
     demoUrl: 'https://pos.papatenko.org/',
@@ -85,7 +85,7 @@ export const projects: Project[] = [
     title: 'Rock Paper Scissors Tournament',
     slug: 'rps-tournament',
     description:
-      'Real-time competitive rock-paper-scissors tournament platform with a retro arcade theme — designed in Figma (20+ frames), built with React, TypeScript, and Socket.IO, run live on campus.',
+      'Real-time competitive rock-paper-scissors tournament platform with a retro arcade theme. Designed in Figma with more than 20 frames, built with React, TypeScript, and Socket.IO, and run live on campus.',
     outcome: '95+ Google Lighthouse score; hosted live tournaments with real-time brackets.',
     image: '/images/projects/rps-tournament.png',
     tech: ['TypeScript', 'React', 'Socket.IO', 'TailwindCSS', 'Figma'],
@@ -100,19 +100,19 @@ export const projects: Project[] = [
     title: 'Schematic Spelunker',
     slug: 'schematic-spelunker',
     description:
-      'NotebookLM-style AI chatbot that parses machinery schematics — React frontend, Rust parsing engine, and Gemini API — built in 24 hours leading a team of 4.',
+      'NotebookLM-style AI chatbot that parses machinery schematics. Built in 24 hours with a React frontend, Rust parsing engine, and Gemini API while leading a team of 4.',
     outcome: 'Under 30s processing for 15+ concurrent PDF documents.',
     image: '/images/projects/schematic-spelunker.png',
     tech: ['React', 'Rust', 'Gemini API', 'RAG', 'Document Parsing'],
     metaDescription:
-      'A retrieval-augmented chatbot that parses machinery schematics — React, Rust, and the Gemini API — built in 24 hours. Case study by Justin Kondratenko.',
+      'A retrieval-augmented chatbot that parses machinery schematics with React, Rust, and the Gemini API. Built in 24 hours. Case study by Justin Kondratenko.',
     // No live demo — hackathon project.
   },
   {
     title: 'Portfolio Platform',
     slug: '',
     description:
-      'Self-hosted gallery of 50+ graphics and websites, parsed from JSON into a React frontend and deployed as an HTTPS SaaS on my own Linux servers with a GitHub Actions CI/CD pipeline.',
+      'Self-hosted gallery of more than 50 graphics and websites. JSON feeds a React frontend, which runs as an HTTPS service on my Linux servers through a GitHub Actions CI/CD pipeline.',
     outcome: '99% uptime, fully self-hosted end to end.',
     image: '/images/projects/portfolio-platform.png',
     tech: ['React', 'CI/CD', 'GitHub Actions', 'Linux', 'Nginx'],
@@ -127,7 +127,7 @@ export const contributions = [
   {
     title: 'devaine/RPS-Tournament',
     url: 'https://github.com/devaine/RPS-Tournament',
-    note: 'Core contributor — real-time tournament logic and retro UI.',
+    note: 'Core contributor: real-time tournament logic and retro UI.',
   },
   {
     title: 'papatenko/dotfiles',
@@ -137,11 +137,11 @@ export const contributions = [
   {
     title: 'papatenko/point-of-sale-system',
     url: 'https://github.com/papatenko/point-of-sale-system',
-    note: 'Foodtruck POS — MySQL, Node, React, Turborepo monorepo.',
+    note: 'Foodtruck POS: MySQL, Node, React, Turborepo monorepo.',
   },
   {
     title: 'papatenko/my-odin-projects',
     url: 'https://github.com/papatenko/my-odin-projects',
-    note: 'Vanilla web-dev fundamentals — The Odin Project curriculum.',
+    note: 'Vanilla web development fundamentals from The Odin Project curriculum.',
   },
 ];

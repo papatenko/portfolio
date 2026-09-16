@@ -1,7 +1,7 @@
 ---
 title: 'Rock Paper Scissors Tournament'
 summary: 'Real-time competitive RPS tournament platform with a retro arcade theme, run live on campus.'
-description: 'A real-time multiplayer tournament platform in React, TypeScript, and Socket.IO, with live brackets and a retro arcade UI, run live on campus. Case study by Justin Kondratenko.'
+description: 'A real-time multiplayer tournament platform in React, TypeScript, and Socket.IO, with live brackets and a retro arcade UI. Run live on campus. Case study by Justin Kondratenko.'
 ogImage: '/og/rps-tournament.png'
 tech: ['TypeScript', 'React', 'Node.js', 'Socket.IO']
 repoUrl: 'https://github.com/devaine/RPS-Tournament'
@@ -12,13 +12,13 @@ order: 2
 
 ## Problem & user context
 
-Campus events needed a game everyone already knows how to play, with zero setup, that works on whatever phone a student pulls out of their pocket. Rock-paper-scissors fits — but running a fair, fast tournament with live brackets by hand doesn't scale past a handful of players.
+Campus events needed a familiar game with zero setup that worked on any student phone. Rock-paper-scissors fits. Running a fair, fast tournament with live brackets by hand does not scale past a handful of players.
 
 ## Constraints & tradeoffs
 
-- **Real-time on flaky campus Wi-Fi.** Socket.IO with reconnection handling so a dropped connection doesn't forfeit a match.
-- **Zero-install.** Pure web app — players join from a URL, no accounts, no app store.
-- **Retro arcade theme.** Deliberate CRT/arcade aesthetic to make a simple game feel like an event.
+- Real-time on flaky campus Wi-Fi. Socket.IO reconnection handling keeps a dropped connection from forfeiting a match.
+- Zero-install. Players join the web app from a URL without an account or app store download.
+- Retro arcade theme. A deliberate CRT and arcade aesthetic makes a simple game feel like an event.
 
 ## Architecture
 
@@ -41,4 +41,4 @@ Watch the [showcase video](https://www.youtube.com/watch?v=pilOqmKyrKA) for the 
 ## Results & lessons
 
 - Successfully hosted live tournaments on the Cy-Fair campus with a projected live bracket.
-- Lesson: real-time state sync is 20% happy path, 80% reconnection and edge cases — designing the state machine first saved the project.
+- Lesson: real-time state sync is 20% happy path and 80% reconnection and edge cases. Designing the state machine first saved the project.

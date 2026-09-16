@@ -49,7 +49,7 @@ export const videos: Video[] = [
     title: 'How did Miles Morales get so popular?',
     videoId: '0tvIZ_-Arcw',
     role: 'Editing · Pacing · Engagement cuts',
-    blurb: 'Video-essay editing tuned for retention — strategic pacing boosted average viewer retention 25% across this channel\'s uploads.',
+    blurb: 'Video-essay editing tuned for retention. Strategic pacing boosted average viewer retention 25% across this channel\'s uploads.',
   },
   {
     client: 'ColleagueUs',
@@ -65,7 +65,7 @@ export const videos: Video[] = [
     title: 'Today Talk Podcast',
     videoId: 'lnkh_uTqz3M',
     role: 'End-to-end edit · Color grade · Graphics',
-    blurb: '7+ podcast episodes edited end-to-end in DaVinci Resolve and Premiere — consistent pacing, audio sync, and an on-brand color grade.',
+    blurb: '7+ podcast episodes edited end-to-end in DaVinci Resolve and Premiere, with consistent pacing, audio sync, and an on-brand color grade.',
   },
   {
     client: 'Abdo',
@@ -81,7 +81,7 @@ export const videos: Video[] = [
     title: 'valorant but its unhinged...',
     videoId: 'Eg0Nb_gPgik',
     role: 'Thumbnail art',
-    blurb: 'Thumbnail design only on this one (the edit is all Sti1tches) — part of a run of thumbnails that drove 1,000+ views per video for the channel.',
+    blurb: 'Thumbnail design only on this one. Sti1tches handled the edit. Part of a run of thumbnails that drove 1,000+ views per video for the channel.',
   },
   {
     client: 'Papatenko (me!)',
@@ -122,7 +122,7 @@ export const art: Art[] = [
     year: 2024,
     kind: 'thumbnail',
     src: '/art/marvel_rivals.png',
-    desc: 'Gameplay thumbnail — big shapes, bigger drama.',
+    desc: 'Gameplay thumbnail with big shapes and bigger drama.',
     link: 'https://www.youtube.com/watch?v=Ne-pKvfFAGk',
     tilt: 1.5,
   },
@@ -155,7 +155,7 @@ export const art: Art[] = [
     year: 2023,
     kind: 'logo',
     src: '/art/cs_club.png',
-    desc: 'Official logo of the Lone Star CyFair Computer Science Club — my proudest logo work.',
+    desc: 'Official logo of the Lone Star CyFair Computer Science Club. My proudest logo work.',
     tilt: -2.5,
   },
   {
@@ -180,7 +180,7 @@ export const art: Art[] = [
     year: 2026,
     kind: 'logo',
     src: '/art/pixel-pfp.png',
-    desc: 'The current me, pixel-swapped — curls, gold shades, sunset gradient. Evolution of the fake-NFT bit.',
+    desc: 'The current me, pixel-swapped: curls, gold shades, sunset gradient. Evolution of the fake-NFT bit.',
     tilt: 3,
   },
 ];

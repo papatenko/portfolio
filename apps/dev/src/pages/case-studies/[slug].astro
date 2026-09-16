@@ -15,7 +15,7 @@ const { study } = Astro.props;
 const { Content } = await render(study);
 const { title, summary, description, ogImage, tech, repoUrl, demoUrl, image } = study.data;
 
-const pageTitle = `${title} — Case Study | ${site.name}`;
+const pageTitle = `${title}: Case Study | ${site.name}`;
 const pageDescription = description ?? summary;
 const pageUrl = new URL(`/case-studies/${study.id}/`, site.domain).href;
 

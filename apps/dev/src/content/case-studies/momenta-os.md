@@ -1,6 +1,6 @@
 ---
 title: 'Momenta OS'
-summary: 'An AI agent operating system for a marketing agency, built on a governed Google Drive vault — any supported AI assistant loads client context, brand voice, and content rules before it writes a word.'
+summary: 'An AI agent operating system for a marketing agency, built on a governed Google Drive vault. Supported AI assistants load client context, brand voice, and content rules before writing.'
 description: 'Momenta OS: an agent operating system on a governed Google Drive vault, with 60+ versioned agent skills and Pressable MCP site updates. Case study by Justin Kondratenko.'
 tech: ['Agent Harnesses', 'MCP', 'Agent Skills', 'Google Drive', 'WordPress', 'Pressable', 'Governance']
 image: '/images/projects/momenta-os.png'
@@ -10,25 +10,25 @@ order: 1
 
 ## Problem & user context
 
-A marketing agency running LinkedIn content for several industrial B2B clients burns hours per post: researching the audience, matching brand voice, drafting, and routing everything through approvals. Worse, every teammate's AI assistant starts from zero. Context lives in scattered docs, and two people asking for "a post for the same client" get two different brands.
+A marketing agency running LinkedIn content for several industrial B2B clients spends hours on each post: researching the audience, matching brand voice, drafting, and routing everything through approvals. Each teammate's AI assistant starts from zero. Context lives in scattered docs, so two people asking for "a post for the same client" can get two different brands.
 
-Momenta OS fixes the context problem at the source. Instead of prompts living in individual chat histories, one governed Google Drive vault holds client folders, brand voice docs, content rules, approved and rejected examples, feedback logs, and the agent runbooks themselves. Any supported AI assistant can read from the vault before it writes anything, so the vault — not anyone's memory — is what the team's AI actually knows.
+Momenta OS puts that context in one governed Google Drive vault. The vault holds client folders, brand voice docs, content rules, approved and rejected examples, feedback logs, and agent runbooks. Supported AI assistants read from it before writing, so the team works from the same source.
 
 ## How it works
 
-**The vault is the source of truth.** Client context, brand voice, and content rules are versioned files, not prompt text. Changing a rule changes every agent's behaviour at once.
+**The vault is the source of truth.** Client context, brand voice, and content rules are versioned files. Changing a rule changes every agent's behaviour at once.
 
 **Skills are runbooks, not prompts.** 60+ versioned agent skills encode the recurring work as machine-readable procedures: WordPress audits, SEO remediation, analytics coverage checks, site updates. Each one is a directory with a `SKILL.md` describing when it applies and what it does, so any supported AI harness can follow it.
 
-**Site updates go through MCP.** WordPress changes run against the Pressable MCP server rather than a browser session, which means an agent can make a scoped, reviewable change to a live site instead of a human clicking through an admin panel. This replaced a MainWP-based workflow that had been the earlier approach.
+**Site updates go through MCP.** WordPress changes run against the Pressable MCP server. An agent can make a scoped, reviewable change to a live site through the same interface used for other operations. The workflow now uses MCP instead of MainWP.
 
-**Content moves through a governed pipeline.** Draft → score against the brand rules → revise → approve, reject, or mark published, with a structured feedback log behind it. One offhand comment doesn't silently rewrite a brand rule; repeatable feedback becomes a *proposed* update that goes through an explicit approval step. Institutional memory changes deliberately.
+**Content moves through a governed pipeline.** Draft, score against the brand rules, revise, then approve, reject, or mark published. A structured feedback log records the process. One offhand comment does not rewrite a brand rule. Repeatable feedback becomes a *proposed* update that goes through an explicit approval step.
 
 ## Constraints & tradeoffs
 
-- **Governance over speed.** The scoring and feedback-approval loop costs a round trip. It buys brand consistency a client can trust, and an audit trail for why a rule exists.
-- **Portable skills over a bespoke app.** Writing the skills as plain, versioned files rather than building custom software means they survive a change of model or harness. They already run across three.
-- **Least privilege by design.** Alongside the OS I wrote the company access governance standard — five trust tiers plus a non-human class, and a per-service permission matrix — because an agent with vault access is an access-control question before it's a productivity one.
+- Governance over speed. The scoring and feedback approval loop costs a round trip. It preserves brand consistency and records why each rule exists.
+- Portable skills over a bespoke app. Plain, versioned files survive a change of model or harness. They already run across three.
+- Least privilege by design. Alongside the OS I wrote the company access governance standard with five trust tiers, a non-human class, and a per-service permission matrix. An agent with vault access needs access controls before it needs more automation.
 
 ## Architecture
 
@@ -51,5 +51,5 @@ Momenta OS fixes the context problem at the source. Instead of prompts living in
 
 - Per-post content turnaround dropped from 45 minutes to under 10 across an 8-person team.
 - A GA4 and GTM coverage audit across 54 client WordPress sites turned raw scan output into a triaged rollout plan covering 25 untagged properties and 2 legacy tracking migrations.
-- Lesson: the vault structure matters more than the prompt. A well-organised source of truth makes even plain instructions reliable, and a badly organised one makes clever prompts fragile.
-- Lesson: retiring the MainWP workflow for MCP was the moment the system stopped being a writing assistant and started being able to *do* things — which is exactly when the access governance work became non-optional.
+- Lesson: the vault structure matters more than the prompt. A well-organised source of truth makes plain instructions reliable; a badly organised one makes clever prompts fragile.
+- Lesson: moving site updates from MainWP to MCP gave the system an action path. That made access governance necessary.
