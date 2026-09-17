@@ -12,7 +12,7 @@ const kinds = ['all', 'thumbnail', 'poster', 'logo'];
     <div class="hero-top">
       <img class="avatar sticker" src="/art/pixel-pfp-transparent.png" alt="Pixel-art avatar of Justin Kondratenko" width="120" height="120" />
       <a class="btn dev-link" href={site.devSite}>
-        &lt;/&gt; I also write code: justinkondratenko.dev
+        &lt;/&gt; I also write code — justinkondratenko.dev
       </a>
     </div>
 
@@ -42,7 +42,7 @@ const kinds = ['all', 'thumbnail', 'poster', 'logo'];
 
   <!-- ══ VIDEO WORK ════════════════════════════════════════════ -->
   <section id="videos" class="section container" aria-labelledby="videos-title">
-    <h2 id="videos-title" class="section-title">Video work</h2>
+    <h2 id="videos-title" class="section-title">Video work 🎬</h2>
     <div class="video-grid">
       {videos.map((v) => (
         <article class="sticker video-card" data-reveal style={`--tilt: ${(Math.random() * 3 - 1.5).toFixed(1)}deg`}>
@@ -75,7 +75,7 @@ const kinds = ['all', 'thumbnail', 'poster', 'logo'];
 
   <!-- ══ ART GALLERY ═══════════════════════════════════════════ -->
   <section id="art" class="section container" aria-labelledby="art-title">
-    <h2 id="art-title" class="section-title">Recent art</h2>
+    <h2 id="art-title" class="section-title">Recent art 🎨</h2>
     <div class="filters" role="group" aria-label="Filter artwork by type">
       {kinds.map((k, i) => (
         <button class={`btn filter ${i === 0 ? 'active' : ''}`} data-kind={k}>
@@ -107,14 +107,14 @@ const kinds = ['all', 'thumbnail', 'poster', 'logo'];
       ))}
     </div>
     <p class="archive-note">
-      Older work from 2017 to 2023, including logo archaeology, lives in the
+      Older stuff (2017–2023 logo archaeology included) lives in the
       <a href="https://old.papatenko.org/" target="_blank" rel="noopener noreferrer">archive</a>.
     </p>
   </section>
 
   <!-- ══ FOOTER / CONTACT ══════════════════════════════════════ -->
   <footer class="section container footer" id="contact">
-    <h2 class="section-title">Let's make something</h2>
+    <h2 class="section-title">Let's make something 🍌</h2>
     <p class="footer-pitch">
       Commercials, YouTube edits, thumbnails, logos, and posters. If it needs to look good and
       feel fun, I'm in. Serious inquiries also accepted (I clean up nice:

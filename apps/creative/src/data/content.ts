@@ -30,7 +30,7 @@ export const site = {
 };
 
 /**
- * VIDEO WORK: client cards with lite YouTube embeds.
+ * VIDEO WORK — client cards with lite YouTube embeds.
  * `videoId` is the YouTube ID; thumbnails load from i.ytimg.com.
  */
 export interface Video {
@@ -172,7 +172,7 @@ export const art: Art[] = [
     year: 2023,
     kind: 'thumbnail',
     src: '/art/power_no_cgi.png',
-    desc: 'The client never used it.',
+    desc: 'The client never used it. Their loss.',
     tilt: -1,
   },
   {
@@ -180,7 +180,7 @@ export const art: Art[] = [
     year: 2026,
     kind: 'logo',
     src: '/art/pixel-pfp.png',
-    desc: 'The current me in pixels: curls, gold shades, and a sunset gradient. An evolution of the fake NFT bit.',
+    desc: 'The current me, pixel-swapped: curls, gold shades, sunset gradient. Evolution of the fake-NFT bit.',
     tilt: 3,
   },
 ];
