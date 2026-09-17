@@ -30,7 +30,7 @@ export const site = {
 };
 
 /**
- * VIDEO WORK — client cards with lite YouTube embeds.
+ * VIDEO WORK: client cards with lite YouTube embeds.
  * `videoId` is the YouTube ID; thumbnails load from i.ytimg.com.
  */
 export interface Video {
@@ -49,7 +49,7 @@ export const videos: Video[] = [
     title: 'How did Miles Morales get so popular?',
     videoId: '0tvIZ_-Arcw',
     role: 'Editing · Pacing · Engagement cuts',
-    blurb: 'Video-essay editing tuned for retention. Strategic pacing boosted average viewer retention 25% across this channel\'s uploads.',
+    blurb: 'Video essay editing for retention. Strategic pacing raised average viewer retention by 25% across this channel\'s uploads.',
   },
   {
     client: 'ColleagueUs',
@@ -57,7 +57,7 @@ export const videos: Video[] = [
     title: 'ColleagueUs Commercial',
     videoId: 'qEDCe1ukFgY',
     role: 'Production · Direction · Edit',
-    blurb: 'Full commercial production: coordinated and filmed interviews with 6+ people, directed on-camera talent, cut the final spot for YouTube + Instagram.',
+    blurb: 'Full commercial production. Coordinated and filmed interviews with 6+ people, directed on-camera talent, and cut the final spot for YouTube and Instagram.',
   },
   {
     client: 'Today Talk',
@@ -65,13 +65,13 @@ export const videos: Video[] = [
     title: 'Today Talk Podcast',
     videoId: 'lnkh_uTqz3M',
     role: 'End-to-end edit · Color grade · Graphics',
-    blurb: '7+ podcast episodes edited end-to-end in DaVinci Resolve and Premiere, with consistent pacing, audio sync, and an on-brand color grade.',
+    blurb: 'Edited 7+ podcast episodes in DaVinci Resolve and Premiere, with consistent pacing, audio sync, and an on-brand color grade.',
   },
   {
     client: 'Abdo',
     channelUrl: 'https://m.youtube.com/@AbdoM3',
     title: 'Abdo',
-    videoId: 'tmcs74AyYYI',
+    videoId: 'Cz-3UjQnNus',
     role: 'Editing',
     blurb: 'Engagement-focused cuts and pacing for a growing creator channel.',
   },
@@ -81,7 +81,7 @@ export const videos: Video[] = [
     title: 'valorant but its unhinged...',
     videoId: 'Eg0Nb_gPgik',
     role: 'Thumbnail art',
-    blurb: 'Thumbnail design only on this one. Sti1tches handled the edit. Part of a run of thumbnails that drove 1,000+ views per video for the channel.',
+    blurb: 'Thumbnail design only. Sti1tches handled the edit. Part of a run of thumbnails that drove 1,000+ views per video for the channel.',
   },
   {
     client: 'Papatenko (me!)',
@@ -159,7 +159,7 @@ export const art: Art[] = [
     tilt: -2.5,
   },
   {
-    title: 'One Piece — Sidetracked',
+    title: 'One Piece: Sidetracked',
     year: 2023,
     kind: 'thumbnail',
     src: '/art/sidetracked.png',
@@ -172,7 +172,7 @@ export const art: Art[] = [
     year: 2023,
     kind: 'thumbnail',
     src: '/art/power_no_cgi.png',
-    desc: 'The client never used it. Their loss.',
+    desc: 'The client never used it.',
     tilt: -1,
   },
   {
@@ -180,7 +180,7 @@ export const art: Art[] = [
     year: 2026,
     kind: 'logo',
     src: '/art/pixel-pfp.png',
-    desc: 'The current me, pixel-swapped: curls, gold shades, sunset gradient. Evolution of the fake-NFT bit.',
+    desc: 'The current me in pixels: curls, gold shades, and a sunset gradient. An evolution of the fake NFT bit.',
     tilt: 3,
   },
 ];
