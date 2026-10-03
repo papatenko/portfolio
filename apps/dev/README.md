@@ -7,10 +7,10 @@ Grainy white/gold/pink-red portfolio (matching the LinkedIn banner) built with *
 ## Quick start
 
 ```bash
-npm install
-npm run dev       # http://localhost:4321
-npm run build     # static site → dist/
-npm run preview   # preview the build
+pnpm install
+pnpm dev       # http://localhost:4321
+pnpm build     # static site → dist/
+pnpm preview   # preview the build
 ```
 
 ## Editing content (the only files you touch day-to-day)

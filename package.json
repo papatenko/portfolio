@@ -1,10 +1,7 @@
 {
   "name": "papatenko-portfolio",
   "private": true,
-  "packageManager": "npm@10.9.2",
-  "workspaces": [
-    "apps/*"
-  ],
+  "packageManager": "pnpm@12.8.1",
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",

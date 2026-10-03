@@ -15,9 +15,9 @@ Curated to the 6–10 most recent pieces on purpose. The full 2017+ archive stay
 ## Run / deploy
 
 ```bash
-npm install
-npm run dev     # localhost:4321
-npm run build   # static → dist/
+pnpm install
+pnpm dev     # localhost:4321
+pnpm build   # static → dist/
 
 docker compose up -d --build   # homelab: serves on :8086
 ```

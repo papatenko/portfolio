@@ -2,7 +2,9 @@
 # Put behind your existing Nginx/Caddy/Traefik reverse proxy for TLS.
 services:
   portfolio:
-    build: .
+    build:
+      context: ../..
+      dockerfile: apps/dev/Dockerfile
     container_name: portfolio
     restart: unless-stopped
     ports:

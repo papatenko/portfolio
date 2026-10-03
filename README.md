@@ -10,14 +10,14 @@ Both halves of the brand in one Turborepo:
 ## Commands (repo root)
 
 ```bash
-npm install              # installs everything (workspaces)
-npm run dev              # run both apps (turbo)
-npm run build            # build both
-npm run build:dev        # build just the dev site
-npm run build:creative   # build just the creative site
+pnpm install          # installs everything (pnpm workspace)
+pnpm dev              # run both apps (turbo)
+pnpm build            # build both
+pnpm build:dev        # build just the dev site
+pnpm build:creative   # build just the creative site
 ```
 
-Each app also works standalone: `cd apps/dev && npm run dev`.
+Each app also works standalone: `cd apps/dev && pnpm dev`.
 
 ## Editing content
 
