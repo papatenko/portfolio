@@ -2,26 +2,32 @@
 import type { Project } from '../data/projects';
 import { getStars } from '../lib/github';
 
-interface Props { project: Project }
-const { project } = Astro.props;
+interface Props { project: Project; featured?: boolean }
+const { project, featured = false } = Astro.props;
+// Four tags is enough to scan; the case study lists the full stack.
+const tags = project.tech.slice(0, 4);
 
 // Live star count at build time, static fallback if offline/rate-limited.
-const stars = project.repo ? ((await getStars(project.repo)) ?? project.stars ?? null) : null;
+// Counts under 5 read as a broken counter, so they stay hidden.
+const fetched = project.repo ? ((await getStars(project.repo)) ?? project.stars ?? null) : null;
+const stars = fetched !== null && fetched >= 5 ? fetched : null;
 const caseStudyUrl = project.slug ? `/case-studies/${project.slug}/` : null;
 ---
 
-<article class="card project-card" data-reveal>
+<article class:list={["card project-card", { featured }]} data-reveal>
+  {project.image && (
   <a class="thumb-link pop-sm" href={caseStudyUrl ?? project.demoUrl ?? project.repoUrl ?? '#'} aria-label={`${project.title} details`} tabindex="-1">
     <img
-      class="thumb"
+      class:list={['thumb', { 'logo-art': project.logoArt }]}
       src={project.image}
-      alt={`${project.title} screenshot`}
+      alt={project.imageAlt ?? `${project.title} screenshot`}
       width="1200"
       height="675"
       loading="lazy"
       decoding="async"
     />
   </a>
+  )}
   <div class="body pop">
     <header class="head">
       <h3>
@@ -34,8 +40,9 @@ const caseStudyUrl = project.slug ? `/case-studies/${project.slug}/` : null;
     </header>
     <p class="desc">{project.description}</p>
     <p class="outcome mono">→ {project.outcome}</p>
+    {project.credit && <p class="credit">{project.credit}</p>}
     <ul class="tags" role="list">
-      {project.tech.map((t) => <li class="tag">{t}</li>)}
+      {tags.map((t) => <li class="tag">{t}</li>)}
     </ul>
     <footer class="links">
       {caseStudyUrl && <a href={caseStudyUrl} class="link">Case study</a>}
@@ -51,6 +58,18 @@ const caseStudyUrl = project.slug ? `/case-studies/${project.slug}/` : null;
 
 <style>
   .project-card { display: flex; flex-direction: column; }
+  /* Featured: image and text side by side across the whole grid row. */
+  @media (min-width: 900px) {
+    .project-card.featured { flex-direction: row; }
+    .featured .thumb-link {
+      flex: 0 0 55%;
+      border-radius: var(--radius) 0 0 var(--radius);
+    }
+    /* The cover is wider than this box; keep its left edge, where the slide text starts. */
+    .featured .thumb { height: 100%; object-position: left center; border-bottom: 0; border-right: 1px solid var(--border); }
+    .featured .body { padding: 2rem; justify-content: center; }
+    .featured h3 { font-size: 1.6rem; }
+  }
   /* The card keeps overflow visible for the 3D tilt, so the image
      clips itself to the card's top corners. */
   .thumb-link {
@@ -65,6 +84,8 @@ const caseStudyUrl = project.slug ? `/case-studies/${project.slug}/` : null;
     border-bottom: 1px solid var(--border);
     background: var(--surface-2);
   }
+  /* Logo art is transparent and uses brand colors that need a light backdrop in both themes. */
+  .thumb.logo-art { background: #f8f1e7; }
   .body {
     display: flex;
     flex-direction: column;
@@ -81,25 +102,26 @@ const caseStudyUrl = project.slug ? `/case-studies/${project.slug}/` : null;
   .head h3 { margin: 0; }
   .head a { color: var(--text); }
   .head a:hover { color: var(--accent); }
-  .stars { color: #fbbf24; font-size: 0.85rem; white-space: nowrap; }
+  .stars { color: var(--gold-ink); font-size: 0.85rem; white-space: nowrap; }
   .status {
     flex: none;
     align-self: start;
     white-space: nowrap;
-    font-size: 0.68rem;
+    font-size: 0.75rem;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--gold-ink);
     border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
     border-radius: 999px;
     padding: 0.15rem 0.55rem;
   }
   .desc { color: var(--text-muted); font-size: 0.95rem; margin: 0; }
   .outcome {
-    color: var(--gold);
+    color: var(--gold-ink);
     font-size: 0.8rem;
     margin: 0;
   }
+  .credit { margin: 0; font-size: 0.8rem; color: var(--text-muted); }
   .tags {
     display: flex;
     flex-wrap: wrap;

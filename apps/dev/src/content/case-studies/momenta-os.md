@@ -6,6 +6,8 @@ tech: ['Agent Harnesses', 'MCP', 'Agent Skills', 'Google Drive', 'WordPress', 'P
 image: '/images/projects/momenta-os.png'
 ogImage: '/og/momenta-os.png'
 order: 1
+credit: 'Built at Momenta Fire. Momenta Fire owns this work.'
+owner: 'Momenta Fire'
 ---
 
 ## Problem & user context

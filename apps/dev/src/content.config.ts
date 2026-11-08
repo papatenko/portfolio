@@ -19,6 +19,10 @@ const caseStudies = defineCollection({
     repoUrl: z.string().optional(),
     demoUrl: z.string().optional(),
     image: z.string().optional(),
+    /** Ownership line under the summary, e.g. "Built at X. X owns this work." */
+    credit: z.string().optional(),
+    /** Organization that owns the work; added to the page's structured data. */
+    owner: z.string().optional(),
     order: z.number().default(99),
   }),
 });

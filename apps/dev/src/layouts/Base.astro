@@ -82,6 +82,7 @@ const jsonLd = schema ? [personSchema, schema] : [personSchema];
     <meta name="theme-color" content="#faf6ef" />
     <script is:inline>
       // Set theme before first paint: stored preference, else OS preference.
+      document.documentElement.classList.add('js');
       (() => {
         const stored = localStorage.getItem('theme');
         const dark = stored
@@ -134,8 +135,17 @@ const jsonLd = schema ? [personSchema, schema] : [personSchema];
           let i = 0;
           for (const e of entries) {
             if (e.isIntersecting) {
-              (e.target as HTMLElement).style.setProperty('--reveal-delay', `${i++ * 70}ms`);
-              e.target.classList.add('revealed');
+              const el = e.target as HTMLElement;
+              el.style.setProperty('--reveal-delay', `${i++ * 70}ms`);
+              el.classList.add('revealed');
+              // When the fade-in ends, drop the stagger so hover and tilt respond right away.
+              const settle = (ev: TransitionEvent) => {
+                if (ev.target !== el || ev.propertyName !== 'opacity') return;
+                el.style.removeProperty('--reveal-delay');
+                el.classList.add('settled');
+                el.removeEventListener('transitionend', settle);
+              };
+              el.addEventListener('transitionend', settle);
               observer.unobserve(e.target);
             }
           }
@@ -161,10 +171,13 @@ const jsonLd = schema ? [personSchema, schema] : [personSchema];
             const r = el.getBoundingClientRect();
             const px = (e.clientX - r.left) / r.width - 0.5;
             const py = (e.clientY - r.top) / r.height - 0.5;
+            // Wide cards (the featured project) swing their edges much further at the
+            // same angle, so scale the tilt down to match a normal card.
+            const k = Math.min(1, 380 / r.width);
             el.classList.add('tilting');
             el.style.transform =
-              `perspective(1000px) rotateX(${(-py * MAX_X).toFixed(2)}deg)` +
-              ` rotateY(${(px * MAX_Y).toFixed(2)}deg) translateY(-4px) scale3d(1.015, 1.015, 1.015)`;
+              `perspective(1000px) rotateX(${(-py * MAX_X * k).toFixed(2)}deg)` +
+              ` rotateY(${(px * MAX_Y * k).toFixed(2)}deg) translateY(-4px) scale3d(1.015, 1.015, 1.015)`;
           });
           el.addEventListener('mouseleave', () => {
             el.classList.remove('tilting');

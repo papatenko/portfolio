@@ -39,9 +39,6 @@ import SocialLinks from './SocialLinks.astro';
         <div class="face front">
           <div class="terminal">
             <div class="terminal-bar">
-              <span class="dot dot-r"></span>
-              <span class="dot dot-y"></span>
-              <span class="dot dot-g"></span>
               <span class="title">justin@homelab: ~</span>
             </div>
             <div class="terminal-body">
@@ -123,7 +120,8 @@ import SocialLinks from './SocialLinks.astro';
     gap: 0.9rem;
     margin: 1.2rem 0 1.8rem;
   }
-  .ok { color: #34d399; } /* terminal status green — theme-independent */
+  .ok { color: #34d399; } /* terminal status green on the dark terminal */
+  :global(html:not([data-theme='dark'])) .ok { color: #15803d; } /* darker green, 5:1 on white */
 
   /* ── Flip card (terminal ↔ profile photo) ─────────────────── */
   .hero-visual { perspective: 1200px; }

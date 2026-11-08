@@ -40,12 +40,6 @@ const hasForm = Boolean(site.contactFormEndpoint && site.contactFormAccessKey);
       </div>
       <button type="submit" class="btn btn-primary">Send message</button>
       <p class="form-status mono" role="status" aria-live="polite"></p>
-      {!hasForm && (
-        <p class="form-note">
-          {/* Remove once contactFormEndpoint is set in src/data/site.ts */}
-          Form opens your email client until a Web3Forms key is configured. See README.
-        </p>
-      )}
     </form>
   </div>
 </section>
@@ -96,8 +90,7 @@ const hasForm = Boolean(site.contactFormEndpoint && site.contactFormAccessKey);
     border-color: var(--accent);
   }
   .hp { display: none; }
-  .form-status:empty, .form-status { margin: 0; font-size: 0.85rem; color: var(--gold); }
-  .form-note { margin: 0; font-size: 0.8rem; color: var(--text-muted); }
+  .form-status:empty, .form-status { margin: 0; font-size: 0.85rem; color: var(--gold-ink); }
 
   @media (max-width: 860px) {
     .contact-grid { grid-template-columns: 1fr; gap: 2rem; }

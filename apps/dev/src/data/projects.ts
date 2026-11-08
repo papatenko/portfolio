@@ -12,14 +12,19 @@
  *
  * NO CLIENT OR PARTNER NAMES. Client work is described by mechanism, not by
  * company, product, or project name. This is a standing constraint, not a
- * placeholder.
+ * placeholder. Exceptions approved 2026-11-08: the billing card image shows
+ * the Visual Visitor and Stripe logos, and `credit` names who owns a project.
  */
 export interface Project {
   title: string;
   slug: string; // case-study slug, or '' for none
   description: string;
   outcome: string; // one-line business/user outcome
-  image: string; // path under public/, e.g. /images/projects/momenta-os.png
+  image?: string; // path under public/; omit to show a text-only card
+  imageAlt?: string; // defaults to "<title> screenshot"
+  logoArt?: boolean; // transparent logo image: always shown on the light panel
+  credit?: string; // ownership line shown on the card, e.g. who owns the work
+  hidden?: boolean; // keep the entry but leave it off the front page
   tech: string[];
   repo?: string; // GitHub "owner/name" — enables live star count
   repoUrl?: string;
@@ -38,6 +43,8 @@ export const projects: Project[] = [
     outcome:
       'Per-post content turnaround dropped from 45 minutes to under 10 across an 8-person team.',
     image: '/images/projects/momenta-os.png',
+    credit: 'Built at Momenta Fire. Momenta Fire owns this work.',
+    hidden: true, // waiting on permission from Momenta Fire (asked 2026-11-08)
     tech: ['Agent Harnesses', 'MCP', 'Agent Skills', 'Google Drive', 'WordPress', 'Governance'],
     metaDescription:
       'Momenta OS: an agent operating system on a governed Google Drive vault, with 60+ versioned agent skills and Pressable MCP site updates. Case study by Justin Kondratenko.',
@@ -51,6 +58,10 @@ export const projects: Project[] = [
       'A usage-based billing platform that meters per-lead usage from a partner SaaS product and sends it to Stripe for invoicing. It uses integer-cent pricing calculated on the server, signed webhooks, event deduplication, and idempotent billing cycles. Auth.js sign-in adds per-login 2FA, login throttling, and fail-closed behavior. A GitHub Actions and Azure OIDC pipeline verifies, builds, migrates, and deploys to App Service and PostgreSQL Flexible Server. Azure Key Vault stores secrets under a system-assigned managed identity.',
     outcome: 'In progress. The build exists; deployment comes later.',
     image: '/images/projects/billing-platform.png',
+    imageAlt: 'Visual Visitor logo, an arrow, and the Stripe logo',
+    logoArt: true,
+    credit: 'Built for Convoy Sage. Convoy Sage owns this work.',
+    hidden: true, // waiting on permission (asked 2026-11-08)
     tech: ['TypeScript', 'Prisma', 'PostgreSQL', 'Stripe', 'Auth.js', 'Azure', 'GitHub Actions'],
     // Client work — no public repo, no demo, no names.
   },
@@ -68,7 +79,7 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/papatenko/homelab',
   },
   {
-    title: 'Shako Kabob — Foodtruck POS',
+    title: 'Shako Kabob: Foodtruck POS',
     slug: 'shako-kabob-pos',
     description:
       'Full-stack point-of-sale and ordering platform for a food truck: employee management, inventory tracking, and sales across 18+ SQL tables, with automated Docker deployments on Coolify.',
