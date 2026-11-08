@@ -5,6 +5,7 @@
 :root {
   --bg: #faf6ef;
   --ink: #2a1a1f;
+  --ink-soft: #5c4a50; /* secondary text, 8.2:1 on white */
   --paper: #ffffff;
   --pink: #c2185b;
   --pink-deep: #a4133c;
@@ -60,6 +61,8 @@ h1, h2, h3 {
 }
 h1 { font-size: clamp(2.6rem, 9vw, 5.5rem); }
 h2 { font-size: clamp(1.8rem, 5vw, 3rem); }
+h1, h2, h3 { text-wrap: balance; }
+p, li, figcaption { text-wrap: pretty; }
 p { margin: 0 0 1rem; }
 
 a { color: var(--pink); }
@@ -87,7 +90,7 @@ img { max-width: 100%; height: auto; display: block; }
   border: 3px solid var(--ink);
   border-radius: 999px;
   box-shadow: 5px 5px 0 var(--shadow);
-  padding: 0.4rem 1.4rem;
+  padding: 0.4rem 1.6rem;
   transform: rotate(-1.5deg);
   margin-bottom: 2rem;
 }
@@ -137,6 +140,8 @@ img { max-width: 100%; height: auto; display: block; }
 .btn.pink:hover { background: var(--pink-deep); color: #fff; }
 
 /* ── Marquee ─────────────────────────────────────────────────── */
+/* The tilted, scaled band pokes past the viewport edge; clip it sideways only. */
+.marquee-clip { overflow-x: clip; }
 .marquee {
   overflow: hidden;
   border-block: 3px solid var(--ink);
@@ -159,13 +164,24 @@ img { max-width: 100%; height: auto; display: block; }
 @keyframes scroll { to { transform: translateX(-50%); } }
 
 /* ── Scroll reveal (springy) ─────────────────────────────────── */
-[data-reveal] {
+:where(.js) [data-reveal] {
   opacity: 0;
   transform: translateY(22px) rotate(var(--tilt, 0deg));
   transition: opacity 650ms ease, transform 650ms var(--ease-spring);
   transition-delay: var(--reveal-delay, 0ms);
 }
-[data-reveal].revealed { opacity: 1; transform: rotate(var(--tilt, 0deg)); }
+:where(.js) [data-reveal].revealed { opacity: 1; transform: rotate(var(--tilt, 0deg)); }
+/* After the fade-in, stickers get their own springy hover back (the reveal
+   rule above would otherwise keep overriding the hover lift). */
+.sticker.settled {
+  transition:
+    transform 300ms var(--ease-spring),
+    box-shadow 300ms var(--ease-spring);
+}
+.sticker.settled:hover,
+.sticker.settled:focus-within {
+  transform: translate(-3px, -3px) rotate(var(--tilt, 0deg)) scale(1.015);
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -173,7 +189,7 @@ img { max-width: 100%; height: auto; display: block; }
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
-  [data-reveal] { opacity: 1; transform: none; }
+  :where(.js) [data-reveal] { opacity: 1; transform: none; }
   .marquee-track { animation: none; }
 }
 

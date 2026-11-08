@@ -30,6 +30,7 @@ const {
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap"
     />
+    <script is:inline>document.documentElement.classList.add('js');</script>
   </head>
   <body>
     <div class="backdrop" aria-hidden="true"></div>
@@ -45,8 +46,17 @@ const {
           let i = 0;
           for (const e of entries) {
             if (e.isIntersecting) {
-              (e.target as HTMLElement).style.setProperty('--reveal-delay', `${i++ * 80}ms`);
-              e.target.classList.add('revealed');
+              const el = e.target as HTMLElement;
+              el.style.setProperty('--reveal-delay', `${i++ * 80}ms`);
+              el.classList.add('revealed');
+              // When the fade-in ends, drop the stagger so hover responds right away.
+              const settle = (ev: TransitionEvent) => {
+                if (ev.target !== el || ev.propertyName !== 'opacity') return;
+                el.style.removeProperty('--reveal-delay');
+                el.classList.add('settled');
+                el.removeEventListener('transitionend', settle);
+              };
+              el.addEventListener('transitionend', settle);
               observer.unobserve(e.target);
             }
           }

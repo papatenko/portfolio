@@ -4,6 +4,8 @@ import { site, videos, art } from '../data/content';
 
 const letters = 'PAPATENKO'.split('');
 const kinds = ['all', 'thumbnail', 'poster', 'logo'];
+// Fixed sticker tilts for the video cards, so the layout holds between builds.
+const tilts = [-1.2, 0.8, -0.4, 1.1, -0.9, 0.5];
 ---
 
 <Base>
@@ -12,7 +14,7 @@ const kinds = ['all', 'thumbnail', 'poster', 'logo'];
     <div class="hero-top">
       <img class="avatar sticker" src="/art/pixel-pfp-transparent.png" alt="Pixel-art avatar of Justin Kondratenko" width="120" height="120" />
       <a class="btn dev-link" href={site.devSite}>
-        &lt;/&gt; I also write code — justinkondratenko.dev
+        &lt;/&gt; I also write code: justinkondratenko.dev
       </a>
     </div>
 
@@ -34,9 +36,11 @@ const kinds = ['all', 'thumbnail', 'poster', 'logo'];
   </header>
 
   <!-- ══ MARQUEE ═══════════════════════════════════════════════ -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      {[...site.marquee, ...site.marquee].map((m) => <span>{m}</span>)}
+  <div class="marquee-clip">
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        {[...site.marquee, ...site.marquee].map((m) => <span>{m}</span>)}
+      </div>
     </div>
   </div>
 
@@ -44,8 +48,8 @@ const kinds = ['all', 'thumbnail', 'poster', 'logo'];
   <section id="videos" class="section container" aria-labelledby="videos-title">
     <h2 id="videos-title" class="section-title">Video work 🎬</h2>
     <div class="video-grid">
-      {videos.map((v) => (
-        <article class="sticker video-card" data-reveal style={`--tilt: ${(Math.random() * 3 - 1.5).toFixed(1)}deg`}>
+      {videos.map((v, i) => (
+        <article class="sticker video-card" data-reveal style={`--tilt: ${tilts[i % tilts.length]}deg`}>
           <button
             class="yt-lite"
             data-video-id={v.videoId}
@@ -62,7 +66,7 @@ const kinds = ['all', 'thumbnail', 'poster', 'logo'];
           </button>
           <div class="video-body">
             <p class="client mono">
-              <a href={v.channelUrl} target="_blank" rel="noopener noreferrer">@{v.client}</a>
+              <a href={v.channelUrl} target="_blank" rel="noopener noreferrer">{v.client}</a>
             </p>
             <h3>{v.title}</h3>
             <p class="role">{v.role}</p>
@@ -78,7 +82,7 @@ const kinds = ['all', 'thumbnail', 'poster', 'logo'];
     <h2 id="art-title" class="section-title">Recent art 🎨</h2>
     <div class="filters" role="group" aria-label="Filter artwork by type">
       {kinds.map((k, i) => (
-        <button class={`btn filter ${i === 0 ? 'active' : ''}`} data-kind={k}>
+        <button class={`btn filter ${i === 0 ? 'active' : ''}`} data-kind={k} aria-pressed={i === 0 ? 'true' : 'false'}>
           {k === 'all' ? 'everything' : `${k}s`}
         </button>
       ))}
@@ -93,10 +97,10 @@ const kinds = ['all', 'thumbnail', 'poster', 'logo'];
         >
           {a.link ? (
             <a href={a.link} target="_blank" rel="noopener noreferrer">
-              <img src={a.src} alt={`${a.title} — ${a.kind}`} loading="lazy" />
+              <img src={a.src} alt={`${a.title}, ${a.kind}`} loading="lazy" />
             </a>
           ) : (
-            <img src={a.src} alt={`${a.title} — ${a.kind}`} loading="lazy" />
+            <img src={a.src} alt={`${a.title}, ${a.kind}`} loading="lazy" />
           )}
           <figcaption>
             <span class="art-title">{a.title}</span>
@@ -155,6 +159,8 @@ const kinds = ['all', 'thumbnail', 'poster', 'logo'];
     flex-wrap: wrap;
     gap: 0.02em;
     margin: 0;
+    /* fills a phone screen; capped at 6rem on desktop */
+    font-size: clamp(2.9rem, 15vw, 6rem);
   }
   .letter {
     display: inline-block;
@@ -173,6 +179,14 @@ const kinds = ['all', 'thumbnail', 'poster', 'logo'];
   .tagline { color: var(--pink-deep); font-size: clamp(0.9rem, 2.5vw, 1.15rem); margin: 0.6rem 0 1rem; }
   .byline { max-width: 52ch; font-size: 1.1rem; }
   .hero-cta { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 1.6rem; }
+  /* Phones: the name comes first and the link to the dev site moves below the buttons. */
+  @media (max-width: 640px) {
+    .hero { display: flex; flex-direction: column; }
+    .hero-top { display: contents; }
+    .avatar { width: 88px; height: 88px; margin-bottom: 1.4rem; }
+    .dev-link { order: 1; align-self: flex-start; margin-top: 1.6rem; font-size: 0.85rem; }
+    .hero-cta .btn { flex: 1 1 auto; justify-content: center; }
+  }
 
   /* ── video grid ── */
   .video-grid {
@@ -209,6 +223,7 @@ const kinds = ['all', 'thumbnail', 'poster', 'logo'];
     border: 3px solid var(--ink);
     border-radius: 50%;
     box-shadow: 4px 4px 0 rgba(42, 26, 31, 0.55);
+    z-index: -1;
     transition: transform 250ms var(--ease-spring), background 200ms ease;
   }
   .yt-lite:hover .play::before { transform: scale(1.15); background: var(--pink); }
@@ -223,7 +238,7 @@ const kinds = ['all', 'thumbnail', 'poster', 'logo'];
   .client { margin: 0 0 0.3rem; font-size: 0.8rem; }
   .video-body h3 { font-size: 1.15rem; }
   .role { color: var(--pink-deep); font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem; }
-  .blurb { font-size: 0.92rem; margin: 0; color: #5c4a50; }
+  .blurb { font-size: 0.92rem; margin: 0; color: var(--ink-soft); }
 
   /* ── art gallery ── */
   .filters { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 2rem; }
@@ -244,14 +259,14 @@ const kinds = ['all', 'thumbnail', 'poster', 'logo'];
   .art-card figcaption { padding: 0.9rem 1.1rem 1.1rem; display: grid; gap: 0.2rem; }
   .art-title { font-family: var(--font-display); font-weight: 700; }
   .art-meta { font-size: 0.72rem; color: var(--pink-deep); }
-  .art-desc { font-size: 0.85rem; color: #5c4a50; }
+  .art-desc { font-size: 0.85rem; color: var(--ink-soft); }
   .archive-note { margin-top: 2rem; font-size: 0.9rem; }
 
   /* ── footer ── */
   .footer { text-align: left; }
   .footer-pitch { max-width: 58ch; font-size: 1.05rem; }
   .footer-links { display: flex; flex-wrap: wrap; gap: 0.9rem; margin: 1.6rem 0 2.2rem; }
-  .copyright { font-size: 0.78rem; color: #5c4a50; }
+  .copyright { font-size: 0.78rem; color: var(--ink-soft); }
 </style>
 
 <script>
@@ -274,8 +289,12 @@ const kinds = ['all', 'thumbnail', 'poster', 'logo'];
   const cards = document.querySelectorAll<HTMLElement>('.art-card');
   filters.forEach((f) => {
     f.addEventListener('click', () => {
-      filters.forEach((x) => x.classList.remove('active'));
+      filters.forEach((x) => {
+        x.classList.remove('active');
+        x.setAttribute('aria-pressed', 'false');
+      });
       f.classList.add('active');
+      f.setAttribute('aria-pressed', 'true');
       const kind = f.dataset.kind;
       cards.forEach((c) => {
         c.classList.toggle('hide', kind !== 'all' && c.dataset.kind !== kind);
