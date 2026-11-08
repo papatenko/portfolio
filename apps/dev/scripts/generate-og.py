@@ -112,10 +112,6 @@ def render(name, kicker, title, subtitle, chips):
     # Accent rule down the left edge
     d.rectangle([0, 0, 10, H], fill=ACCENT)
 
-    # Terminal window chrome
-    for i, c in enumerate([(230, 90, 110), (246, 199, 120), GREEN]):
-        d.ellipse([PAD + i * 26, PAD - 6, PAD + i * 26 + 14, PAD + 8], fill=c)
-
     f_kick = ImageFont.truetype(MONO_R, 24)
     d.text((PAD, PAD + 34), kicker, font=f_kick, fill=GOLD)
 
@@ -197,11 +193,8 @@ def render_art(name, caption, lines, badge):
     d = ImageDraw.Draw(img)
     d.rectangle([0, 0, 8, ah], fill=ACCENT)
 
-    for i, c in enumerate([(230, 90, 110), (246, 199, 120), GREEN]):
-        d.ellipse([64 + i * 26, 56, 64 + i * 26 + 14, 70], fill=c)
-
     f_cap = ImageFont.truetype(MONO_R, 22)
-    d.text((64 + 3 * 26 + 18, 52), caption, font=f_cap, fill=MUTED)
+    d.text((64, 52), caption, font=f_cap, fill=MUTED)
 
     f_line = ImageFont.truetype(MONO_R, 26)
     y = 150
