@@ -90,7 +90,6 @@ means changing it on all three surfaces.
 Two more standing rules:
 
 - **No client or partner names.** Client work is described by mechanism only.
-  The billing platform card names no company, product, or project.
 - **No invented metrics.** Every number on this site traces to something
   countable. If you cannot source it, it does not ship.
 
@@ -98,6 +97,5 @@ Two more standing rules:
 
 - Real screenshots: overwrite the placeholder PNGs in `public/images/projects/`
   (`rps-tournament.png`, `homelab.png`, `shako-kabob.png`, `portfolio-platform.png`,
-  `momenta-os.png`, `schematic-spelunker.png`, `billing-platform.png`,
-  `agent-infrastructure.png`) — 1200×675 / 16:9 looks best
+  `schematic-spelunker.png`). 1200×675 / 16:9 looks best
 - Architecture diagrams in case studies (export from Excalidraw → `public/images/case-studies/`)

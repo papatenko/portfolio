@@ -42,12 +42,6 @@ CARDS = {
         "AI systems, full-stack web apps, and the\nself-hosted infrastructure underneath them.",
         ["54 sites audited", "60+ agent skills", "20+ stacks", "99%+ uptime"],
     ),
-    "momenta-os": (
-        "~$ cat case-studies/momenta-os",
-        "Momenta OS",
-        "An agent operating system on a\ngoverned Drive vault, with 60+ versioned skills.",
-        ["Agent Harnesses", "MCP", "Agent Skills", "Governance"],
-    ),
     "homelab": (
         "~$ cat case-studies/homelab",
         "Proxmox Homelab",
@@ -152,39 +146,11 @@ def render(name, kicker, title, subtitle, chips):
 
 
 # ── Project card art ────────────────────────────────────────────────
-# 16:9 placeholders for the two projects that have no screenshot to
-# show (client work, and infrastructure that is mostly a diagram).
-# Replace either with a real screenshot whenever one exists.
+# 16:9 diagram images for projects with no screenshot to show. Each
+# entry is name: (caption, lines, badge). None are in use right now.
 ART_OUT = pathlib.Path(__file__).resolve().parent.parent / "public" / "images" / "projects"
 
-ART = {
-    "billing-platform": (
-        "usage-based billing",
-        [
-            "partner SaaS  ──►  metered lead events",
-            "               │",
-            "               ▼",
-            "  dedupe · integer-cent pricing · idempotent cycles",
-            "               │",
-            "               ▼",
-            "        Stripe  ──►  automated invoices",
-        ],
-        "in progress",
-    ),
-    "agent-infrastructure": (
-        "self-hosted agent infra",
-        [
-            "3 AI clients  ──►  OAuth MCP context server",
-            "                    │   (SSO · wildcard TLS)",
-            "                    ▼",
-            "          semantic recall over a shared KB",
-            "                    │",
-            "                    ▼",
-            "     git-backed stacks  ──►  rebuildable estate",
-        ],
-        None,
-    ),
-}
+ART = {}
 
 
 def render_art(name, caption, lines, badge):
