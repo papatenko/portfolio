@@ -35,6 +35,34 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: 'Momenta OS',
+    slug: 'momenta-os',
+    description:
+      'An AI agent operating system for a marketing agency, built on a governed Google Drive vault. Supported AI assistants load client context, brand voice, and content rules before writing. More than 60 versioned agent skills turn recurring work such as WordPress audits, SEO remediation, and Pressable MCP site updates into machine-readable runbooks.',
+    outcome:
+      'Per-post content turnaround dropped from 45 minutes to under 10 across an 8-person team.',
+    image: '/images/projects/momenta-os.png',
+    credit: 'Built at Momenta Fire. Momenta Fire owns this work.',
+    tech: ['Agent Harnesses', 'MCP', 'Agent Skills', 'Google Drive', 'WordPress', 'Governance'],
+    metaDescription:
+      'Momenta OS: an agent operating system on a governed Google Drive vault, with 60+ versioned agent skills and Pressable MCP site updates. Case study by Justin Kondratenko.',
+    // Private/commercial — no public repo.
+  },
+  {
+    title: 'Usage-Based Billing Platform',
+    slug: '',
+    status: 'In progress',
+    description:
+      'A usage-based billing platform that meters per-lead usage from a partner SaaS product and sends it to Stripe for invoicing. It uses integer-cent pricing calculated on the server, signed webhooks, event deduplication, and idempotent billing cycles. Auth.js sign-in adds per-login 2FA, login throttling, and fail-closed behavior. A GitHub Actions and Azure OIDC pipeline verifies, builds, migrates, and deploys to App Service and PostgreSQL Flexible Server. Azure Key Vault stores secrets under a system-assigned managed identity.',
+    outcome: 'In progress. The build exists; deployment comes later.',
+    image: '/images/projects/billing-platform.png',
+    imageAlt: 'Visual Visitor logo, an arrow, and the Stripe logo',
+    logoArt: true,
+    credit: 'Built for Convoy Sage. Convoy Sage owns this work.',
+    tech: ['TypeScript', 'Prisma', 'PostgreSQL', 'Stripe', 'Auth.js', 'Azure', 'GitHub Actions'],
+    // Client work — no public repo, no demo, no names.
+  },
+  {
     title: 'Proxmox Homelab',
     slug: 'homelab',
     description:

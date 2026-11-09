@@ -482,9 +482,6 @@ html.has-custom-cursor * {
 /* ============================================================
    PROSE — case-study markdown body
    ============================================================ */
-.prose {
-  max-width: 60ch; /* about 62 characters of Inter per line */
-}
 .prose h2 {
   margin-top: 2.5rem;
   padding-top: 1.5rem;
