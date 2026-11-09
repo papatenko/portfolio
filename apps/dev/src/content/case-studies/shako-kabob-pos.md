@@ -36,4 +36,4 @@ Staff ──────► POS dashboard (employees, inventory, sales)
 
 - Production deployment serving a real business, led end to end by a team of 4.
 - 50% faster CI builds from Docker layer caching + Turborepo task caching.
-- Lesson: schema design is product design for a POS. Every hour spent on the ERD saved three downstream.
+- Each hour spent on the entity relationship diagram saved three hours of later implementation.

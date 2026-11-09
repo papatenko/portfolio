@@ -41,4 +41,4 @@ Watch the [showcase video](https://www.youtube.com/watch?v=pilOqmKyrKA) for the 
 ## Results & lessons
 
 - Successfully hosted live tournaments on the Cy-Fair campus with a projected live bracket.
-- Lesson: real-time state sync is 20% happy path and 80% reconnection and edge cases. Designing the state machine first saved the project.
+- I spent about 20% of the state-sync work on the happy path and 80% on reconnection and edge cases. Designing the state machine first helped us handle them.

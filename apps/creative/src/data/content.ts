@@ -49,7 +49,7 @@ export const videos: Video[] = [
     title: 'How did Miles Morales get so popular?',
     videoId: '0tvIZ_-Arcw',
     role: 'Editing · Pacing · Engagement cuts',
-    blurb: 'Video essay editing for retention. Strategic pacing raised average viewer retention by 25% across this channel\'s uploads.',
+    blurb: 'Edited video essays, raising average viewer retention by 25% across this channel\'s uploads.',
   },
   {
     client: 'ColleagueUs',
@@ -65,7 +65,7 @@ export const videos: Video[] = [
     title: 'Today Talk Podcast',
     videoId: 'lnkh_uTqz3M',
     role: 'End-to-end edit · Color grade · Graphics',
-    blurb: 'Edited 7+ podcast episodes in DaVinci Resolve and Premiere, with consistent pacing, audio sync, and an on-brand color grade.',
+    blurb: 'Edited 7+ podcast episodes in DaVinci Resolve and Premiere, with consistent pacing, synced audio, and color grading.',
   },
   {
     client: 'Abdo',
@@ -73,7 +73,7 @@ export const videos: Video[] = [
     title: 'Abdo',
     videoId: 'Cz-3UjQnNus',
     role: 'Editing',
-    blurb: 'Engagement-focused cuts and pacing for a growing creator channel.',
+    blurb: 'Edited videos for Abdo’s channel, focusing on cuts and pacing.',
   },
   {
     client: 'Sti1tches',
@@ -89,7 +89,7 @@ export const videos: Video[] = [
     title: 'Borderlands out of Context',
     videoId: 'zGq9FSzoMlY',
     role: 'Everything',
-    blurb: 'My own channel\'s highest-grossing video. Chaos, but curated chaos.',
+    blurb: 'My own channel\'s highest-grossing video. I handled the whole edit.',
   },
 ];
 

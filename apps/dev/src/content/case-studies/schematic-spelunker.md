@@ -15,7 +15,7 @@ Technicians working on specialized machinery rely on dense schematic documents t
 ## Constraints & tradeoffs
 
 - Hackathon clock. Scope was parse, retrieve, and answer, with citations back to the source schematic.
-- Accuracy over fluency. Grounded retrieval (RAG) takes priority over freeform generation. An answer that cites the schematic beats a confident guess.
+- Answers cite the source schematic. Grounded retrieval (RAG) limits freeform generation.
 
 ## Architecture
 
@@ -31,4 +31,4 @@ User question ──► LLM (grounded prompt) ◄──┘
 ## Results & lessons
 
 - Working demo shipped within the hackathon window with a 4-person team.
-- Lesson: document parsing quality sets the ceiling for answer quality. The chunking strategy mattered more than the model choice.
+- The chunking strategy affected answer quality more than the model choice.

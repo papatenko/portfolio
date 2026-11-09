@@ -54,6 +54,6 @@ Internet ──► Router / firewall ──► NGINX reverse proxy (TLS)
 
 - Sustained 99%+ uptime across 8+ publicly reachable services.
 - Replaced several paid cloud subscriptions with self-hosted equivalents.
-- Survived real restore scenarios, which is the only evidence a backup strategy ever really produces.
-- Lesson: backups I have not restored from are only plans. Testing restore behaviour before an emergency made the difference.
-- Lesson: moving every stack into git made the estate boring. That is the goal.
+- Restored services from backups in real recovery scenarios.
+- Testing restores before an emergency helped me recover services when I needed to.
+- Keeping every stack in git made maintenance more predictable.
