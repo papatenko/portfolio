@@ -55,7 +55,7 @@ export const projects: Project[] = [
     description:
       'A usage-based billing platform that meters per-lead usage from a partner SaaS product and sends it to Stripe for invoicing. It uses integer-cent pricing calculated on the server, signed webhooks, event deduplication, and idempotent billing cycles. Auth.js sign-in adds per-login 2FA, login throttling, and fail-closed behavior.',
     outcome: 'In progress. The build exists; deployment comes later.',
-    image: '/images/projects/billing-platform.png',
+    image: '/images/projects/paybridge-visual-visitor-stripe.png',
     imageAlt: 'Visual Visitor logo, an arrow, and the Stripe logo',
     logoArt: true,
     credit: 'Built for Convoy Sage. Convoy Sage owns this work.',
