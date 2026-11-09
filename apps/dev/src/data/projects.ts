@@ -49,11 +49,11 @@ export const projects: Project[] = [
     // Private/commercial — no public repo.
   },
   {
-    title: 'Usage-Based Billing Platform',
+    title: 'Paybridge',
     slug: '',
     status: 'In progress',
     description:
-      'A usage-based billing platform that meters per-lead usage from a partner SaaS product and sends it to Stripe for invoicing. It uses integer-cent pricing calculated on the server, signed webhooks, event deduplication, and idempotent billing cycles. Auth.js sign-in adds per-login 2FA, login throttling, and fail-closed behavior. A GitHub Actions and Azure OIDC pipeline verifies, builds, migrates, and deploys to App Service and PostgreSQL Flexible Server. Azure Key Vault stores secrets under a system-assigned managed identity.',
+      'A usage-based billing platform that meters per-lead usage from a partner SaaS product and sends it to Stripe for invoicing. It uses integer-cent pricing calculated on the server, signed webhooks, event deduplication, and idempotent billing cycles. Auth.js sign-in adds per-login 2FA, login throttling, and fail-closed behavior.',
     outcome: 'In progress. The build exists; deployment comes later.',
     image: '/images/projects/billing-platform.png',
     imageAlt: 'Visual Visitor logo, an arrow, and the Stripe logo',
