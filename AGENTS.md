@@ -1,5 +1,9 @@
 # Portfolio agent guide
 
+## Skill tile icons
+
+When adding or changing skill tiles, use a recognizable product logo or a distinct symbol for a general skill. Match the existing icons: a solid monochrome silhouette with transparent background, using the shared theme color treatment in `Skills.astro`. Preserve the logo's recognizable shape. Avoid multicolor artwork, background badges, and generic terminal placeholders. Verify new icons at tile size in both light and dark themes and on mobile.
+
 ## Human-readable writing
 
 For every new or changed human-readable text in this repository, you must:

@@ -10,7 +10,7 @@ const chartUrl = `https://ghchart.rshah.org/c2185b/${site.githubUsername}`;
   <span class="section-label">open-source</span>
   <h2 id="oss-title" data-reveal>On GitHub</h2>
 
-  <div class="chart-wrap" data-reveal>
+  <div class="chart-wrap" data-reveal tabindex="0" role="region" aria-label="GitHub contribution graph">
     <img
       src={chartUrl}
       alt={`GitHub contribution graph for ${site.githubUsername}`}
@@ -43,6 +43,9 @@ const chartUrl = `https://ghchart.rshah.org/c2185b/${site.githubUsername}`;
     overflow-x: auto;
   }
   .chart-wrap img { width: 100%; }
+  @media (max-width: 760px) {
+    .chart-wrap img { width: 800px; max-width: none; }
+  }
   .contribs {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));

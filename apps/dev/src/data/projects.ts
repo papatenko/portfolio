@@ -133,6 +133,21 @@ export const projects: Project[] = [
 /** Notable open-source contributions listed in the Open Source section. */
 export const contributions = [
   {
+    title: 'papatenko/homelab',
+    url: 'https://github.com/papatenko/homelab',
+    note: 'Proxmox and Docker stacks, deployment configuration, and runbooks.',
+  },
+  {
+    title: 'papatenko/portfolio',
+    url: 'https://github.com/papatenko/portfolio',
+    note: 'The Astro monorepo for this site and my creative portfolio.',
+  },
+  {
+    title: 'papatenko/old-portfolio',
+    url: 'https://github.com/papatenko/old-portfolio',
+    note: 'My earlier portfolio, built with React and Tailwind CSS.',
+  },
+  {
     title: 'devaine/RPS-Tournament',
     url: 'https://github.com/devaine/RPS-Tournament',
     note: 'Core contributor: real-time tournament logic and retro UI.',

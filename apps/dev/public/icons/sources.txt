@@ -1,0 +1,6 @@
+azure.svg: https://github.com/gilbarbara/logos/blob/main/logos/microsoft-azure.svg
+hermes.svg: https://github.com/NousResearch/hermes-agent/blob/main/assets/icon-master.svg
+mcp.svg: https://github.com/simple-icons/simple-icons/blob/develop/icons/modelcontextprotocol.svg
+server-network.svg: https://github.com/lucide-icons/lucide/blob/main/icons/network.svg
+agent-deployment.svg: https://github.com/lucide-icons/lucide/blob/main/icons/bot.svg
+ai-automations.svg: https://github.com/lucide-icons/lucide/blob/main/icons/workflow.svg
